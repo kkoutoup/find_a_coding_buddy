@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_18_191918) do
+ActiveRecord::Schema.define(version: 2020_08_19_203040) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,10 +34,10 @@ ActiveRecord::Schema.define(version: 2020_08_18_191918) do
   end
 
   create_table "project_technologies", force: :cascade do |t|
-    t.bigint "technologies_id", null: false
-    t.bigint "projects_id", null: false
-    t.index ["projects_id"], name: "index_project_technologies_on_projects_id"
-    t.index ["technologies_id"], name: "index_project_technologies_on_technologies_id"
+    t.bigint "technology_id", null: false
+    t.bigint "project_id", null: false
+    t.index ["project_id"], name: "index_project_technologies_on_project_id"
+    t.index ["technology_id"], name: "index_project_technologies_on_technology_id"
   end
 
   create_table "projects", force: :cascade do |t|
@@ -78,10 +78,10 @@ ActiveRecord::Schema.define(version: 2020_08_18_191918) do
   end
 
   create_table "user_technologies", force: :cascade do |t|
-    t.bigint "technologies_id", null: false
-    t.bigint "users_id", null: false
-    t.index ["technologies_id"], name: "index_user_technologies_on_technologies_id"
-    t.index ["users_id"], name: "index_user_technologies_on_users_id"
+    t.bigint "technology_id", null: false
+    t.bigint "user_id", null: false
+    t.index ["technology_id"], name: "index_user_technologies_on_technology_id"
+    t.index ["user_id"], name: "index_user_technologies_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -105,13 +105,13 @@ ActiveRecord::Schema.define(version: 2020_08_18_191918) do
   add_foreign_key "chatrooms", "projects"
   add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "users"
-  add_foreign_key "project_technologies", "projects", column: "projects_id"
-  add_foreign_key "project_technologies", "technologies", column: "technologies_id"
+  add_foreign_key "project_technologies", "projects"
+  add_foreign_key "project_technologies", "technologies"
   add_foreign_key "projects", "users"
   add_foreign_key "reviews", "projects"
   add_foreign_key "reviews", "users"
   add_foreign_key "teams", "projects"
   add_foreign_key "teams", "users"
-  add_foreign_key "user_technologies", "technologies", column: "technologies_id"
-  add_foreign_key "user_technologies", "users", column: "users_id"
+  add_foreign_key "user_technologies", "technologies"
+  add_foreign_key "user_technologies", "users"
 end

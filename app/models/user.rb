@@ -9,4 +9,5 @@ class User < ApplicationRecord
   has_many :member_projects, through: :teams, source: :project
   has_many :reviews
   has_many :technologies, through: :user_technologies
+  has_many :user_technologies
 end
