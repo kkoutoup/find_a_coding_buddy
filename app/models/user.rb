@@ -3,12 +3,12 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  has_many :teams
-  has_many :projects
-  has_many :messages
+  has_many :teams, dependent: :destroy
+  has_many :projects, dependent: :destroy
+  has_many :messages, dependent: :destroy
   has_many :member_projects, through: :teams, source: :project
-  has_many :reviews
-  has_many :user_technologies
+  has_many :reviews, dependent: :destroy
+  has_many :user_technologies, dependent: :destroy
   has_many :technologies, through: :user_technologies
   validates :first_name, :last_name, presence:true
   validates :first_name, :last_name, length: { minimum: 2 }
