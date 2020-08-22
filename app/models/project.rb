@@ -1,7 +1,7 @@
 class Project < ApplicationRecord
   belongs_to :user
-  has_many :teams, dependent: :destroy
-  has_many :users, through: :teams
+  has_many :applications, dependent: :destroy
+  has_many :users, through: :applications
   has_many :reviews, dependent: :destroy
   has_one :chatroom, dependent: :destroy
   has_many :messages, through: :chatroom
