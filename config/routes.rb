@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  get 'technologies/show'
+  get 'technologies/new'
+  get 'technologies/create'
+  get 'users/index'
+  get 'users/show'
   get 'chatrooms/new'
   get 'chatrooms/create'
   get 'chatrooms/update'

@@ -5,12 +5,6 @@ class ApplicationsController < ApplicationController
   def create
   end
 
-  def update
-  end
-
-  def edit
-  end
-
   def destroy
   end
 
@@ -18,5 +12,9 @@ class ApplicationsController < ApplicationController
   end
 
   def show
+  end
+
+  def accepted?
+    nil
   end
 end
