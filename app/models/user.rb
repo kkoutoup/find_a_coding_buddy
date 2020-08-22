@@ -12,6 +12,6 @@ class User < ApplicationRecord
   has_many :technologies, through: :user_technologies
   validates :first_name, :last_name, presence:true
   validates :first_name, :last_name, length: { minimum: 2 }
-  validates :personal_summary, length: { in: 50..600 }
+  # validates :personal_summary, length: { in: 50..600 }
   # remember to add address validation
 end
