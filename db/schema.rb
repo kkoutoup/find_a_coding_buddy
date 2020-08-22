@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_20_201502) do
+ActiveRecord::Schema.define(version: 2020_08_22_103313) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "applications", force: :cascade do |t|
+    t.bigint "project_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.boolean "accepted?"
+    t.index ["project_id"], name: "index_applications_on_project_id"
+    t.index ["user_id"], name: "index_applications_on_user_id"
+  end
 
   create_table "chatrooms", force: :cascade do |t|
     t.bigint "project_id", null: false
@@ -47,7 +57,7 @@ ActiveRecord::Schema.define(version: 2020_08_20_201502) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "completed", default: false
+    t.boolean "completed?", default: false
     t.index ["user_id"], name: "index_projects_on_user_id"
   end
 
@@ -60,16 +70,6 @@ ActiveRecord::Schema.define(version: 2020_08_20_201502) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["project_id"], name: "index_reviews_on_project_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
-  end
-
-  create_table "teams", force: :cascade do |t|
-    t.bigint "project_id", null: false
-    t.bigint "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.boolean "application_status"
-    t.index ["project_id"], name: "index_teams_on_project_id"
-    t.index ["user_id"], name: "index_teams_on_user_id"
   end
 
   create_table "technologies", force: :cascade do |t|
@@ -101,6 +101,8 @@ ActiveRecord::Schema.define(version: 2020_08_20_201502) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "applications", "projects"
+  add_foreign_key "applications", "users"
   add_foreign_key "chatrooms", "projects"
   add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "users"
@@ -109,8 +111,6 @@ ActiveRecord::Schema.define(version: 2020_08_20_201502) do
   add_foreign_key "projects", "users"
   add_foreign_key "reviews", "projects"
   add_foreign_key "reviews", "users"
-  add_foreign_key "teams", "projects"
-  add_foreign_key "teams", "users"
   add_foreign_key "user_technologies", "technologies"
   add_foreign_key "user_technologies", "users"
 end
