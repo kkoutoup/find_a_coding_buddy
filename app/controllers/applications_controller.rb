@@ -14,7 +14,4 @@ class ApplicationsController < ApplicationController
   def show
   end
 
-  def accepted?
-    nil
-  end
 end
