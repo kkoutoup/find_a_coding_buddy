@@ -10,7 +10,7 @@ Project.destroy_all if Rails.env.development?
 # Global variables for seeding
 LEVEL = ["beginner", "intermediate", "advanced"]
 EMAIL_EXTENSIONS = ["@gmail.com", "@yahoo.com", "@hotmail.com", "@business.com", "@aol.com"]
-TECHNOLOGIES = ["Javascript", "Node.js", "express.js", "mongoDB", "Python", "Flask", "Ruby", "Ruby on Rails", "HTML", "CSS/SCSS", "Figma", "C#", ".NET", "PHP", "APIs", "Design", "Android", "Go", "SQL", "Django" "Vue.js", "React"]
+TECHNOLOGIES = ["Javascript", "Node.js", "express.js", "mongoDB", "Python", "Flask", "Ruby", "Ruby on Rails", "HTML", "CSS/SCSS", "Figma", "C#", ".NET", "PHP", "APIs", "Design", "Android", "Go", "SQL", "Django", "Vue.js", "React"]
 
 # Populate csv with summaries
 puts "=> Populating personal summaries from csv"
