@@ -7,7 +7,7 @@ Technology.destroy_all if Rails.env.development?
 LEVEL = ["beginner", "intermediate", "advanced"]
 EMAIL_EXTENSIONS = ["@gmail.com", "@yahoo.com", "@hotmail.com", "@business.com", "@aol.com"]
 PERSONAL_SUMMARIES = []
-TECHNOLOGIES = ["Javascript", "Node.js", "express.js", "mongoDB", "Python", "Flask", "Ruby", "Ruby on Rails", "HTML", "CSS/SCSS", "Figma", "C#", ".NET", "PHP", "APIs", "Design", "Android", "Go", "SQL"]
+TECHNOLOGIES = ["Javascript", "Node.js", "express.js", "mongoDB", "Python", "Flask", "Ruby", "Ruby on Rails", "HTML", "CSS/SCSS", "Figma", "C#", ".NET", "PHP", "APIs", "Design", "Android", "Go", "SQL", "Django" "Vue.js", "React"]
 
 # Populate csv with summaries
 puts "=> Populating personal summaries from csv"
@@ -53,4 +53,3 @@ TECHNOLOGIES.each do |technology|
     }
   )
 end
-
