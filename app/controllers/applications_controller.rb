@@ -8,11 +8,11 @@ class ApplicationsController < ApplicationController
   def show; end
 
   def new
-    @application = Application.new(find_project)
+    @application = Application.new
   end
 
   def create
-    @application = Application.new(find_project)
+    @application = Application.new
     @application.project = @project
     @application.user = current_user
     if @application.save
@@ -20,6 +20,7 @@ class ApplicationsController < ApplicationController
       redirect_to # project_bookings_path(current_user) TO UPDATE
     else
       render :new 
+    end
   end
 
   def destroy

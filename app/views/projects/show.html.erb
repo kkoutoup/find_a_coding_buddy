@@ -1,4 +1,8 @@
 <h1>Projects#show</h1>
 <p>show page for a project</p>
 <p>path is: project_path(project)</p>
-<%= link_to "Apply", project_application_path %>
+<%= link_to "New Project", new_project_path %>
+<br>
+<%= link_to "Edit Project", edit_project_path %>
+<br>
+<%= link_to "Project Application", new_project_application_path(@project) %>
