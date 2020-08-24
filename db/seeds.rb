@@ -11,7 +11,7 @@ ProjectTechnology.destroy_all if Rails.env.development?
 # Global variables for seeding
 LEVEL = ["beginner", "intermediate", "advanced"]
 EMAIL_EXTENSIONS = ["@gmail.com", "@yahoo.com", "@hotmail.com", "@business.com", "@aol.com"]
-TECHNOLOGIES = ["Javascript", "Node.js", "Express.js", "MongoDB", "Python", "Flask", "Ruby", "Rails", "HTML", "SCSS", "Figma", "C#", ".NET", "PHP", "Design", "Android", "Go", "SQL", "Django", "Vue.js", "React", "HTML", "Bootstrap", "CSS", "Sinatra", "Selenium", "API"]
+TECHNOLOGIES = ["Javascript", "Node.js", "Express.js", "MongoDB", "Python", "Flask", "Ruby", "Rails", "HTML", "SCSS", "Figma", "C#", ".NET", "PHP", "Design", "Android", "Go", "SQL", "Django", "Vue.js", "React", "Bootstrap", "CSS", "Sinatra", "Selenium", "API"]
 
 # Populate csv with summaries
 puts "=> Populating personal summaries from csv"
@@ -73,9 +73,9 @@ end
 # Project Technologies
 puts "=> Creating project technologies"
 Project.all.each do |project|
-  title = project.title.split
+  title = project.title.split.uniq
   title.each do |word|
-    if TECHNOLOGIES.include?word 
+    if TECHNOLOGIES.include?word
       technology = Technology.find_by(name:"#{word}")
       ProjectTechnology.create!(
         {
@@ -86,5 +86,3 @@ Project.all.each do |project|
     end
   end
 end
-
-# && !project.project_technologies.self.technology.name == word
