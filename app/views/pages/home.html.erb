@@ -1,6 +1,11 @@
-<h1>Pages#home</h1>
-<p> This is the Landing Page</p>
-<p> Path is : root_path</p>
+<div class="banner">
+  <%= image_tag('home_page_banner_pic.jpg', class: "background-image-home") %>
+  <!-- <div class="container"> -->
+    <h1>Pages#home</h1>
+    <p>This is the Landing Page</p>
+    <p> Path is : root_path</p>
+  <!-- </div> -->
+</div>
 
 <%= link_to "Projects", projects_path %>
 
@@ -12,6 +17,7 @@
           <div class="project-details">
             <p class="grey-text"><%= project.id %></p>
             <p class="grey-text"><%= project.user.first_name %> </p>
+            <p class="grey-text"><%= project.user.email %> </p>
           </div>
         </div>
         <div class="project-description">
