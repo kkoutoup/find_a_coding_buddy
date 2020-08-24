@@ -2,15 +2,16 @@
 require 'csv'
 
 # Destroy entries
-puts "Destroying existing entries"
+puts "=> Destroying existing entries"
 User.destroy_all if Rails.env.development?
 Technology.destroy_all if Rails.env.development?
 Project.destroy_all if Rails.env.development?
+ProjectTechnology.destroy_all if Rails.env.development?
 
 # Global variables for seeding
 LEVEL = ["beginner", "intermediate", "advanced"]
 EMAIL_EXTENSIONS = ["@gmail.com", "@yahoo.com", "@hotmail.com", "@business.com", "@aol.com"]
-TECHNOLOGIES = ["Javascript", "Node.js", "express.js", "mongoDB", "Python", "Flask", "Ruby", "Ruby on Rails", "HTML", "CSS/SCSS", "Figma", "C#", ".NET", "PHP", "APIs", "Design", "Android", "Go", "SQL", "Django", "Vue.js", "React"]
+TECHNOLOGIES = ["Javascript", "Node.js", "Express.js", "MongoDB", "Python", "Flask", "Ruby", "Rails", "HTML", "SCSS", "Figma", "C#", ".NET", "PHP", "Design", "Android", "Go", "SQL", "Django", "Vue.js", "React", "HTML", "Bootstrap", "CSS", "Sinatra", "Selenium", "API"]
 
 # Populate csv with summaries
 puts "=> Populating personal summaries from csv"
@@ -34,7 +35,7 @@ CSV.foreach(filepath, csv_options) do |row|
   )
 end
 
-puts "=> Updating user email addresses and passwords"
+# puts "=> Updating user email addresses and passwords"
 User.all.each do |user|
   user.email = "#{ user.first_name }_#{ user.last_name }#{ EMAIL_EXTENSIONS.sample }"
   user.password = "#{ Faker::Verb.past }#{ Faker::Superhero.power }#{ rand(1..200) }"
@@ -68,3 +69,22 @@ CSV.foreach(filepath, csv_options) do |row|
     }
   )
 end
+
+# Project Technologies
+puts "=> Creating project technologies"
+Project.all.each do |project|
+  title = project.title.split
+  title.each do |word|
+    if TECHNOLOGIES.include?word 
+      technology = Technology.find_by(name:"#{word}")
+      ProjectTechnology.create!(
+        {
+          project_id: project.id,
+          technology_id: technology.id
+        }
+      )
+    end
+  end
+end
+
+# && !project.project_technologies.self.technology.name == word
