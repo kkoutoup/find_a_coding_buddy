@@ -4,3 +4,20 @@
 
 <%= link_to "Projects", projects_path %>
 
+<div class="projects-list">
+    <% @projects.each do |project| %>
+      <div class="projects">
+        <div class="project-title">
+          <p class="larger-text"><%= project.title %> </p>
+          <div class="project-details">
+            <p class="grey-text"><%= project.id %></p>
+            <p class="grey-text"><%= project.user.first_name %> </p>
+          </div>
+        </div>
+        <div class="project-description">
+          <p><%= project.description %></p>
+        </div>
+      </div>
+    <% end %>
+</div>
+
