@@ -4,6 +4,10 @@ class UsersController < ApplicationController
   end
 
   def show
-    @users = User.where(user:current_user)
+    @user = User.find(params[:id])
+  end
+
+  def profile
+    @projects = current_user.projects
   end
 end

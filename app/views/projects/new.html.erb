@@ -1,2 +1,16 @@
 <h1>Projects#new</h1>
 <p>Find me in app/views/projects/new.html.erb</p>
+
+<div class="container">
+  <%= simple_form_for @project do |f| %>
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.input :duration %>
+    <%= f.input :difficulty, collection: %w(Beginner Intermediate Advanced) %>
+    <%= f.input :technologies, collection: ["Javascript", "Node.js", "Express.js", "MongoDB", "Python", "Flask", "Ruby", "Rails", "HTML", "SCSS", "Figma", "C#", ".NET", "PHP", "Design", "Android", "Go", "SQL", "Django", "Vue.js", "React", "Bootstrap", "CSS", "Sinatra", "Selenium", "API"], input_html: {multiple: true} %>
+    <%= f.button :submit, class: "btn btn-primary" %>
+  <% end %>
+</div>
+
+
+<%= link_to "show the newly created project", project_path(:id) %>
