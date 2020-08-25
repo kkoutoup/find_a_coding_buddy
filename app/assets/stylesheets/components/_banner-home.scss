@@ -1,0 +1,45 @@
+
+.banner-image {
+  background-image:
+    linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),
+    url('home_page_banner_pic.jpg');
+  width: 100vw;
+  text-align: center;
+  height: 55vh;
+  object-fit: cover;
+}
+
+.align-banner {
+  position: relative;
+}
+
+.banner-text {
+  position: absolute;
+  top: 150px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 50%;
+  height: 30%;
+  margin: auto;
+  color: white;
+  padding-top: px;
+
+  h1 {
+    font-weight: bold;
+    font-size: 32px;
+    text-shadow: 1px 1px 1px rgba(100, 100, 100, 0.4);
+  }
+
+  p {
+    margin: 8px;
+    padding-top: 16px;
+    padding-bottom: 8px;
+    border-top: 3px solid white;
+    border-bottom: 3px solid white;
+    text-shadow: 1px 1px 1px rgba(100, 100, 100, 0.4);
+  }
+}
