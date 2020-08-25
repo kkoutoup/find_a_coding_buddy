@@ -1,0 +1,25 @@
+.projects-list {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 12px 0;
+}
+
+.projects {
+  flex: 0 0 30%;
+  background: rgb(220, 220, 220);
+  padding: 20px;
+  margin-bottom: 8px;
+  border-radius: 5px;
+  max-height: 240px;
+  overflow: hidden;
+
+}
+
+.project-details {
+
+}
+
+.project-description {
+
+}

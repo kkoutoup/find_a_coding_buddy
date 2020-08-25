@@ -1,7 +1,35 @@
-<h1>Pages#home</h1>
-<p> This is the Landing Page</p>
-<p> Path is : root_path</p>
+
+<div class="banner-image">
+  <div class="container">
+    <div class="align-banner">
+      <div class="banner-text">
+        <h1>The Community</h1>
+        <p> Code Buddies is a community made of tech enthusiasts who know how important it is to collaborate, share opinions and experiences. We believe that nothing great comes from a single individual, we know that there is no I in team (yes, we also know that there is u in bug, but that's for another day ;) ) and that by collaborating on a project great things happen. This is the Landing Page - Path is : root_path</p>
+      </div>  <!-- banner-text -->
+    </div> <!-- align-banner -->
+  </div>  <!-- container -->
+</div>
 
 
+<div class="container">
 
-<%= link_to "Projects", projects_path %>
+  <%= link_to "Projects", projects_path %>
+
+  <div class="projects-list">
+      <% @projects.each do |project| %>
+        <div class="projects">
+          <div class="project-title">
+            <p class="larger-text"><%= project.title %> </p>
+            <div class="project-details">
+              <p class="grey-text"><%= project.id %></p>
+              <p class="grey-text"><%= project.user.first_name %> </p>
+              <p class="grey-text"><%= project.user.email %> </p>
+            </div>
+          </div>
+          <div class="project-description">
+            <p><%= project.description %></p>
+          </div>
+        </div>
+      <% end %>
+  </div>
+</div>

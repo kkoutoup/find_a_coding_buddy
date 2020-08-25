@@ -4,4 +4,7 @@
 
 <% @projects.each do |project| %>
   <p><%= link_to "Project show page", project_path(project)  %></p>
+  <p><%= project.id  %></p>
+  <p><%= project.title %></p>
+  <p><%= project.difficulty %></p>
 <%  end %>
