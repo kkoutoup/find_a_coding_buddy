@@ -1,0 +1,10 @@
+<div class="container">
+  <%= simple_form_for @project do |f| %>
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.input :duration %>
+    <%= f.input :difficulty, collection: %w(Beginner Intermediate Advanced) %>
+    <%= f.input :technology, collection: ["Javascript", "Node.js", "Express.js", "MongoDB", "Python", "Flask", "Ruby", "Rails", "HTML", "SCSS", "Figma", "C#", ".NET", "PHP", "Design", "Android", "Go", "SQL", "Django", "Vue.js", "React", "Bootstrap", "CSS", "Sinatra", "Selenium", "API"], input_html: {multiple: true} %>
+    <%= f.button :submit, class: "btn btn-primary" %>
+  <% end %>
+</div>

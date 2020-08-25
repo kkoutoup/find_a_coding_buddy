@@ -7,13 +7,13 @@
 
 .projects {
   flex: 0 0 30%;
-  background: rgb(220, 220, 220);
+  background: rgb(8,47,67);
   padding: 20px;
   margin-bottom: 8px;
   border-radius: 5px;
   max-height: 240px;
   overflow: hidden;
-
+  color: white;
 }
 
 .project-details {
@@ -22,4 +22,8 @@
 
 .project-description {
 
+}
+
+.larger-text p {
+  font-size: bold;
 }

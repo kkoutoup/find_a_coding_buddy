@@ -19,10 +19,10 @@
       <% @projects.each do |project| %>
         <div class="projects">
           <div class="project-title">
-            <p class="larger-text"><%= project.title %> </p>
+            <p class="larger-text"><%= link_to project.title, project_path(project) %> </p>
             <div class="project-details">
               <p class="grey-text"><%= project.id %></p>
-              <p class="grey-text"><%= project.user.first_name %> </p>
+              <p class="grey-text"><%= link_to project.user.first_name, user_path(project.user) %> </p>
               <p class="grey-text"><%= project.user.email %> </p>
             </div>
           </div>
