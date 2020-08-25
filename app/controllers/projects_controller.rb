@@ -17,14 +17,19 @@ class ProjectsController < ApplicationController
   end
 
   def update
+    @project.update(strong_params)
+    if @project.save
+      redirect_to project_path(@project)
+    else
+      render :edit
+    end
   end
 
-  def edit
-  end
+  def edit; end
 
   def destroy
     @project.destroy
-    redirect_to # TO DECIDE , projects_path MAYBE?
+    redirect_to root_path
   end
 
   def index

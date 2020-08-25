@@ -17,7 +17,7 @@ class ApplicationsController < ApplicationController
     @application.user = current_user
     if @application.save
       @application.update_attributes(status: nil)
-      redirect_to # project_bookings_path(current_user) TO UPDATE
+      redirect_to project_bookings_path(current_user)
     else
       render :new 
     end
