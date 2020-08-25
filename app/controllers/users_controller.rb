@@ -8,5 +8,6 @@ class UsersController < ApplicationController
   end
 
   def profile
+    @projects = current_user.projects
   end
 end

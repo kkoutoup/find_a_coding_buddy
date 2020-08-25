@@ -8,3 +8,10 @@
 
 
 <%= link_to "create a project", new_project_path %>
+
+
+<%= link_to "see my project", new_project_path() %>
+
+<% @projects.each do |project| %>
+            <p><%= project.title %> </p>
+          <% end %>
