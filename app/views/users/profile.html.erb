@@ -2,16 +2,12 @@
 
 <h1>Profile</h1>
 
-<p>My Dashboard</p>
-
-<%= current_user.first_name  %>
+<h1><%= current_user.first_name  %>'s Dashboard</h1>
 
 
-<%= link_to "create a project", new_project_path %>
 
-
-<%= link_to "see my project", new_project_path() %>
+<p> <%= link_to "Create a project", new_project_path %> </p>
 
 <% @projects.each do |project| %>
-            <p><%= project.title %> </p>
-          <% end %>
+  <p> <%= link_to project.title, project_path(project.id) %> </p>
+<% end %>
