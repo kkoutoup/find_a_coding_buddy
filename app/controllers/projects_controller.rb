@@ -3,9 +3,17 @@ class ProjectsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def new
+    @project = Project.new
   end
 
   def create
+    @project = Project.new(strong_params)
+    @project.user = current_user
+    if @project.save
+      redirect_to project_path(@project)
+    else
+      render :new
+    end
   end
 
   def update
@@ -24,13 +32,16 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @project = Project.where(id: @project.id)
   end
 
   private
 
   def find_project
     @project = Project.find(params[:id])
+  end
+
+  def strong_params
+    params.require(:project).permit(:title, :description, :difficulty, :duration)
   end
 
 end
