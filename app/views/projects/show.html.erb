@@ -1,6 +1,9 @@
-<h1>Projects#show</h1>
-<p>show page for a project</p>
-<p>path is: project_path(project)</p>
-<%= @project.title %>
-
-<p><%= link_to "apply", profile_path %></p>
+<div class="container">
+    <h1>Projects#show</h1>
+    <p>show page for a project</p>
+    <p>path is: project_path(project)</p>
+    <h1> <%= @project.title %> </h1>
+    <%= link_to "apply", profile_path %>
+    <br>
+    <%= link_to "Edit Project", edit_project_path(@project.id) %>
+</div>

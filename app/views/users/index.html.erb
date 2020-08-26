@@ -1,2 +1,12 @@
-<h1>Users#index</h1>
-<p>List of all user</p>
+<div class="container">
+    <h1>Users#index</h1>
+    <p>List of all user</p>
+    <p>path is : users_path </p>
+
+    <% @users.each do |user| %>
+    <p>
+        <%= user.first_name %> <%= user.last_name %>
+        <%= link_to "View profile", user_path(user.id) %>
+    </p>
+    <%  end %>
+</div>
