@@ -2,8 +2,16 @@
     <h1>Projects#show</h1>
     <p>show page for a project</p>
     <p>path is: project_path(project)</p>
+    <%= link_to 'Back', :back, class: "btn btn-primary" %>
+    <br>
     <h1> <%= @project.title %> </h1>
-    <%= link_to "apply", profile_path %>
+      <p>Led by: <%= @project.user.first_name %></p> 
+        <p><%= @project.description %></p> 
+        <p><%= @project.duration %> days</p> 
+      <% @project.technologies.each do |technology| %>
+        <p> <%= technology.name %> </p>
+      <% end %>
+    <%= link_to "Apply", new_project_application_path(@project.id) %>
     <br>
     <%= link_to "Edit Project", edit_project_path(@project.id) %>
 </div>

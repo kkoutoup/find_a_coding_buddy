@@ -9,18 +9,14 @@ class ApplicationsController < ApplicationController
 
   def new
     @application = Application.new
+    @application.project = @project
+    @application.user = current_user
+    @application.status = false
+    @application.save
+    redirect_to profile_path(current_user)
   end
 
   def create
-    @application = Application.new
-    @application.project = @project
-    @application.user = current_user
-    if @application.save
-      @application.update_attributes(status: nil)
-      redirect_to project_bookings_path(current_user)
-    else
-      render :new 
-    end
   end
 
   def destroy
