@@ -9,9 +9,8 @@
   <p> <%= link_to "Create a project", new_project_path %> </p>
 
   <h3>Your offered projects:</h3>
-
   <% @projects.each do |project| %>
-    <p> <%= link_to project.title, project_path(project.id) %> </p>
+    <p><%= link_to project.title, project_path(project.id) %></p>
     <%= link_to "accept", accept_path(id: project.applications.last.id), method: :post %>
   <% end %>
 
