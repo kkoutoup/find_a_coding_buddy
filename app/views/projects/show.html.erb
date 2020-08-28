@@ -5,10 +5,11 @@
     <%= link_to 'Back', :back, class: "btn btn-primary" %>
     <br>
     <h1> <%= @project.title %> </h1>
-      <p>Led by: <%= @project.user.first_name %></p> 
-        <p><%= @project.description %></p> 
-        <p><%= @project.duration %> days</p> 
+      <p>Led by: <%= @project.user.first_name %></p>
+        <p><%= @project.description %></p>
+        <p><%= @project.duration %> days</p>
       <% @project.technologies.each do |technology| %>
+        <p> <%= technology.name %> </p>
         <p> <%= technology.name %> </p>
       <% end %>
     <%= link_to "Apply", new_project_application_path(@project.id) %>

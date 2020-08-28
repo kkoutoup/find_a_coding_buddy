@@ -8,15 +8,21 @@ class ApplicationsController < ApplicationController
   def show; end
 
   def new
-  end
-
-  def create
-    @application = Application.new(strong_params)
+    @application = Application.new
     @application.project = @project
     @application.user = current_user
     @application.status = false
     @application.save
     redirect_to profile_path(current_user)
+  end
+
+  def create
+    # @application = Application.new(strong_params)
+    # @application.project = @project
+    # @application.user = current_user
+    # @application.status = false
+    # @application.save
+    # redirect_to profile_path(current_user)
   end
 
   def destroy
