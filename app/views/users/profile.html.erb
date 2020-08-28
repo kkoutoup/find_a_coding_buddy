@@ -12,8 +12,9 @@
 
   <% @projects.each do |project| %>
     <p> <%= link_to project.title, project_path(project.id) %> </p>
+    <%= link_to "accept", accept_path(id: project.applications.last.id), method: :post %>
   <% end %>
-   
+
 
   <h3>Projects you have joined:</h3>
     <% current_user.applications.each do |application| %>
