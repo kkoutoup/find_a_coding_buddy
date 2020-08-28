@@ -1,5 +1,5 @@
 class ApplicationsController < ApplicationController
-  before_action :find_project, except: [:index]
+  before_action :find_project, only: [:show, :create, :destroy, :new]
 
   def index
     @applications = Application.where(user_id: current_user.id).order(id: :desc)
@@ -23,6 +23,13 @@ class ApplicationsController < ApplicationController
     @application.destroy
   end
 
+  def accept
+    @application = Application.find(params[:id])
+    @application.status = true
+    @application.save
+    redirect_back(fallback_location: root_path)
+  end
+
   private
 
   def find_project
@@ -32,4 +39,5 @@ class ApplicationsController < ApplicationController
   def strong_params
     params.require(:application).permit(:message) #add migration
   end
+
 end

@@ -7,5 +7,7 @@ Rails.application.routes.draw do
     #r remember to nest reveiew here
     resources :applications, only: [:new, :create, :index, :show, :destroy]
   end
+
+  post "accept", to: "applications#accept"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
