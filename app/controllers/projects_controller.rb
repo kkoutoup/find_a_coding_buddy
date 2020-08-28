@@ -37,6 +37,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    @application = Application.new
   end
 
   private
