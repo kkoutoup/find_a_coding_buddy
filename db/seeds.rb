@@ -86,3 +86,9 @@ Project.all.each do |project|
     end
   end
 end
+
+# User Technologies
+puts "=> Creating user technologies"
+User.all.each do |user|
+  
+end
