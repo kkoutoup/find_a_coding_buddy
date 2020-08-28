@@ -1,9 +1,16 @@
-<h1>Projects#index</h1>
-<p>List of all projects</p>
-<p>path is : projects_path </p>
-<% @projects.each do |project| %>
-  <p><%= link_to "Project show page", project_path(project)  %></p>
-  <p><%= project.id  %></p>
-  <p><%= project.title %></p>
-  <p><%= project.difficulty %></p>
-<%  end %>
+<div class="container">
+  <h1>Projects#index</h1>
+  <% @projects.each do |project| %>
+    <p>Project id: <%= project.id  %></p>
+    <p><strong><%= project.title %></strong></p>
+    <p>Difficulty level: <%= project.difficulty %></p>
+    <p><%= project.description.truncate(130, separator: ' ') %></p>
+    <p>Technologies involved</p>
+    <% project.technologies.each do |technology| %>
+      <span class="badge badge-primary"><%= technology.name %></span>
+    <% end %>
+    <p class="mt-3"><%= link_to "Learn more about the project", project_path(project)  %></p>
+    <hr>
+  <%  end %>
+</div>
+
