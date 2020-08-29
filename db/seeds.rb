@@ -7,6 +7,7 @@ User.destroy_all if Rails.env.development?
 Technology.destroy_all if Rails.env.development?
 Project.destroy_all if Rails.env.development?
 ProjectTechnology.destroy_all if Rails.env.development?
+UserTechnology.destroy_all if Rails.env.development?
 
 # Global variables for seeding
 LEVEL = ["beginner", "intermediate", "advanced"]
@@ -90,5 +91,13 @@ end
 # User Technologies
 puts "=> Creating user technologies"
 User.all.each do |user|
-  
+  technologies = Technology.all.sample(3)
+  technologies.each do |technology|
+    UserTechnology.create!(
+      {
+        technology_id: technology.id,
+        user_id: user.id
+      }
+    )
+  end
 end
