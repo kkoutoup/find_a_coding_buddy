@@ -9,8 +9,8 @@
       <li><%= technology.name %> </li>
     <% end %>
   </ul>
-  <h4>Related projects</h4>
   <% if @related_projects.count > 0 %>
+    <h4>Related projects</h4>
     <% @related_projects.first(3).each do |project| %>
       <p><%= link_to project.title, project_path(project)%></p>
     <% end %>
