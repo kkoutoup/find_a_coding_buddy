@@ -13,8 +13,8 @@ class Project < ApplicationRecord
   validates :duration,  numericality: { only_integer: true }
   # PG Search
   include PgSearch::Model
-  pg_search_scope :search_by_title,
-  against: [:title],
+  pg_search_scope :search_by_title_and_description,
+  against: [:title, :description],
   using: {
     tsearch: { prefix: true }
   }

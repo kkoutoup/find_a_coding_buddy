@@ -34,7 +34,7 @@ class ProjectsController < ApplicationController
 
   def index
     if params[:query].present?
-      @projects = Project.search_by_title(params[:query])
+      @projects = Project.search_by_title_and_description(params[:query])
     else
       @projects = Project.all
     end
