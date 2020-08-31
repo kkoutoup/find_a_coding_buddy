@@ -33,6 +33,7 @@ gem 'faker'
 gem 'rounding'
 
 gem 'devise'
+gem 'pg_search', '~> 2.3.0'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'

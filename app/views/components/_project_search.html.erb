@@ -1,0 +1,9 @@
+<%= form_tag projects_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find a project"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary mt-3" %>
+  <%# <%= submit_tag "Reset", class: "btn btn-outline-primary mt-3" %>
+<% end %>

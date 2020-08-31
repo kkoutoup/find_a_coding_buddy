@@ -11,4 +11,11 @@ class Project < ApplicationRecord
   validates :title, length: { in: 10..200 }
   validates :description, length: { in: 20..1500 }
   validates :duration,  numericality: { only_integer: true }
+  # PG Search
+  include PgSearch::Model
+  pg_search_scope :search_by_title,
+  against: [:title],
+  using: {
+    tsearch: { prefix: true }
+  }
 end
