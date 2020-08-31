@@ -1,12 +1,12 @@
 <div class="container mt-3">
-  <%= render 'components/project_search' %>
-  <%# <h1>Projects#index</h1> %>
-  <% if @projects.count > 0 %>
-    <% if params[:query].present? %>
-      <p class="mt-3">We found <strong><%= pluralize(@projects.count, "project") %></strong> with <strong>"<%= params[:query] %>"</strong> in their title</p>
-    <% end %>
-    <%= render 'components/project_loop' %>
-    <% else %>
-      <h4 class="mt-4">No matches found for "<%= params[:query] %>"</h4>
+<%= render 'components/project_search' %>
+<%# <h1>Projects#index</h1> %>
+<% if @projects.count > 0 %>
+  <% if params[:query].present? %>
+    <p class="mt-3">We found <strong><%= pluralize(@projects.count, "project") %></strong> with <strong>"<%= params[:query] %>"</strong> in their title</p>
   <% end %>
- </div>
+  <%= render 'components/project_loop' %>
+  <% else %>
+    <h4 class="mt-4">No matches found for "<%= params[:query] %>"</h4>
+<% end %>
+</div>
