@@ -1,0 +1,13 @@
+<% @projects.each do |project| %>
+  <%# <p>Project id: <%= project.id  </p>%>
+  <p class="mt-3"><strong><%= project.title %></strong></p>
+  <p>Uploaded: <%= project.created_at.strftime("%d-%m-%Y") %></p>
+  <p>Difficulty level: <%= project.difficulty %></p>
+  <p> <%= project.description.truncate(150, separator:" ") %></p>
+  <p>Technologies involved</p>
+  <% project.technologies.each do |technology| %>
+    <span class="badge badge-primary"><%= technology.name %></span>
+  <% end %>
+  <p class="mt-3"><%= link_to "Learn more about the project", project_path(project) %></p>
+  <hr>
+<%  end %>
