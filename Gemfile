@@ -30,8 +30,6 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 # Faker
 gem 'faker'
-gem 'rounding'
-
 gem 'devise'
 
 gem 'autoprefixer-rails'

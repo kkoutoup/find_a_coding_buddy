@@ -1,12 +1,12 @@
 <%= render 'components/homepage_banner' %>
-
 <%= render 'components/homepage_community_description' %>
+<%= render 'components/homepage_how_it_works' %>
 
 
 
 <div class="container">
 
-  <%= link_to "Projects", projects_path %>
+
 
   <div class="projects-list">
       <% @projects.each do |project| %>
@@ -26,4 +26,5 @@
         </div>
       <% end %>
   </div>
+    <%= link_to "Projects", projects_path %>
 </div>
