@@ -1,0 +1,10 @@
+<h4>Search</h4>
+<%= form_tag projects_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find a project"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary mt-3" %>
+  <%= link_to "Reset", projects_path, class: "btn btn-outline-primary mt-3" %>
+<% end %>

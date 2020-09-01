@@ -33,7 +33,19 @@ class ProjectsController < ApplicationController
   end
 
   def index
-    @projects = Project.all
+    if params[:query].present?
+      @projects = Project.search_by_title_and_description(params[:query])
+    elsif params.has_key?(:difficulty)
+      @projects = Project.where(difficulty: params[:difficulty])
+    elsif params.has_key?(:created_at)
+      if params[:created_at] == "most_recent"
+        @projects = Project.order("projects.created_at DESC")
+      else
+        @projects = Project.order("projects.created_at ASC")
+      end
+    else
+      @projects = Project.all
+    end
   end
 
   def show
@@ -49,7 +61,7 @@ class ProjectsController < ApplicationController
   end
 
   def strong_params
-    params.require(:project).permit(:title, :description, :difficulty, :duration)
+    params.require(:project).permit(:title, :description, :difficulty, :duration, technologies: [] )
   end
 
 end
