@@ -37,9 +37,12 @@
               <li class="nav-item dropdown">
                   <%= link_to "Create Project", new_project_path, class: "nav-link" %>
               </li>
-            <li class="nav-item dropdown button-style">
-              <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-            </li>
+              <li class="nav-item dropdown">
+                <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+              </li>
+              <li class="nav-item dropdown button-style">
+                <%= link_to "Signup", new_user_session_path, class: "nav-link" %>
+              </li>
           <% end %>
         </ul>
       </div>
