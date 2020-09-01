@@ -8,6 +8,6 @@
       <% end %>
     </ul>
     <p>Email <%= @user.first_name %>: <%= @user.email%></p>
-    <%= cl_image_tag @user.photo.key, height: 300, width: 400, crop: :fill %>
+    <%# <%= cl_image_tag @user.photo.key, height: 300, width: 400, crop: :fill %>
     <%= link_to 'Back', :back, class: "btn btn-primary" %>
 </div>
