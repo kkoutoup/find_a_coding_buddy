@@ -11,10 +11,10 @@
                <%= f.input :duration, label: "Duration (in days)" %>
             </div>
             <div class="col">
-              <%= f.input :difficulty, collection: Project::DIFFICULTIES, prompt: "Project difficulty" %>
+              <%= f.input :difficulty, collection: Project::DIFFICULTIES %>
             </div>
           </div>
-          <%= f.association :technologies, as: :check_boxes, input_html: {multiple: true} %>
+          <%= f.association :technologies, label: "Technologies: languages, frameworks etc.", as: :check_boxes, input_html: {multiple: true}, include_blank: false, include_hidden: false %>
           <div class="button-container">
             <%= f.button :submit, class: "btn btn-primary" %>
           </div>
