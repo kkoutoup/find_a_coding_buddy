@@ -10,7 +10,10 @@ class Project < ApplicationRecord
   validates :title, :description, :duration, :difficulty, presence: true
   validates :title, length: { in: 10..200 }
   validates :description, length: { in: 20..1500 }
-  validates :duration,  numericality: { only_integer: true }
+  validates :duration,  numericality: { only_integer: true, greater_than: 0 }
+  # Difficulty
+  DIFFICULTIES = %w(beginner intermediate advanced)
+  validates :difficulty, inclusion: { in: DIFFICULTIES }
   # PG Search
   include PgSearch::Model
   pg_search_scope :search_by_title_and_description,

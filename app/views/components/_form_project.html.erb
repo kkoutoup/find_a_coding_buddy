@@ -1,10 +1,25 @@
 <div class="container">
-  <%= simple_form_for @project do |f| %>
-    <%= f.input :title %>
-    <%= f.input :description %>
-    <%= f.input :duration %>
-    <%= f.input :difficulty, collection: %w(Beginner Intermediate Advanced) %>
-    <%= f.input :technologies, collection: ["Javascript", "Node.js", "Express.js", "MongoDB", "Python", "Flask", "Ruby", "Rails", "HTML", "SCSS", "Figma", "C#", ".NET", "PHP", "Design", "Android", "Go", "SQL", "Django", "Vue.js", "React", "Bootstrap", "CSS", "Sinatra", "Selenium", "API"], input_html: {multiple: true} %>
-    <%= f.button :submit, class: "btn btn-primary" %>
-  <% end %>
+  <div class="row d-flex justify-content-center">
+    <div class="col-xs-12 col-sm-12 col-md-10 col-lg-8">
+      <div class="create-project">
+        <h1>Create a project</h1>
+        <%= simple_form_for @project do |f| %>
+          <%= f.input :title, placeholder: "i.e Blog with Ruby on Rails" %>
+          <%= f.input :description, placeholder: "Include main technologies and app functionality..." %>
+          <div class="row">
+            <div class="col">
+               <%= f.input :duration, label: "Duration (in days)" %>
+            </div>
+            <div class="col">
+              <%= f.input :difficulty, collection: Project::DIFFICULTIES, prompt: "Project difficulty" %>
+            </div>
+          </div>
+          <%= f.association :technologies, as: :check_boxes, input_html: {multiple: true} %>
+          <div class="button-container">
+            <%= f.button :submit, class: "btn btn-primary" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+ </div> 
 </div>
