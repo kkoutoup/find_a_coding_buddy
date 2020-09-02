@@ -4,3 +4,29 @@
       <h3>Skills - Projects - Buddies</h3>
     </div>
 </div>
+
+<div class="container">
+
+  <div class="projects-list">
+      <% @projects.each do |project| %>
+        <div class="projects">
+          <div class="project-title">
+            <p class="larger-text"><%= project.id %> : <%= link_to project.title, project_path(project) %> </p>
+            <div class="project-details">
+              <p class="grey-text"><%= link_to project.user.first_name, user_path(project.user) %> </p>
+                <% project.technologies.each do |technology| %>
+                  <p> <%= technology.name %> </p>
+                <% end %>
+            </div>
+          </div>
+          <div class="project-description">
+            <p><%= project.description %></p>
+          </div>
+        </div>
+      <% end %>
+  </div>
+
+    <div class="d-flex justify-content-center">
+      <%= link_to "Projects", projects_path, class: "btn btn-primary" %>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+<h3 class="sections-title">Find buddies to collaborate with:</h3>
+
+<div class="container">
+
+  <div class="projects-list">
+        <% @users.each do |user| %>
+          <div class="projects">
+            <div class="project-title">
+              <p class="larger-text"><%= user.first_name %></p>
+              <div class="project-details">
+                <p class="grey-text"><%= link_to user.first_name, user_path(user) %> </p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+    </div>
+
+  <div class="d-flex justify-content-center mt-3 mb-3">
+    <%= link_to "Find more", projects_path, class:"btn btn-primary"%>
+  </div>
+</div>
