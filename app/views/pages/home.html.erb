@@ -1,30 +1,10 @@
 <%= render 'components/homepage_banner' %>
 <%= render 'components/homepage_community_description' %>
 <%= render 'components/homepage_how_it_works' %>
-
+<%= render 'components/homepage_latest_projects' %>
+<%= render 'components/homepage_find_buddies' %>
 
 
 <div class="container">
 
-
-
-  <div class="projects-list">
-      <% @projects.each do |project| %>
-        <div class="projects">
-          <div class="project-title">
-            <p class="larger-text"><%= project.id %> : <%= link_to project.title, project_path(project) %> </p>
-            <div class="project-details">
-              <p class="grey-text"><%= link_to project.user.first_name, user_path(project.user) %> </p>
-                <% project.technologies.each do |technology| %>
-                  <p> <%= technology.name %> </p>
-                <% end %>
-            </div>
-          </div>
-          <div class="project-description">
-            <p><%= project.description %></p>
-          </div>
-        </div>
-      <% end %>
-  </div>
-    <%= link_to "Projects", projects_path %>
 </div>

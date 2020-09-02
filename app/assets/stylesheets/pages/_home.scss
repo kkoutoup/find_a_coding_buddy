@@ -13,11 +13,15 @@
 .new600px-container {
   display: flex;
 }
+
 .taglines {
-  padding-top: 20px;
   margin: auto;
   text-align: center;
+  h4 {
+    padding-top: 20px;
+  }
 }
+
 .sections-title {
   color: $my-dark-red;
   margin: 16px auto;
