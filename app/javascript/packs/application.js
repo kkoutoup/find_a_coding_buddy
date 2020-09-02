@@ -27,11 +27,8 @@ import "bootstrap";
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
+import { highlightTechnology } from "./highlight_technologies.js"
 
 document.addEventListener('turbolinks:load', () => {
-  $(document).ready(function(){
-    $(".technology-choice").click(function(){
-      $(this).toggleClass("active");
-    })
-  });
+  highlightTechnology();
 });
