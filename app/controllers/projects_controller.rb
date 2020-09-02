@@ -61,7 +61,7 @@ class ProjectsController < ApplicationController
   end
 
   def strong_params
-    params.require(:project).permit(:title, :description, :difficulty, :duration, technologies: [] )
+    params.require(:project).permit(:title, :description, :difficulty, :duration, technology_ids: [] )
   end
 
 end

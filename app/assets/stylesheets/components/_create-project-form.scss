@@ -20,3 +20,29 @@
   }
 }
 
+.technology-choices {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.technology-choice {
+  background: grey;
+  padding: 15px;
+  opacity: .6;
+  text-align: center;
+  margin: 10px;
+  &:hover {
+    opacity: 1;
+    cursor: pointer;
+  }
+  &.active {
+    color: white;
+    background: #14904C;
+    opacity: 1;
+  }
+}
+
+.form-check {
+  display: none;
+}
+
