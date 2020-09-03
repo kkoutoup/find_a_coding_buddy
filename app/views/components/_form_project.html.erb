@@ -14,7 +14,7 @@
               <%= f.input :difficulty, collection: Project::DIFFICULTIES %>
             </div>
           </div>
-          <%= f.association :technologies, label: "Technologies: languages, frameworks etc.", as: :check_boxes, include_blank: false, include_hidden: false %>
+          <p>Technologies: i.e. languages, frameworks etc.</p>
           <div class="technology-choices">
             <% Technology.all.each do |technology| %>
               <input class="d-none grid-item" type="checkbox" value="<%= technology.id %>" name="project[technology_ids][]" id="project_technology_ids_<%= technology.id %>">
