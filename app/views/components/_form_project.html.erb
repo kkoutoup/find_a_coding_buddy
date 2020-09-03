@@ -14,7 +14,15 @@
               <%= f.input :difficulty, collection: Project::DIFFICULTIES %>
             </div>
           </div>
-          <%= f.association :technologies, label: "Technologies: languages, frameworks etc.", as: :check_boxes, input_html: {multiple: true}, include_blank: false, include_hidden: false %>
+          <%= f.association :technologies, label: "Technologies: languages, frameworks etc.", as: :check_boxes, include_blank: false, include_hidden: false %>
+          <div class="technology-choices">
+            <% Technology.all.each do |technology| %>
+              <input class="d-none grid-item" type="checkbox" value="<%= technology.id %>" name="project[technology_ids][]" id="project_technology_ids_<%= technology.id %>">
+              <label class="technology-choice form-check-label collection_check_boxes" for="project_technology_ids_<%= technology.id %>"><%= technology.name %>
+              <i class="fa fa-check"></i>
+              </label>
+            <% end %>
+          </div>
           <div class="button-container">
             <%= f.button :submit, class: "btn btn-primary" %>
           </div>
