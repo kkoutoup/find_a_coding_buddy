@@ -5,7 +5,7 @@
         <h1>Create a project</h1>
         <%= simple_form_for @project do |f| %>
           <%= f.input :title, placeholder: "i.e Blog with Ruby on Rails" %>
-          <%= f.input :description, placeholder: "Include main technologies and app functionality..." %>
+          <%= f.input :description, input_html: { rows: 5, cols: 40 }, placeholder: "Include main technologies and app functionality..." %>
           <div class="row">
             <div class="col">
                <%= f.input :duration, label: "Duration (in days)" %>
