@@ -1,7 +1,14 @@
 <div class="container mt-5">
-  <h1><%= @project.title %></h1>
-  <p>Led by: <%= link_to @project.user.first_name, user_path(@project.user.id) %></p>
-  <p><%= @project.description %></p>
+  <div class="title-container">
+    <h2 class="project-title"><%= @project.title %></h2>
+    <% if current_user.id == @project.user.id %>   
+      <%= link_to "Edit Project", edit_project_path(@project.id), class: "btn btn-primary edit-project-button" %>
+    <% end %>
+  </div>
+  <% if current_user.id != @project.user.id %>
+    <p>Led by: <%= link_to @project.user.first_name, user_path(@project.user.id) %></p>  
+  <% end %>
+  <p class="project-description"><%= @project.description %></p>
   <p>Estimated duration: <%= @project.duration %> days</p>
   <h5>Technologies involved</h5>
   <ul>
@@ -9,15 +16,14 @@
       <li><%= technology.name %> </li>
     <% end %>
   </ul>
-  <% if @related_projects.count > 0 %>
+  <% if @related_projects.count > 0 && current_user.id != @project.user.id %>
     <h4>Related projects</h4>
     <% @related_projects.first(3).each do |project| %>
       <p><%= link_to project.title, project_path(project)%></p>
     <% end %>
   <% end %>
-  <%= link_to "Apply", new_project_application_path(@project.id) %>
-  <br>
-  <%= link_to "Edit Project", edit_project_path(@project.id)%>
-  <hr>
-  <%= link_to 'Back', :back, class: "btn btn-primary" %>
+  <% if current_user.id != @project.user.id %>  
+    <%= link_to "Apply", new_project_application_path(@project.id), class: "btn btn-primary" %>
+  <% end %>
+  <%= link_to 'All Projects', projects_path, class: "btn btn-primary" %>
 </div>
