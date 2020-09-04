@@ -2,7 +2,11 @@
   <div class="row d-flex justify-content-center">
     <div class="col-xs-12 col-sm-12 col-md-10 col-lg-8">
       <div class="create-project">
-        <h1>Create a project</h1>
+        <% if params[:action] == "edit" %>
+          <h1>Editing: <%= @project.title %></h1>
+        <% else %>
+          <h1>Create a new project</h1>
+        <% end %>
         <%= simple_form_for @project do |f| %>
           <%= f.input :title, placeholder: "i.e Blog with Ruby on Rails" %>
           <%= f.input :description, input_html: { rows: 5, cols: 40 }, placeholder: "Include main technologies and app functionality..." %>
