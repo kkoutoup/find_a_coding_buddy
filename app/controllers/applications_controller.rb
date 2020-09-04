@@ -17,12 +17,6 @@ class ApplicationsController < ApplicationController
   end
 
   def create
-    # @application = Application.new(strong_params)
-    # @application.project = @project
-    # @application.user = current_user
-    # @application.status = false
-    # @application.save
-    # redirect_to profile_path(current_user)
   end
 
   def destroy
@@ -42,8 +36,8 @@ class ApplicationsController < ApplicationController
     @project = Project.find(params[:project_id])
   end
 
-  def strong_params
-    params.require(:application).permit(:message) #add migration
-  end
+  # def strong_params
+  #   params.require(:application).permit(:message) #add migration
+  # end
 
 end
