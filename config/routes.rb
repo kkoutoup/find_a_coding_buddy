@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   end
 
   post :accept, to: "applications#accept"
+  post :reject, to: "applications#reject"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

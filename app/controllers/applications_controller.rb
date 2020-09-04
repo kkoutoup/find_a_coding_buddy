@@ -29,6 +29,13 @@ class ApplicationsController < ApplicationController
     @application.save
     redirect_back(fallback_location: root_path)
   end
+  
+  def reject
+    @application = Application.find(params[:id])
+    @application.status = false
+    @application.save
+    redirect_back(fallback_location: root_path)
+  end
 
   private
 
