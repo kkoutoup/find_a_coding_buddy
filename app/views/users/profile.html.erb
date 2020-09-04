@@ -1,5 +1,6 @@
 <div class="container">
   <h1><%= current_user.first_name  %>'s Dashboard</h1>
+  <h2><%= current_user.email  %></h2>
 
   <h3>Your offered projects:</h3>
   <% @projects.each do |project| %>
@@ -10,8 +11,14 @@
 
   <h3>Projects you have joined:</h3>
     <% current_user.applications.each do |application| %>
-      <p> <%= link_to application.project.title, project_path(application.project.id) %> </p>
-      <p> Led by: <%= application.project.user.first_name %> </p>
-      <p> Accepted: <%= application.status %> </p>
+      <p> <%= link_to application.project.title, project_path(application.project.id) %>
+        with <strong> <%= link_to application.project.user.first_name, user_path(application.project.user.id) %> </strong> </p>
+      <% if application.status == nil %>
+        <p> Status: Pending </p>
+      <% elsif application.status == true %>
+        <p> Status: Congratulations, you've been accepted! </p>
+      <% else application.status == false %>
+        <p> Status: Application unsuccesful, try another project! </p>
+      <% end  %>
     <% end %>
 </div>

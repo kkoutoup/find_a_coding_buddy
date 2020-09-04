@@ -11,7 +11,7 @@ class ApplicationsController < ApplicationController
     @application = Application.new
     @application.project = @project
     @application.user = current_user
-    @application.status = false
+    @application.status = nil
     @application.save
     redirect_to profile_path(current_user)
   end
