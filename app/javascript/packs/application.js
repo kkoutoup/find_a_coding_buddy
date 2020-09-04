@@ -31,11 +31,8 @@ import { highlightTechnology } from "./highlight_technologies.js"
 
 document.addEventListener('turbolinks:load', () => {
   highlightTechnology();
-});
 
-import { tns } from "`../../../node_modules/tiny-slider/src/tiny-slider"
-
-const slider = tns({
+  const slider = tns({
     container: '.my-slider',
     loop: true,
     items: 1,
@@ -58,3 +55,9 @@ const slider = tns({
     }
 
   });
+
+});
+
+import { tns } from "../../../node_modules/tiny-slider/src/tiny-slider"
+
+

@@ -13,4 +13,16 @@ class User < ApplicationRecord
   validates :first_name, :last_name, presence:true
   validates :first_name, :last_name, length: { minimum: 2 }
   has_one_attached :photo
+
+  include PgSearch::Model
+  pg_search_scope :search_by_name_address_and_technologies,
+    against: [ :first_name, :address, :expertise_level ],
+    associated_against: {
+      technologies: [ :name ]
+    },
+    using: {
+      tsearch: { prefix: true }
+    }
 end
+
+# NOTE TO BUDDIES: need to add address, expertise_level and techonology to the user
