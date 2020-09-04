@@ -14,11 +14,11 @@
       <p> <%= link_to application.project.title, project_path(application.project.id) %>
         with <strong> <%= link_to application.project.user.first_name, user_path(application.project.user.id) %> </strong> </p>
       <% if application.status == nil %>
-        <p> Status: Pending </p>
+        <p> <strong> Status: </strong> Pending <i class="fas fa-hourglass-half"></i></p>
       <% elsif application.status == true %>
-        <p> Status: Congratulations, you've been accepted! </p>
+        <p> <strong> Status: </strong> Congratulations, you've been accepted! <i class="far fa-thumbs-up"></i></p>
       <% else application.status == false %>
-        <p> Status: Application unsuccesful, try another project! </p>
+        <p> <strong> Status: </strong> Sorry application unsuccesful, try another project! <i class="far fa-thumbs-down"></i></p>
       <% end  %>
     <% end %>
 </div>
