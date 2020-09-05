@@ -1,4 +1,3 @@
-
 .my-slider {
    display: flex;
    justify-content: space-between;
@@ -7,13 +6,16 @@
 }
 
 .projects {
-  background: rgb(8,47,67);
+  background:  $my-light-green;
   padding: 20px;
   margin: 0 4px 8px 4px;
   border-radius: 5px;
   max-height: 240px;
   overflow: hidden;
   color: white;
+    a {
+      color: rgb(8,47,67);
+    }
 }
 
 .larger-text p {
@@ -65,11 +67,14 @@
 
 .buddies {
   flex: 0 0 30%;
-  background: rgb(8,47,67);
+  background: $my-light-green;
   padding: 20px;
   margin-bottom: 8px;
   border-radius: 5px;
   max-height: 240px;
   overflow: hidden;
   color: white;
+  a {
+    color: rgb(8,47,67);
+  }
 }
