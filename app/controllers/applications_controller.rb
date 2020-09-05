@@ -11,18 +11,12 @@ class ApplicationsController < ApplicationController
     @application = Application.new
     @application.project = @project
     @application.user = current_user
-    @application.status = false
+    @application.status = nil
     @application.save
     redirect_to profile_path(current_user)
   end
 
   def create
-    # @application = Application.new(strong_params)
-    # @application.project = @project
-    # @application.user = current_user
-    # @application.status = false
-    # @application.save
-    # redirect_to profile_path(current_user)
   end
 
   def destroy
@@ -35,6 +29,13 @@ class ApplicationsController < ApplicationController
     @application.save
     redirect_back(fallback_location: root_path)
   end
+  
+  def reject
+    @application = Application.find(params[:id])
+    @application.status = false
+    @application.save
+    redirect_back(fallback_location: root_path)
+  end
 
   private
 
@@ -42,8 +43,8 @@ class ApplicationsController < ApplicationController
     @project = Project.find(params[:project_id])
   end
 
-  def strong_params
-    params.require(:application).permit(:message) #add migration
-  end
+  # def strong_params
+  #   params.require(:application).permit(:message) #add migration
+  # end
 
 end
