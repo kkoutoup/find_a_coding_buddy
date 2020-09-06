@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
-  resources :users, only: [:index, :show]
+  resources :users, only: [:index, :show, :edit, :update]
   get :profile, to: "users#profile"
   resources :projects do
     #r remember to nest reveiew here
@@ -10,5 +10,4 @@ Rails.application.routes.draw do
 
   post :accept, to: "applications#accept"
   post :reject, to: "applications#reject"
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -7,9 +7,7 @@
         <li><%= technology.name %></li>
       <% end %>
     </ul>
-  
     <p>Email <%= @user.first_name %>: <%= @user.email%></p>
-
     <div class="photo">
       <% if @user.photo.attached? %>
         <div class="user-index-photo" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @user.photo.key, height: 200, width: 200, crop: :fill %>')">
@@ -17,6 +15,7 @@
         <div class="user-index-photo" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), image_tag('missing-avatar-female-200x200.png')">
       <% end %>
     </div>
-
-    <%= link_to 'Back', :back, class: "btn btn-primary" %>
+  
 </div>
+    <%= link_to 'Back', :back, class: "btn btn-primary" %>
+    <%= link_to 'Edit', edit_user_path, class: "btn btn-primary" %>
