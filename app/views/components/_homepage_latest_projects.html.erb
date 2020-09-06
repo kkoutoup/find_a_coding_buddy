@@ -1,9 +1,11 @@
 <div class="box-tagline">
     <div class="taglines p-1">
       <h1>Build</h1>
-      <h3>Skills - Projects - Buddies</h3>
+      <h3>Skills - Projects</h3>
     </div>
 </div>
+
+<h3 class="sections-title">Latest Projects:</h3>
 
 <div class="container">
   <div class="slider-container">
@@ -18,14 +20,19 @@
         <div class="my-slider">
           <% @projects.each do |project| %>
             <div class="projects">
-              <p class="larger-text"> <%= link_to project.title, project_path(project) %> </p>
+              <div class="icon">
+                <%= project.technologies.ids %>
+              </div>
+              <div class="cards-text">
+                <p class="larger-text"> <%= link_to project.title, project_path(project) %> </p>
+              </div>
             </div>
           <% end %>
       </ul>
   </div>
 
     <div class="d-flex justify-content-center mt-3">
-      <%= link_to "Find projects", projects_path, class: "btn btn-primary" %>
+      <%= link_to "See all projects", projects_path, class: "btn btn-primary" %>
     </div>
   </div>
 </div>
