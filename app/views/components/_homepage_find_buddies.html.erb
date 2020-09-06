@@ -1,20 +1,27 @@
 <div class="box-tagline">
-    <div class="taglines mt-3 pt-3">
-      <h3>Find buddies to collaborate with:</h3>
+    <div class="taglines p-1">
+      <h1>Build</h1>
+      <h3>Network - Buddies</h3>
     </div>
 </div>
 
+<h3 class="sections-title">Find buddies to collaborate with:</h3>
+
 <div class="container">
 
-  <div class="buddies-list">
+  <div class="buddies">
       <% @users.each do |user| %>
-        <div class="buddies">
-          <div class="project-title">
-            <p class="larger-text"><%= user.first_name %> <%= user.last_name %> </p>
-            <div class="project-details">
-              <p class="grey-text"><%= link_to user.first_name, user_path(user) %> </p>
-            </div>
+
+        <div class="buddies-list">
+          <div class="avatar-bordered"
+            style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path user.photo.key, :width=>56, :height=>56, :crop=>"fill" %>')">
           </div>
+
+          <div>
+            <p class="larger-text"><%= user.first_name %> <%= user.last_name %> </p>
+            <p class="grey-text"><%= link_to user.first_name, user_path(user) %> </p>
+          </div>
+
         </div>
       <% end %>
   </div>
@@ -22,4 +29,5 @@
     <div class="d-flex justify-content-center">
       <%= link_to "Find buddies", users_path, class: "btn btn-primary" %>
     </div>
+
 </div>

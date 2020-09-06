@@ -7,6 +7,7 @@ class PagesController < ApplicationController
     @projectsRoundedDown = (Project.count / 5).round * 5
     @usersRoundedDown = (User.count / 5).round * 5
     @users = User.all.sample(6)
+    # @technology_ids = @project.technologies.ids
   end
 end
 

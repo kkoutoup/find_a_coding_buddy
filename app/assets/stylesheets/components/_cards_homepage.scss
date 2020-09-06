@@ -1,0 +1,121 @@
+.my-slider {
+   display: flex;
+   justify-content: space-between;
+   flex-wrap: nowrap;
+}
+
+.projects {
+  background: $light-gray;
+  padding: 20px;
+  margin: 0 8px 8px 4px;
+  max-height: 240px;
+  overflow: hidden;
+  color: white;
+  font-size: 20px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    a {
+      color: rgb(8,47,67);
+    }
+}
+
+.larger-text p {
+  font-size: bold;
+}
+
+.slider-container {
+    padding: 2rem;
+    // overflow: hidden;
+    border-radius: 5px;
+    position:relative;
+    &:before {
+        position: absolute;
+        left: 0;
+        top: 0;
+        color: blue;
+    }
+}
+
+.controls {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    position: absolute;
+    left: 0;
+    // background: #333;
+    width: 100%;
+    top: 50%;
+    transform: translatey(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    &:focus {
+        outline: none;
+    }
+
+    li:hover {
+        cursor: pointer;
+    }
+}
+
+.buddies {
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+    a {
+    color: rgb(8,47,67);
+  }
+}
+
+.buddies-list {
+  padding: 16px;
+  background-color: $light-gray;
+  height: 200px;
+  // display: flex;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  // justify-content: center;
+  // align-items: center;
+  color: white;
+  font-size: 20px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+  .buddies {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .buddies {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .buddies {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .buddies {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .buddies {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
