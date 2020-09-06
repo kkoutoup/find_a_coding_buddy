@@ -3,13 +3,13 @@
   padding-top: 36px;
   padding-bottom: 24px;
   font-weight: lighter;
-  // border-top: 3px solid white;
-  // border-bottom: 3px solid white;
 }
+
 .box-tagline {
-  background-color: #F8EAEA;
+  background-color: $light-gray;
   height: 100px;
 }
+
 .new600px-container {
   display: flex;
 }
@@ -28,7 +28,7 @@
   text-align: center;
 }
 .main-how-it-works {
-  color: $my-dark-red;
+  color: $my-blue;
   display: flex;
   text-align: center;
     h5 {
@@ -40,15 +40,11 @@
     }
 }
 .join-a-project {
-   // justify-content: center;
   margin: auto;
 }
 
 .create-a-project {
   margin: auto;
-   // justify-content: center;
-  // font-weight: bold;
-
 }
 
 .left-side {

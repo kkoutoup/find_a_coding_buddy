@@ -18,14 +18,14 @@
         <div class="my-slider">
           <% @projects.each do |project| %>
             <div class="projects">
-              <p class="larger-text"><%= project.id %> : <%= link_to project.title, project_path(project) %> </p>
+              <p class="larger-text"> <%= link_to project.title, project_path(project) %> </p>
             </div>
           <% end %>
       </ul>
   </div>
 
     <div class="d-flex justify-content-center mt-3">
-      <%= link_to "Projects", projects_path, class: "btn btn-primary" %>
+      <%= link_to "Find projects", projects_path, class: "btn btn-primary" %>
     </div>
   </div>
 </div>
