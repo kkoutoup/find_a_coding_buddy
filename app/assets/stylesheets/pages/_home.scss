@@ -1,8 +1,9 @@
 #box-description-homepage {
   text-align: center;
-  padding-top: 36px;
-  padding-bottom: 24px;
+  padding-top: 30px;
+  padding-bottom: 20px;
   font-weight: lighter;
+  color: $my-light-gray;
 }
 
 .box-tagline {
@@ -41,6 +42,12 @@
 }
 .join-a-project {
   margin: auto;
+}
+
+.line {
+  border-right: 1px solid black;
+  margin-top: 16px;
+  margin-bottom: 16px;
 }
 
 .create-a-project {
