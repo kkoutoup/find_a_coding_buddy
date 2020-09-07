@@ -13,6 +13,9 @@ class User < ApplicationRecord
   validates :first_name, :last_name, presence:true
   validates :first_name, :last_name, length: { minimum: 2 }
   has_one_attached :photo
+  # Level
+  LEVELS = %w(beginner intermediate advanced)
+  validates :expertise_level, inclusion: { in: LEVELS }
 
   include PgSearch::Model
   pg_search_scope :search_by_name_address_and_technologies,
