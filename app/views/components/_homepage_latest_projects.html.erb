@@ -1,7 +1,7 @@
 <div class="box-tagline">
     <div class="taglines p-1">
-      <h1>Build</h1>
-      <h3>Skills - Projects</h3>
+      <h3>Build</h3>
+      <h4>Skills - Projects</h4>
     </div>
 </div>
 
@@ -21,7 +21,9 @@
           <% @projects.each do |project| %>
             <div class="projects">
               <div class="icon">
-                <%= project.technologies.ids %>
+                <% project.technology_ids.each do |technology| %>
+                <%= technology %>
+                <% end %>
               </div>
               <div class="cards-text">
                 <p class="larger-text"> <%= link_to project.title, project_path(project) %> </p>

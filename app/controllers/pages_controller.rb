@@ -9,6 +9,14 @@ class PagesController < ApplicationController
     @users = User.all.sample(6)
     # @technology_ids = @project.technologies.ids
   end
+
+  def show
+    @project = Project.find(params[:id])
+    @technology_ids = @project.technologies.ids
+    @photo = Photo.where(project_technologies: { technology_id: [@technology_ids] }).distinct
+    # line 16 if we can have a photo model
+  end
+
 end
 
 
