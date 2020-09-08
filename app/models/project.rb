@@ -7,6 +7,7 @@ class Project < ApplicationRecord
   has_many :messages, through: :chatroom
   has_many :project_technologies, dependent: :destroy
   has_many :technologies, through: :project_technologies
+  has_rich_text :rich_content
   validates :title, :description, :duration, :difficulty, presence: true
   validates :title, length: { in: 10..200 }
   validates :description, length: { in: 20..1500 }
