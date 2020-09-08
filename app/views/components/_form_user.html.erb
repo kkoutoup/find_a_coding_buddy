@@ -6,7 +6,6 @@
         <%= simple_form_for @user do |f| %>
           <%= f.input :first_name, placeholder: @user.first_name %>
           <%= f.input :last_name, placeholder: @user.first_name %>
-          <%= f.input :expertise_level, collection: User::LEVELS %>
           <%= f.input :photo, as: :file %>
           <%= f.input :personal_summary, input_html: { rows: 5, cols: 40 }, placeholder: "Include you background main technologies..." %>
           <div class="row">
@@ -14,7 +13,7 @@
                <%= f.input :address, label: "Address" %>
             </div>
             <div class="col">
-              <%= f.input :expertise_level, collection: User::LEVELS %>
+              <%= f.input :expertise_level, collection: %w(beginner intermediate advanced) %>
             </div>
           </div>
           <p>Technologies: i.e. languages, frameworks etc.</p>
