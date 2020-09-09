@@ -29,37 +29,42 @@ require("@rails/actiontext")
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 import { highlightTechnology } from "./highlight_technologies.js"
+import { initChatroomCable } from "../channels/chatroom_channel.js"
+import { tns } from "../../../node_modules/tiny-slider/src/tiny-slider"
+
 
 document.addEventListener('turbolinks:load', () => {
   highlightTechnology();
+  initChatroomCable();
 
-  const slider = tns({
-    container: '.my-slider',
-    loop: true,
-    items: 1,
-    slideBy: 'page',
-    nav: false,
-    // autoplay: true,
-    // speed: 400,
-    autoplayButtonOutput: false,
-    mouseDrag: true,
-    lazyload: true,
-    controlsContainer: "#customize-controls",
-    responsive: {
-        640: {
-            items: 2,
-        },
+  const sessionFilterButtons = document.querySelector(".align-banner")
+  if(sessionFilterButtons){
+    const slider = tns({
+      container: '.my-slider',
+      loop: true,
+      items: 1,
+      slideBy: 'page',
+      nav: false,
+      // autoplay: true,
+      // speed: 400,
+      autoplayButtonOutput: false,
+      mouseDrag: true,
+      lazyload: true,
+      controlsContainer: "#customize-controls",
+      responsive: {
+          640: {
+              items: 2,
+          },
 
-        768: {
-            items: 3,
-        }
-    }
+          768: {
+              items: 3,
+          }
+      }
 
-  });
+    });
+  }
+
 
 });
-
-import { tns } from "../../../node_modules/tiny-slider/src/tiny-slider"
-
 
 
