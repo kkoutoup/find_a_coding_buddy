@@ -1,18 +1,25 @@
 class MessagesController < ApplicationController
-  def new
-  end
 
   def create
+    @chatroom = Chatroom.find(params[:chatroom_id])
+    # @project = Project.find(params[:project_id])
+    @message = Message.new(message_params)
+    @message.chatroom = @chatroom
+    @message.user = current_user
+    if @message.save
+      ChatroomChannel.broadcast_to(
+        @chatroom,
+        render_to_string(partial: "message", locals: { message: @message })
+      )
+      redirect_to chatroom_path(@chatroom, anchor: "message-#{@message.id}")
+    else
+      render "chatrooms/show"
+    end
   end
 
-  def destroy
-  end
+  private
 
-  def index
-
-  end
-
-  def show
-
+  def message_params
+    params.require(:message).permit(:content)
   end
 end

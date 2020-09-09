@@ -1,22 +1,9 @@
 class ChatroomsController < ApplicationController
-  def new
-  end
-
-  def create
-  end
-
-  def update
-  end
-
-  def edit
-  end
-
-  def destroy
-  end
-
-  def index
-  end
 
   def show
+    @project = Project.find(params[:id])
+    @chatroom = Chatroom.find(params[:id])
+    @message = Message.new()
   end
+
 end

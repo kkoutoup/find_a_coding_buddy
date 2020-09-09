@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   resources :projects do
     #r remember to nest reveiew here
     resources :applications, only: [:new, :create, :index, :show, :destroy]
+    resources :chatrooms, only: :show do
+      resources :messages, only: :create
+    end
   end
 
   post :accept, to: "applications#accept"
