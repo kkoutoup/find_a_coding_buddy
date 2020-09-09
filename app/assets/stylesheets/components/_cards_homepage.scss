@@ -5,10 +5,13 @@
 }
 
 .projects {
+  width: 100%;
+  display: grid !important;
+  grid-template-columns: 1fr 3fr;
   background: $light-gray;
   padding: 20px;
   margin: 0 8px 8px 4px;
-  max-height: 240px;
+  max-height: 160px;
   overflow: hidden;
   color: white;
   font-size: 20px;
@@ -18,6 +21,11 @@
     a {
       color: rgb(8,47,67);
     }
+}
+
+.icon {
+  // max-height: 50px;
+  max-width: 30px;
 }
 
 .larger-text p {

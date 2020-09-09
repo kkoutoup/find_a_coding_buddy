@@ -17,17 +17,21 @@
               <i class="fas fa-angle-double-right fa-2x"></i>
           </li>
       </ul>
+
         <div class="my-slider">
           <% @projects.each do |project| %>
             <div class="projects">
+
               <div class="icon">
-                <% project.technology_ids.each do |technology| %>
-                <%= technology %>
+                <% project.technologies.each do |technology| %>
+                  <%= image_tag "technologies_icons/#{technology.name.downcase}.svg" %>
                 <% end %>
               </div>
-              <div class="cards-text">
+
+              <div>
                 <p class="larger-text"> <%= link_to project.title, project_path(project) %> </p>
               </div>
+
             </div>
           <% end %>
       </ul>
