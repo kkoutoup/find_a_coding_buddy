@@ -43,7 +43,11 @@
   }
   &.active {
     color: white;
-    background: #14904C;
+    background: $my-red;
     opacity: 1;
   }
+}
+
+.edit-project-button{
+  margin-right: 15px;
 }
