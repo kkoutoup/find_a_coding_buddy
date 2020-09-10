@@ -37,18 +37,30 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-12">
+    <div class="col-4">
       <h5 class="mt-4 project-main-header">Technologies involved</h5>
         <%= render 'components/technology_icon' %>
     </div>
+    <div class="col-4">
+      <h5 class="mt-4 project-main-header">Questions?</h5>
+      <%= link_to 'Chat  with the project owner', project_chatroom_path(@project) %> to find out more about the project
+    </div>
+  </div>
+  <div class="mt-5">
+    <% if current_user.id != @project.user.id %>  
+      <%= link_to "Apply", new_project_application_path(@project.id), class: "btn btn-primary" %>
+    <% end %>
+    <%= link_to 'All Projects', projects_path, class: "btn btn-primary" %>
   </div>
   <div class="row mt-5">
     <div class="col-9">
-      <% if @related_projects.count > 0 && current_user.id != @project.user.id %>
+    <% if @related_projects.count > 0 && current_user.id != @project.user.id %>
       <h5 class="related-projects-header">Related projects</h5>
       <% @related_projects.first(3).each do |project| %>
         <p><%= link_to project.title, project_path(project)%></p>
       <% end %>
+      <% else %>
+      <h5 class="related-projects-header">No related projects found</h5>
     <% end %>
     </div>
   </div>
