@@ -9,3 +9,59 @@
 .tech-icon {
   margin-right: 15px;
 }
+
+.all-projects-link {
+  color: #8c8c8c;
+  text-decoration: undeline;
+  &:hover {
+    color: $my-red;
+  }
+}
+
+.related-project-title-link {
+  color: #8c8c8c;
+  text-decoration: undeline;
+  &:hover {
+    color: #8c8c8c;
+    text-decoration: none;
+  }
+}
+
+.apply-button{
+  width: 200px;
+}
+
+.related-project-card {
+  display: inline-block;
+  width: 25%;
+  height: 20vh;
+  padding: 10px;
+  box-shadow: 0 0 4px #8c8c8c;
+  border-top: 5px solid $my-red;
+  overflow: hidden;
+  margin-right: 15px;
+  h3 {
+    font-size: 1rem;
+    color: #8c8c8c;
+    margin-bottom: 10px;
+    height: 5vh;
+  }
+  p {
+    font-size: .9rem;
+  }
+  .project-arrow {
+    color: $my-red;
+    font-size: 1.1rem;
+    vertical-align: middle;
+  }
+  @media only screen and (max-width: 768px) {
+    & {
+      display: block;
+      width: 100%;
+      height: 12vh;
+      h3 {
+        height: 3vh;
+      }
+    }
+  }
+}
