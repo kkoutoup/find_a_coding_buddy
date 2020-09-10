@@ -1,0 +1,7 @@
+<% @project.technologies.each do |technology| %>
+ <% if  technology.name.include?"." %>
+    <img src="/assets/technology_icons_png/<%= technology.name.downcase.gsub!(/[^0-9A-Za-z]/, '') %>.png" alt="" class="tech-icon" >
+ <% else %>
+    <img src="/assets/technology_icons_png/<%= technology.name.downcase %>.png" alt="" class="tech-icon" >
+ <% end %>
+<% end %>
