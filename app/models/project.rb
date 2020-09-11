@@ -23,4 +23,8 @@ class Project < ApplicationRecord
   using: {
     tsearch: { prefix: true }
   }
+
+  def technology_selected?(technology)
+    technologies.include?(technology)
+  end
 end
