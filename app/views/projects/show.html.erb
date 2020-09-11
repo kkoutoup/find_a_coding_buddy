@@ -1,6 +1,5 @@
 <div class="container mt-5">
-  <%# <% raise %>
-    <%= link_to 'All Code Buddies Projects', projects_path, class: "all-projects-link" %>
+  <%= link_to 'All Code Buddies Projects', projects_path, class: "all-projects-link" %>
   <div class="title-container">
     <h2 class="project-title mt-3"><%= @project.title %></h2>
     <div>
@@ -30,10 +29,10 @@
     </div>
     <div class="col-4">
       <h6 class="project-side-header"><i class="fa fa-link" aria-hidden="true"></i> Project resources:</h6>
-        <% if @project.rich_content.nil? %>
-          <p> None posted so far </p>
+        <% if @project.rich_content.body %>
+          <p><%= @project.rich_content %></p>
         <% else %>
-          <%= @project.rich_content %>
+          <p>None posted so far</p>
         <% end %>
     </div>
   </div>
@@ -54,17 +53,19 @@
   </div>
   <div class="row mt-5">
     <div class="col">
-    <% if @related_projects.count > 0 && current_user.id != @project.user.id %>
-      <h5 class="related-projects-header">Related projects</h5>
-      <% @related_projects.first(3).each do |project| %>
-        <div class="related-project-card mt-3">
-          <h3><%= link_to project.title, project_path(project), class: "related-project-title-link" %> <i class="fas fa-arrow-circle-right project-arrow"></i></h3>
-          <p><%= project.description.truncate(100, separator:' ') %></p>
-        </div>
-      <% end %>
+      <% if @related_projects.count > 0 %>
+        <h5 class="related-projects-header">Related projects</h5>
+        <% @related_projects.first(3).each do |project| %>
+          <%= link_to project_path(project), class: "related-project-title-link" do %>
+            <div class="related-project-card mt-3">
+              <h3><%= project.title %></h3>
+              <p><%= project.description.truncate(100, separator:' ') %></p>
+            </div>
+          <% end %>
+        <% end %>
       <% else %>
-      <h5 class="related-projects-header">No related projects found</h5>
-    <% end %>
+        <h5 class="related-projects-header">No related projects found</h5>
+      <% end %>
     </div>
   </div>
 </div>
