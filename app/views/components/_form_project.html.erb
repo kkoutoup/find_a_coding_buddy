@@ -23,8 +23,8 @@
           <p>Technologies: i.e. languages, frameworks etc.</p>
           <div class="technology-choices">
             <% Technology.all.each do |technology| %>
-              <input class="d-none grid-item" type="checkbox" value="<%= technology.id %>" name="project[technology_ids][]" id="project_technology_ids_<%= technology.id %>">
-              <label class="technology-choice form-check-label collection_check_boxes" for="project_technology_ids_<%= technology.id %>"><%= technology.name %>
+              <input class="d-none grid-item" type="checkbox" value="<%= technology.id %>" name="project[technology_ids][]" id="project_technology_ids_<%= technology.id %>" <%= 'checked' if @project.technology_selected?(technology) %>>
+              <label class="technology-choice form-check-label collection_check_boxes <%= 'active' if @project.technology_selected?(technology) %>" for="project_technology_ids_<%= technology.id %>"><%= technology.name %>
               <i class="fa fa-check"></i>
               </label>
             <% end %>
