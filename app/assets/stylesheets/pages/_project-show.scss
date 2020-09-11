@@ -32,6 +32,7 @@
 }
 
 .related-project-card {
+  position: relative;
   display: inline-block;
   width: 25%;
   height: 20vh;
@@ -54,6 +55,21 @@
     font-size: 1.1rem;
     vertical-align: middle;
   }
+  &:after {
+    content: "";
+    position:absolute;
+    top: -10px;
+    right: -10px;
+    width:20px;
+    height:20px;
+    transform:rotate(45deg);
+    background-color:$my-red;
+  }
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0 0 14px #8c8c8c;
+  }
+
   @media only screen and (max-width: 768px) {
     & {
       display: block;
@@ -62,6 +78,12 @@
       h3 {
         height: 3vh;
       }
+    }
+  }
+  
+  @media (max-width: 1000px) and (min-width: 769px) {
+    & {
+      width: 30%;
     }
   }
 }
