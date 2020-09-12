@@ -14,6 +14,7 @@
   <div class="description">
     <h1><b><%= current_user.first_name  %> <%= current_user.last_name  %></b></h1>
     <h6>Full-Stack developer - Le Wagon</h6>
+    <h6><%= current_user.personal_summary%></h6>
     <% @projects.each do |project| %>
        <p> <%= link_to project.title, project_path(project.id) %> </p>
        <p class="btn btn-secondary"> <%= link_to "accept", accept_path(id: project.applications.last), method: :post %> </p>
@@ -21,19 +22,7 @@
     <% end %>
 
 
-    <p>Projects you have joined:</p>
-      <% current_user.applications.each do |application| %>
-        <p> <%= link_to application.project.title, project_path(application.project.id) %>
-        with <strong> <%= link_to application.project.user.first_name, user_path(application.project.user.id) %> </strong> </p>
-          <% if application.status == nil %>
-            <p> <strong> Status: </strong> Pending <i class="fas fa-hourglass-half"></i></p>
-          <% elsif application.status == true %>
-            <p> <strong> Status: </strong> Congratulations, you've been accepted! <i class="far fa-thumbs-up"></i></p>
-          <% else application.status == false %>
-            <p> <strong> Status: </strong> Sorry application unsuccesful, try another project! <i class="far fa-thumbs-down"></i></p>
-          <% end  %>
-      <% end %>
-    <div class="top-skills d-flex justify-content-between pl-3 pr-3">
+    <div class="top-skills d-flex justify-content-between pl-3 pr-3 align-self-end">
       <div>
         <p><b>Top skills:</b> Ruby, Javascript, Python</p>
         <p><b>Experience:</b> Intermediate </p>
@@ -46,7 +35,30 @@
 
   <div class="your-projects d-flex justify-content-between pl-3 pr-3">
     <div>
-      <p> Your Projects:</p></div>
+      <p> Your Projects:</p>
+        <% if current_user.projects.present? %>
+          <% current_user.projects.each do |project| %>
+            <p> <%= link_to project.title, project_path(project.id) %>
+            <% end %>
+        <% else %>
+          <p>There are no projects to show at present</p>
+        <% end %>
+    </div>
       <div> <i class="fas fa-pencil-alt"></i> </div>
+  </div>
+
+  <div>
+    <p>Projects you have joined:</p>
+      <% current_user.applications.each do |application| %>
+        <p> <%= link_to application.project.title, project_path(application.project.id) %>
+        with <strong> <%= link_to application.project.user.first_name, user_path(application.project.user.id) %> </strong> </p>
+          <% if application.status == nil %>
+            <p> <strong> Status: </strong> Pending <i class="fas fa-hourglass-half"></i></p>
+          <% elsif application.status == true %>
+            <p> <strong> Status: </strong> Congratulations, you've been accepted! <i class="far fa-thumbs-up"></i></p>
+          <% else application.status == false %>
+            <p> <strong> Status: </strong> Sorry application unsuccesful, try another project! <i class="far fa-thumbs-down"></i></p>
+          <% end  %>
+      <% end %>
   </div>
 </div>
