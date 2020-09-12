@@ -62,14 +62,19 @@
     <div>
       <h4>Applications to your projects:</h4>
       <% @projects.each do |project| %>
-             <p> <%= link_to project.title, project_path(project.id) %> </p>
-               <% if project.applications.present? && project.applications.nil? %>
-                 <% project.applications.each do |application|%>
-                   <p> <%= link_to application.user.first_name, project_path(project.id) %>
-                   <p class="btn btn-secondary"> <%= link_to "accept", accept_path(id: project.applications.last), method: :post %> </p>
-                   <p class="btn btn-info"> <%= link_to "reject", reject_path(id: project.applications.last), method: :post %> </p>
-                 <% end %>
-                <% else %>
+        <p> <%= link_to project.title, project_path(project.id) %> </p>
+          <% if project.applications.present?%>
+            <% project.applications.each do |application|%>
+              <% if application.nil?%>
+                <p> <%= link_to application.user.first_name, project_path(project.id) %>
+                <p class="btn btn-secondary"> <%= link_to "accept", accept_path(id: project.applications.last), method: :post %> </p>
+                <p class="btn btn-info"> <%= link_to "reject", reject_path(id: project.applications.last), method: :post %> </p>
+              <% else %>
+                <p>No new applications</p>
+              <% end %>
+            <% end %>
+
+            <% else %>
                 <p>No new applications</p>
              <% end %>
           <% end %>
