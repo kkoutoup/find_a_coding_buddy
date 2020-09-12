@@ -65,7 +65,7 @@
         <p> <%= link_to project.title, project_path(project.id) %> </p>
           <% if project.applications.present?%>
             <% project.applications.each do |application|%>
-              <% if application.nil?%>
+              <% if application.status.nil?%>
                 <p> <%= link_to application.user.first_name, project_path(project.id) %>
                 <p class="btn btn-secondary"> <%= link_to "accept", accept_path(id: project.applications.last), method: :post %> </p>
                 <p class="btn btn-info"> <%= link_to "reject", reject_path(id: project.applications.last), method: :post %> </p>
@@ -73,7 +73,6 @@
                 <p>No new applications</p>
               <% end %>
             <% end %>
-
             <% else %>
                 <p>No new applications</p>
              <% end %>
