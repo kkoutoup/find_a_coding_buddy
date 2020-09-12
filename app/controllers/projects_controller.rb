@@ -10,6 +10,7 @@ class ProjectsController < ApplicationController
   @project = Project.new(strong_params)
     @project.user = current_user
     if @project.save
+      Chatroom.create(project_id: @project.id)
       redirect_to project_path(@project)
     else
       render :new
