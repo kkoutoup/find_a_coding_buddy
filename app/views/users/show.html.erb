@@ -1,22 +1,21 @@
-<div class="container">
-    <h1><%= @user.first_name %> <%= @user.last_name %> </h1>
-    <p> <%= @user.personal_summary %></p>
+<div class="container mt-5">
+  <h1><%= @user.first_name %> <%= @user.last_name %> </h1>
+  <p><%= @user.personal_summary %></p>
     <p>Experienced in</p>
     <ul>
       <% @user.technologies.each do |technology| %>
         <li><%= technology.name %></li>
       <% end %>
     </ul>
-    <p>Email <%= @user.first_name %>: <%= @user.email%></p>
-    <p>Address <%= @user.address %></p>
-    <div class="photo">
-      <% if @user.photo.attached? %>
-        <div class="user-index-photo" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @user.photo.key, height: 200, width: 200, crop: :fill %>')">
-      <% else %>
-        <div class="user-index-photo" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), image_tag('missing-avatar-female-200x200.png')">
-      <% end %>
-    </div>
-
+  <p>Email <%= @user.first_name %>: <%= @user.email%></p>
+  <p>Address <%= @user.address %></p>
+  <div class="photo">
+    <% if @user.photo.attached? %>
+      <div class="user-index-photo" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @user.photo.key, height: 200, width: 200, crop: :fill %>')"></div>
+    <% else %>
+      <div class="user-index-photo" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), image_tag('missing-avatar-female-200x200.png')"></div>
+    <% end %>
+  </div>
+  <%= link_to 'Back', :back, class: "btn btn-primary" %>
+  <%= link_to 'Edit', edit_user_path, class: "btn btn-primary" %>
 </div>
-    <%= link_to 'Back', :back, class: "btn btn-primary" %>
-    <%= link_to 'Edit', edit_user_path, class: "btn btn-primary" %>
