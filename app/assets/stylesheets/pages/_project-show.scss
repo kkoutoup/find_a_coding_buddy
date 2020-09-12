@@ -8,6 +8,8 @@
 
 .tech-icon {
   margin-right: 15px;
+  vertical-align: baseline;
+  width: 15%;
   @media only screen and (max-width: 768px) {
     & {
       width: 30%;

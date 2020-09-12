@@ -5,7 +5,7 @@ module ApplicationHelper
     else
       technology.name = technology.name.downcase
     end
-    path = Rails.root.join("app", "assets", "images", "technology_icons_png", "#{ technology.name }.png")
-    File.exist?(path) ? asset_path("technology_icons_png/#{ technology.name }.png") : asset_path("technology_icons_png/coding.png")
+    path = Rails.root.join("app", "assets", "images", "technologies_icons", "#{ technology.name }.svg")
+    File.exist?(path) ? asset_path("technologies_icons/#{ technology.name }.svg") : asset_path("technologies_icons/code.svg")
   end
 end
