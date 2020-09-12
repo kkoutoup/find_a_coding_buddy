@@ -1,6 +1,6 @@
 
 <h1> Dashboard </h1>
-<div class="main-container">
+<div class="top-container">
 
   <div class="photo">
     <% if current_user.photo.attached? %>
@@ -15,12 +15,6 @@
     <h1><b><%= current_user.first_name  %> <%= current_user.last_name  %></b></h1>
     <h6>Full-Stack developer - Le Wagon</h6>
     <h6><%= current_user.personal_summary%></h6>
-    <% @projects.each do |project| %>
-       <p> <%= link_to project.title, project_path(project.id) %> </p>
-       <p class="btn btn-secondary"> <%= link_to "accept", accept_path(id: project.applications.last), method: :post %> </p>
-       <p class="btn btn-info"> <%= link_to "reject", reject_path(id: project.applications.last), method: :post %> </p>
-    <% end %>
-
 
     <div class="top-skills d-flex justify-content-between pl-3 pr-3 align-self-end">
       <div>
@@ -46,9 +40,11 @@
     </div>
       <div> <i class="fas fa-pencil-alt"></i> </div>
   </div>
+</div>
 
-  <div>
-    <p>Projects you have joined:</p>
+<div class="bottom-container">
+  <div class="background-color">
+    <h4>Projects you have applied for:</h4>
       <% current_user.applications.each do |application| %>
         <p> <%= link_to application.project.title, project_path(application.project.id) %>
         with <strong> <%= link_to application.project.user.first_name, user_path(application.project.user.id) %> </strong> </p>
@@ -60,5 +56,23 @@
             <p> <strong> Status: </strong> Sorry application unsuccesful, try another project! <i class="far fa-thumbs-down"></i></p>
           <% end  %>
       <% end %>
+  </div>
+
+  <div class="background-color">
+    <div>
+      <h4>Applications to your projects:</h4>
+      <% @projects.each do |project| %>
+             <p> <%= link_to project.title, project_path(project.id) %> </p>
+               <% if project.applications.present? && project.applications.nil? %>
+                 <% project.applications.each do |application|%>
+                   <p> <%= link_to application.user.first_name, project_path(project.id) %>
+                   <p class="btn btn-secondary"> <%= link_to "accept", accept_path(id: project.applications.last), method: :post %> </p>
+                   <p class="btn btn-info"> <%= link_to "reject", reject_path(id: project.applications.last), method: :post %> </p>
+                 <% end %>
+                <% else %>
+                <p>No new applications</p>
+             <% end %>
+          <% end %>
+    </div>
   </div>
 </div>
