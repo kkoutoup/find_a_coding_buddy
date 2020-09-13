@@ -2,11 +2,11 @@
   <div class="row d-flex justify-content-center">
     <div class="col-xs-12 col-sm-12 col-md-10 col-lg-8">
       <div class="create-project">
-          <h1>Editing: <%= @user.first_name %>'s Profile</h1>
+        <h1>Editing: <%= @user.first_name %>'s Profile</h1>
         <%= simple_form_for @user do |f| %>
           <%= f.input :first_name, placeholder: @user.first_name %>
           <%= f.input :last_name, placeholder: @user.first_name %>
-          <%= f.input :photo, as: :file %>
+           <%= f.input :photo, as: :file, input_html: { class: 'd-none' }, label_html: { class: 'upload-photo' }, label: '📷 Upload a photo' %>
           <%= f.input :personal_summary, input_html: { rows: 5, cols: 40 }, placeholder: "Include you background main technologies..." %>
           <div class="row">
             <div class="col">
