@@ -1,7 +1,7 @@
 <div class="container mt-5">
   <%= link_to 'All Code Buddies Projects', projects_path, class: "all-projects-link" %>
   <div class="title-container">
-    <h2 class="project-title mt-3"><%= @project.title %></h2>
+    <h1 class="project-title mt-3"><%= @project.title %></h1>
     <div>
       <% if current_user.id == @project.user.id %>
         <%= link_to "Edit", edit_project_path(@project.id), class: "btn btn-primary edit-project-button" %>
@@ -50,6 +50,20 @@
     <% if current_user.id != @project.user.id %>  
       <%= link_to "Apply", new_project_application_path(@project.id), class: "btn btn-primary apply-button" %>
     <% end %>
+  </div>
+  <div class="row mt-5">
+    <div class="col">
+      <h5 class="related-projects-header">Project Reviews</h5>
+      <% if @project.reviews.count == 0 %>
+      <p>Be the first to 
+        <%= link_to 'review this project', new_project_review_path(@project) %>
+      </p>
+      <% else %>
+         <% @project_reviews.each do |review| %>
+          <p> <%= review %> </p>
+        <% end %>
+      <% end %>
+    </div>
   </div>
   <div class="row mt-5">
     <div class="col">
