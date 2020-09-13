@@ -71,7 +71,7 @@ filepath = "project_descriptions.csv"
 csv_options = { headers: :first_row, force_quotes: true, quote_char: '"' }
 
 CSV.foreach(filepath, csv_options) do |row|
-  Project.create!(
+  project = Project.create!(
     {
       title: row[0],
       description: row[1],
@@ -79,7 +79,8 @@ CSV.foreach(filepath, csv_options) do |row|
       difficulty: LEVEL.sample,
       user_id: User.all.sample.id
     }
-  )
+    )
+  Chatroom.create!(project_id: project.id)
 end
 
 # Project Technologies
