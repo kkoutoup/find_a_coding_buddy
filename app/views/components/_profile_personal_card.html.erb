@@ -1,4 +1,8 @@
 <h1> Dashboard </h1>
+
+<button type="button" id="button-modal" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+  Edit
+</button>
 <div class="top-container">
 
   <div class="photo">
@@ -21,7 +25,7 @@
         <p><b>Experience:</b> Intermediate </p>
       </div>
       <div>
-        <%= link_to 'Edit', edit_user_path(current_user), class: "btn btn-primary" %>
+
         <i class="fas fa-pencil-alt"></i>
       </div>
     </div>
@@ -38,7 +42,6 @@
           <p>There are no projects to show at present</p>
         <% end %>
     </div>
-      <div> <i class="fas fa-pencil-alt"></i> </div>
   </div>
 </div>
 

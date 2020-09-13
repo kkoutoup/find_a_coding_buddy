@@ -1,0 +1,40 @@
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Editing: <%= @user.first_name %>'s Profile</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for @user do |f| %>
+          <%= f.input :first_name, placeholder: @user.first_name %>
+          <%= f.input :last_name, placeholder: @user.first_name %>
+          <%= f.input :photo, as: :file %>
+          <%= f.input :personal_summary, input_html: { rows: 5, cols: 40 }, placeholder: "Include you background main technologies..." %>
+          <div class="row">
+            <div class="col">
+               <%= f.input :address, label: "Address" %>
+            </div>
+            <div class="col">
+              <%= f.input :expertise_level, collection: %w(beginner intermediate advanced) %>
+            </div>
+          </div>
+          <p>Technologies: i.e. languages, frameworks etc.</p>
+          <div class="technology-choices">
+            <% Technology.all.each do |technology| %>
+              <input class="d-none grid-item" type="checkbox" value="<%= technology.id %>" name="user[technology_ids][]" id="user_technology_ids_<%= technology.id %>">
+              <label class="technology-choice form-check-label collection_check_boxes" for="user_technology_ids_<%= technology.id %>"><%= technology.name %>
+              <i class="fa fa-check"></i>
+              </label>
+            <% end %>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

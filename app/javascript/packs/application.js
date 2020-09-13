@@ -5,8 +5,10 @@
 
 require("@rails/ujs").start()
 require("turbolinks").start()
-require("@rails/activestorage").start()
 require("channels")
+
+
+
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
@@ -22,12 +24,18 @@ require("channels")
 // ----------------------------------------------------
 
 // External imports
-import "bootstrap";
 require("trix")
 require("@rails/actiontext")
+require("bootstrap")
+require("@rails/activestorage").start()
+require("jquery")
+// require("popper")
+// require("tree")
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
+import "bootstrap";
+
 import { highlightTechnology } from "./highlight_technologies.js"
 import { initChatroomCable } from "../channels/chatroom_channel.js"
 import { tns } from "../../../node_modules/tiny-slider/src/tiny-slider"
@@ -63,8 +71,13 @@ document.addEventListener('turbolinks:load', () => {
 
     });
   }
-
-
 });
 
-
+const options = {
+  show : true
+}
+// $(document).ready(function(){
+    // $("#button-modal").click(function(){
+        $(".exampleModalLong").modal(options);
+//     });
+// });
