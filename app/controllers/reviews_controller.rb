@@ -2,11 +2,14 @@ class ReviewsController < ApplicationController
   def new
     @project = Project.find(params[:project_id])
     @project_owner = User.find(@project.user_id)
+    @user = current_user
     @review = Review.new
+
   end
-  
+
   def create
     @review = Review.new(review_params)
+    @review.user = current_user
     @project = Project.find(params[:project_id])
     @review.project = @project
     @project_owner = User.find(@project.user_id)

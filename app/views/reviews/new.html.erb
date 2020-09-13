@@ -6,7 +6,7 @@
       <%= simple_form_for [ @project, @review ] do |f| %>
         <%= f.input :content, placeholder: "Was this a good learning experience?" %>
         <%= f.input :rating %>
-        <%= f.submit "Submit review", class: "btn btn-primary" %>
+        <%= f.button :submit, class: "btn btn-primary" %>
       <% end %>
     </div>
   </div>
