@@ -1,2 +1,13 @@
-<h1>Reviews#new</h1>
-<p>Find me in app/views/reviews/new.html.erb</p>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-xs-12 col-md-7">
+      <h1 class="review-title">Reviewing: <%= @project.title %></h1>
+      <p> by <%= link_to "#{@project_owner.first_name} #{@project_owner.last_name}", user_path(@project_owner) %> </p>
+      <%= simple_form_for [ @project, @review ] do |f| %>
+        <%= f.input :content, placeholder: "Was this a good learning experience?" %>
+        <%= f.input :rating %>
+        <%= f.submit "Submit review", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
