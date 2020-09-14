@@ -53,15 +53,14 @@
   </div>
   <div class="row mt-5">
     <div class="col">
-      <h5 class="related-projects-header">Project Reviews</h5>
+      <h5 class="related-projects-header">Project reviews</h5>
       <% if @project.reviews.count == 0 %>
-      <p>Be the first to
-        <%= link_to 'review this project', new_project_review_path(@project) %>
-      </p>
+        <p>Be the first to
+          <%= link_to 'review this project', new_project_review_path(@project) %>
+        </p>
       <% else %>
-         <% @project_reviews.each do |review| %>
-          <p> <%= review.content %> </p>
-        <% end %>
+        <%= render 'components/render_reviews' %>
+        <%= link_to 'Leave a review', new_project_review_path(@project), class: "review-link" %>
       <% end %>
     </div>
   </div>

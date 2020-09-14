@@ -1,0 +1,36 @@
+.review-card {
+  display: flex;
+  align-items: start;
+  font-size: .95rem;
+}
+
+.review-avatar-background-color {
+  width: 35px;
+  height: 35px;
+  padding: 7px;
+  border-radius: 50%;
+  background-color: $my-red;
+  text-align: center;
+  color: white;
+}
+
+.review-details {
+  margin-left: 20px;
+  p {
+    color: #8c8c8c;
+    margin-bottom: .5rem;
+  }
+}
+
+.review-content {
+  margin-left: 55px;
+  p {
+    color: #8c8c8c;
+    font-size: .95rem;
+  }
+}
+
+.review-link {
+  display: block;
+  margin-top: 30px;
+}
