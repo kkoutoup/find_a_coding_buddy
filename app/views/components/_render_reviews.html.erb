@@ -1,5 +1,12 @@
 <div class="container mt-5">
   <% @project_reviews.each do |review| %>
-    <p> <%= review %> </p>
+    <div class="review-container">
+      <div class="first-section">
+        <span><%= user_info(review) %></span>
+        <br>
+        <span><%= review.rating %>/5 stars on <%= review.created_at.strftime("%d-%m-%Y") %></span>
+        <p><%= review.content %></p>
+      </div>
+    </div>
   <% end %>
 </div>
