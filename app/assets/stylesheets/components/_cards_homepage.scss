@@ -7,19 +7,20 @@
 .projects {
   width: 100%;
   display: grid !important;
-  grid-template-columns: 1fr 3fr;
-  background: $light-gray;
-  padding: 20px;
-  margin: 0 8px 8px 4px;
-  max-height: 160px;
+  // grid-template-rows: 1fr 1fr 2fr;
+  background: $white;
+  padding: 15px;
+  margin: 8px 8px 8px 8px;
+  height: 240px;
   overflow: hidden;
   color: white;
+  background-image: url("https://image.freepik.com/free-vector/white-background-with-blue-tech-hexagon_1017-19366.jpg");
   font-size: 20px;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  text-shadow: 1px 1px 1px 3px rgba(0,0,0,0.2);
   border-radius: 5px;
-  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
     a {
-      color: rgb(8,47,67);
+      color: $my-red;
     }
 }
 
@@ -79,19 +80,18 @@
 
 .buddies-list {
   padding: 16px;
-  background-color: $light-gray;
-  height: 200px;
-  // display: flex;
+  background-color: $white;
+  height: 240px;
   display: grid;
-  grid-template-columns: 1fr 2fr;
-  // justify-content: center;
-  // align-items: center;
   color: white;
+  background-image: url("https://image.freepik.com/free-vector/white-background-with-blue-tech-hexagon_1017-19366.jpg");
   font-size: 20px;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  grid-template-columns: 2fr 2fr;
 }
+
 
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
