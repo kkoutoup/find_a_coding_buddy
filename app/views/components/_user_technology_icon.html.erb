@@ -1,0 +1,3 @@
+<% @user.technologies.each do |technology| %>
+    <img src="<%= check_image_exists(technology) %>" alt="<%= technology.name %>-icon" class="user-tech-icon mt-3">
+<% end %>
