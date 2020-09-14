@@ -1,12 +1,16 @@
-<div class="container mt-3">
+<div class="mt-3">
   <% @project_reviews.each do |review| %>
-    <div class="review-container">
-      <div class="first-section">
-        <span><%= user_info(review) %></span>
-        <br>
-        <span><%= review.rating %>/5 stars on <%= review.created_at.strftime("%d-%m-%Y") %></span>
-        <p><%= review.content %></p>
+    <div class="review-card">
+      <div class="review-avatar-background-color">
+        <p><%= user_initials(review) %></p>
       </div>
+      <div class="review-details">
+        <span><%= user_full_name(review) %></span>
+        <p><%= review.rating %>/5 stars <%= review.created_at.strftime("%d-%m-%Y") %></p>
+      </div>
+    </div>
+    <div class="review-content">
+      <p><%= review.content %></p>
     </div>
   <% end %>
 </div>

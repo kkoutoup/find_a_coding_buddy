@@ -1,0 +1,22 @@
+.review-card {
+  display: flex;
+  align-items: start;
+}
+
+.review-avatar-background-color {
+  width: 35px;
+  height: 35px;
+  padding: 7px;
+  border-radius: 50%;
+  background-color: $my-red;
+  text-align: center;
+  color: white;
+}
+
+.review-details {
+  margin-left: 20px;
+}
+
+.review-content {
+  margin-left: 55px;
+}
