@@ -10,4 +10,8 @@ module ReviewHelper
     "#{ user.first_name } #{ user.last_name }"
   end
 
+  def star_review_rating(review)
+    review.rating.class
+  end
+
 end
