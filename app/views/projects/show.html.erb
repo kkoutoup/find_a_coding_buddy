@@ -62,7 +62,7 @@
          <% @project_reviews.each do |review| %>
           <%= render 'components/render_reviews' %>
         <% end %>
-        <%= link_to 'Leave a review', new_project_review_path(@project) %>
+        <%= link_to 'Leave a review', new_project_review_path(@project), class: "review-link" %>
       <% end %>
     </div>
   </div>
