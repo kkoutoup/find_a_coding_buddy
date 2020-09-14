@@ -20,7 +20,7 @@ class UsersController < ApplicationController
   def show; end
 
   def edit; end
-  
+
   def update
     @user.update(strong_params)
     if @user.save
@@ -37,6 +37,7 @@ class UsersController < ApplicationController
 
   def profile
     @projects = current_user.projects
+    @user = current_user
   end
 
   private
