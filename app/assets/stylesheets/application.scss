@@ -11,6 +11,9 @@
 @import "./actiontext.scss";
 @import "trix/dist/trix";
 
+// Plugin styles
+@import "jquery-bar-rating/dist/themes/css-stars";
+
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
