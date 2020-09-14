@@ -83,3 +83,9 @@ $(document).ready(function(){
     });
 });
 
+$(document).ready(function(){
+    $("#button-save-changes").click(function(){
+        console.log("test");
+    });
+});
+
