@@ -62,9 +62,9 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   # bullet configuration - check for N+1 queries
-  # config.after_initialize do
-  # Bullet.enable = true
-  # Bullet.rails_logger = true
-# end
+  config.after_initialize do
+    Bullet.enable = true
+    Bullet.rails_logger = true
+  end
 
 end

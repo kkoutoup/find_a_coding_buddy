@@ -35,17 +35,17 @@ class ProjectsController < ApplicationController
 
   def index
     if params[:query].present?
-      @projects = Project.search_by_title_and_description(params[:query])
+      @projects = Project.includes([:technologies]).search_by_title_and_description(params[:query])
     elsif params.has_key?(:difficulty)
-      @projects = Project.where(difficulty: params[:difficulty])
+      @projects = Project.includes([:technologies]).where(difficulty: params[:difficulty])
     elsif params.has_key?(:created_at)
       if params[:created_at] == "most_recent"
-        @projects = Project.order("projects.created_at DESC")
+        @projects = Project.includes([:technologies]).order("projects.created_at DESC")
       else
-        @projects = Project.order("projects.created_at ASC")
+        @projects = Project.includes([:technologies]).order("projects.created_at ASC")
       end
     else
-      @projects = Project.all
+      @projects = Project.includes([:technologies]).all
     end
   end
 
