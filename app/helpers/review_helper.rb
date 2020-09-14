@@ -1,5 +1,4 @@
 module ReviewHelper
-
   def user_initials(review)
     user = User.find(review.user_id)
     "#{user.first_name[0]}#{user.last_name[0]}"
@@ -9,9 +8,4 @@ module ReviewHelper
     user = User.find(review.user_id)
     "#{ user.first_name } #{ user.last_name }"
   end
-
-  def star_review_rating(review)
-    review.rating.class
-  end
-
 end
