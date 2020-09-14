@@ -36,14 +36,16 @@ require("jquery")
 // import { initSelect2 } from '../components/init_select2';
 import "bootstrap";
 
-import { highlightTechnology } from "./highlight_technologies.js"
-import { initChatroomCable } from "../channels/chatroom_channel.js"
-import { tns } from "../../../node_modules/tiny-slider/src/tiny-slider"
+import { highlightTechnology } from "./highlight_technologies.js";
+import { initChatroomCable } from "../channels/chatroom_channel.js";
+import { tns } from "../../../node_modules/tiny-slider/src/tiny-slider";
+import { initStarRating } from "../plugins/init_star_rating";
 
 
 document.addEventListener('turbolinks:load', () => {
   highlightTechnology();
   initChatroomCable();
+  initStarRating();
 
   const sessionFilterButtons = document.querySelector(".align-banner")
   if(sessionFilterButtons){
