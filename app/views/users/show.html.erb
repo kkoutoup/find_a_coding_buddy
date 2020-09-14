@@ -2,11 +2,9 @@
   <h1><%= @user.first_name %> <%= @user.last_name %> </h1>
   <p><%= @user.personal_summary %></p>
     <p>Experienced in</p>
-    <ul>
-      <% @user.technologies.each do |technology| %>
-        <li><%= technology.name %></li>
-      <% end %>
-    </ul>
+    <% @user.technologies.each do |technology| %>
+      <img src="<%= check_image_exists(technology) %>" alt="<%= technology.name %>-icon" class="tech-icon mt-3">
+    <% end %>
   <p>Email <%= @user.first_name %>: <%= @user.email%></p>
   <p>Address <%= @user.address %></p>
   <div class="photo">
