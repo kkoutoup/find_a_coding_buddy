@@ -59,9 +59,7 @@
           <%= link_to 'review this project', new_project_review_path(@project) %>
         </p>
       <% else %>
-         <% @project_reviews.each do |review| %>
-          <%= render 'components/render_reviews' %>
-        <% end %>
+        <%= render 'components/render_reviews' %>
         <%= link_to 'Leave a review', new_project_review_path(@project), class: "review-link" %>
       <% end %>
     </div>
