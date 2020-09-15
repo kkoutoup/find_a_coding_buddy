@@ -53,7 +53,7 @@ class ProjectsController < ApplicationController
     @technology_ids = @project.technologies.ids
     @related_projects = Project.where.not(id: @project.id).joins(:project_technologies).where(project_technologies: { technology_id: [@technology_ids] }).distinct
     @application = Application.new
-    @applications = Application.where(project_id: @project.id).where(user_id: current_user).first
+    @applications = Application.where(project_id: @project.id, user_id: current_user.id).where.not(status: nil).first
     @project_reviews = Review.where(project_id: @project.id)
   end
 
