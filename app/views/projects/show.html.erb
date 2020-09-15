@@ -4,7 +4,7 @@
     <%# show controls if current user is project owner %>
     <%= render 'components/show_controls' %>
   </div>
-  <% if current_user.id != @project.user.id %>
+  <% if user_signed_in? && current_user.id != @project.user.id %>
     <p><i class="fa fa-user"></i> Led by: <%= link_to "#{@project.user.first_name} #{@project.user.last_name}", user_path(@project.user.id) %></p>
   <% end %>
   <h5 class="mt-3 project-main-header">About the Project</h5>
@@ -44,19 +44,20 @@
 
   <div class="mt-5">
 
-    <% unless current_user.id == @project.user.id %>
+    <% if user_signed_in? %>
+      <% unless current_user.id == @project.user.id %>
 
-      <% if @applications&.status.blank? || @applications.status == nil %>
-        <%= link_to "Apply", new_project_application_path(@project.id), class: "btn btn-primary apply-button" %>
+        <% if @applications&.status.blank? || @applications.status == nil %>
+          <%= link_to "Apply", new_project_application_path(@project.id), class: "btn btn-primary apply-button" %>
+        <% elsif @applications.status == false %>
+          <p>I'm sorry you can't re-apply to this project</p>
+        <% elsif @applications.status == true %>
+          <p><%= link_to 'Chat with the project owner', project_chatroom_path(@project) %> to find out more.</p>
+        <% end %>
 
-      <% elsif @applications.status == false %>
-        <p>I'm sorry you can't re-apply to this project</p>
-      <% elsif @applications.status == true %>
-        <p><%= link_to 'Chat with the project owner', project_chatroom_path(@project) %> to find out more.</p>
+      <% else %>
+        <p>list applicants</p>
       <% end %>
-
-    <% else %>
-      <p>list applicants</p>
     <% end %>
 
   </div>
