@@ -13,7 +13,7 @@ class ApplicationsController < ApplicationController
     @application.user = current_user
     @application.status = nil
     @application.save
-    redirect_to profile_path(current_user)
+    redirect_to profile_path
   end
 
   def create
@@ -29,7 +29,7 @@ class ApplicationsController < ApplicationController
     @application.save
     redirect_back(fallback_location: root_path)
   end
-  
+
   def reject
     @application = Application.find(params[:id])
     @application.status = false
