@@ -2,12 +2,8 @@
   <%= link_to 'All Code Buddies Projects', projects_path, class: "all-projects-link" %>
   <div class="title-container">
     <h1 class="project-title mt-3"><%= @project.title %></h1>
-    <div>
-      <% if current_user.id == @project.user.id %>
-        <%= link_to "Edit", edit_project_path(@project.id), class: "btn btn-primary edit-project-button" %>
-        <%= link_to "Delete", project_path(@project.id),  class:"btn btn-danger", method: :delete, data: {confirm:"Are you sure you want to delete your offered project?"} %>
-      <% end %>
-    </div>
+    <%# show controls if current user is project owner %>
+    <%= render 'components/show_controls' %>
   </div>
   <% if current_user.id != @project.user.id %>
     <p><i class="fa fa-user"></i> Led by: <%= link_to "#{@project.user.first_name} #{@project.user.last_name}", user_path(@project.user.id) %></p>
@@ -51,34 +47,8 @@
       <%= link_to "Apply", new_project_application_path(@project.id), class: "btn btn-primary apply-button" %>
     <% end %>
   </div>
-  <div class="row mt-5">
-    <div class="col">
-      <h5 class="related-projects-header">Project reviews</h5>
-      <% if @project.reviews.count == 0 %>
-        <p>Be the first to
-          <%= link_to 'review this project', new_project_review_path(@project) %>
-        </p>
-      <% else %>
-        <%= render 'components/render_reviews' %>
-        <%= link_to 'Leave a review', new_project_review_path(@project), class: "review-link" %>
-      <% end %>
-    </div>
-  </div>
-  <div class="row mt-5">
-    <div class="col">
-      <% if @related_projects.count > 0 %>
-        <h5 class="related-projects-header">Related projects</h5>
-        <% @related_projects.first(3).each do |project| %>
-          <%= link_to project_path(project), class: "related-project-title-link" do %>
-            <div class="related-project-card mt-3">
-              <h3><%= project.title %></h3>
-              <p><%= project.description.truncate(100, separator:' ') %></p>
-            </div>
-          <% end %>
-        <% end %>
-      <% else %>
-        <h5 class="related-projects-header">No related projects found</h5>
-      <% end %>
-    </div>
-  </div>
+  <%# show reviews if project completed %>
+  <%= render 'components/show_reviews' %>
+  <%# show related if not in edit mode %>
+  <%= render 'components/show_related_projects' %>
 </div>
