@@ -78,8 +78,11 @@ document.addEventListener('turbolinks:load', () => {
 const options = {
   show : true
 }
-// $(document).ready(function(){
-    // $("#button-modal").click(function(){
-        $(".exampleModalLong").modal(options);
-//     });
-// });
+
+$(document).ready(function(){
+    $("#button-modal").click(function(){
+        $("#exampleModalLong").modal(options);
+    });
+});
+
+

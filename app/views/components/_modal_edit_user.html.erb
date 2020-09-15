@@ -8,7 +8,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <%= simple_form_for @user do |f| %>
+        <%= simple_form_for @user, :url => "/profile/", :method => :get do |f| %>
           <%= f.input :first_name, placeholder: @user.first_name %>
           <%= f.input :last_name, placeholder: @user.first_name %>
           <%= f.input :photo, as: :file %>
@@ -33,8 +33,10 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        # <%= f.button :submit, id: "button-save-changes", class: "btn btn-primary" %>
+        <button type="button" id="button-save-changes" class="btn btn-primary">Save changes</button>
       </div>
+      <% end %>
     </div>
   </div>
 </div>
