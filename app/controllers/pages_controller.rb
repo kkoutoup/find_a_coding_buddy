@@ -6,7 +6,7 @@ class PagesController < ApplicationController
     @technologiesRoundedDown = (Technology.count / 5).round * 5
     @projectsRoundedDown = (Project.count / 5).round * 5
     @usersRoundedDown = (User.count / 5).round * 5
-    @users = User.with_attached_photo.all.sample(6)
+    @users = User.includes([:technologies]).with_attached_photo.all.sample(6)
     # @technology_ids = @project.technologies.ids
   end
 
