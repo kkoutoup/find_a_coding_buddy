@@ -1,16 +1,36 @@
-<h1>Chatrooms#show</h1>
-<p>Find me in app/views/chatrooms/show.html.erb</p>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <div class="chat-header"><h4><%= @project.title %></h4></div>
 
+        <div id="messages">
+          <% @chatroom.messages.each do |message| %>
+            <%= render 'messages/message', message:message, user_is_messages_author: message.user == current_user  %>
+          <% end %>
+        </div>
 
-<h1>#<%= @project.title %></h1>
-<div id="messages" data-chatroom-id="<%= @chatroom.id %>">
-  <% @chatroom.messages.each do |message| %>
-    <%= render 'messages/message', message:message %>
-  <% end %>
+        <div id="create-message">
+          <%= simple_form_for [ @project, @chatroom, Message.new], remote: true, html: {autocomplete: "off" }  do |f| %>
+            <%= f.input :content, label: false, placeholder: "Message others at #{@project.title}" %>
+            <%= f.button :submit, value="Send Message", class: "btn-outline-primary" %>
+          <% end %>
+        </div>
+
+    </div>
+  </div>
 </div>
 
-
-<%= simple_form_for [ @project, @chatroom, @message ], remote: true do |f| %>
-  <%= f.input :content, label: false, placeholder: "Message others at #{@project.title}" %>
-  <%= f.button :submit %>
+<% content_for :after_js do %>
+  <script>
+    scrollLastMessageIntoView();
+    App['chat_room_<%= @chatroom.id %>'] = App.cable.subscriptions.create({ channel: 'ChatRoomsChannel', chatroom_id: <%= @chatroom.id %> }, {
+      received: (data) => {
+        if (data.current_user_id !== <%= current_user.id %>) {
+          const messagesContainer = document.querySelector('.messages');
+          messagesContainer.insertAdjacentHTML('beforeend', data.message_partial);
+          scrollLastMessageIntoView();
+        }
+      }
+    })
+  </script>
 <% end %>
