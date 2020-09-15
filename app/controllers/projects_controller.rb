@@ -57,9 +57,8 @@ class ProjectsController < ApplicationController
   end
 
   def toggle_status
-    @project = Project.find(params[:project_id])
-    @project.status == false ? @project.status = true : @project.status = false
-    @project.save
+    @project = Project.find(params[:id])
+    @project.update(status: !@project.status)
     redirect_to project_path(@project)
   end
 
