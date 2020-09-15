@@ -56,6 +56,13 @@ class ProjectsController < ApplicationController
     @project_reviews = Review.where(project_id: @project.id)
   end
 
+  def toggle_status
+    @project = Project.find(params[:project_id])
+    @project.status == false ? @project.status = true : @project.status = false
+    @project.save
+    redirect_to project_path(@project)
+  end
+
   private
 
   def find_project

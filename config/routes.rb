@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :users, only: [ :index, :show, :edit, :update ]
   get :profile, to: "users#profile"
   resources :projects do
+    get :toggle_status, to: "projects#toggle_status"
     resources :reviews, only: [ :new, :create ]
     resources :applications, only: [ :new, :create, :index, :show, :destroy ]
     resources :chatrooms, only: :show do
