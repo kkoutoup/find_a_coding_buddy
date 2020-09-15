@@ -1,0 +1,19 @@
+<% if current_user.id != @project.user_id  %>  
+  <div class="row mt-5">
+    <div class="col">
+      <% if @related_projects.count > 0 %>
+        <h5 class="related-projects-header">Related projects</h5>
+        <% @related_projects.first(3).each do |project| %>
+          <%= link_to project_path(project), class: "related-project-title-link" do %>
+            <div class="related-project-card mt-3">
+              <h3><%= project.title %></h3>
+              <p><%= project.description.truncate(100, separator:' ') %></p>
+            </div>
+          <% end %>
+        <% end %>
+        <% else %>
+          <h5 class="related-projects-header">No related projects found</h5>
+      <% end %>
+    </div>
+  </div>
+<% end %>
