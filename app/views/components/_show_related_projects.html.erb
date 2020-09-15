@@ -1,4 +1,4 @@
-<% if current_user.id != @project.user_id  %>  
+<% if user_signed_in? && current_user.id != @project.user_id  %>
   <div class="row mt-5">
     <div class="col">
       <% if @related_projects.count > 0 %>
