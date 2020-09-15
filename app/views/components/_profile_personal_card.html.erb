@@ -20,8 +20,12 @@
 
     <div class="top-skills d-flex justify-content-between pl-3 pr-3 align-self-end">
       <div>
-        <p><b>Top skills:</b> Ruby, Javascript, Python</p>
-        <p><b>Experience:</b> Intermediate </p>
+        <p><b>Top skills:</b>
+          <% current_user.technologies.each do |technology| %>
+            <p> <%= technology %> </p>
+              <% end %>
+
+        <p><b>Personal summary: </b><%= current_user.personal_summary%></p>
       </div>
       <div>
 
