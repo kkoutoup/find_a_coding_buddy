@@ -12,8 +12,12 @@ class ApplicationsController < ApplicationController
     @application.project = @project
     @application.user = current_user
     @application.status = nil
-    @application.save
-    redirect_to profile_path
+    if @application.user.applications.include?(@application.project.id)
+      redirect_to profile_path, alert: "You have already applied"
+    else
+      @application.save
+      redirect_to profile_path
+    end
   end
 
   def create
