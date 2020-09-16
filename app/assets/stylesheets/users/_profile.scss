@@ -6,13 +6,6 @@
   margin-top: 24px;
 }
 
-.bottom-container {
-  display: grid;
-  grid-template-columns: 3fr 1fr;
-  grid-gap: 16px;
-  margin-top: 24px;
-}
-
 .description {
   flex-grow: 1;
   max-height: 250px;
@@ -22,12 +15,38 @@
 }
 
 .your-projects {
-  background-color: $my-pink;
   padding: 16px 0 0 16px;
-  font-weight: bold;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-  border-radius: 10px;
+  box-shadow: 0 0 4px #8c8c8c;
+  border-top: 6px solid $my-red;
+  overflow: auto;
   max-height: 250px;
+  border-radius: 10px;
+  p {
+    font-size: .9rem;
+    color: $my-gray;
+  }
+}
+
+
+.bottom-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 16px;
+  margin-top: 24px;
+}
+
+.dashboard-projects-and-applications {
+  padding: 16px 0 0 16px;
+  box-shadow: 0 0 4px #8c8c8c;
+  border-top: 6px solid $my-red;
+  overflow: auto;
+  height: 250px;
+  border-radius: 10px;
+
+  p {
+    font-size: .9rem;
+    color: $my-gray;
+  }
 }
 
 .background-color {

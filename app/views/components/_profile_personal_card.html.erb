@@ -36,20 +36,21 @@
 
   <div class="your-projects d-flex justify-content-between pl-3 pr-3">
     <div>
-      <p> Your Projects:</p>
-        <% if current_user.projects.present? %>
-          <% current_user.projects.each do |project| %>
-            <p> <%= link_to project.title, project_path(project.id) %>
+      <h5> Your Technologies:</h5>
+        <% if current_user.user_technologies.present? %>
+          <% current_user.user_technologies.each do |tech| %>
+            <p> <%= tech %>
             <% end %>
         <% else %>
-          <p>There are no projects to show at present</p>
+          <p>Remember to complete your profile</p>
         <% end %>
     </div>
   </div>
 </div>
 
+<div>
 <div class="bottom-container">
-  <div class="background-color">
+  <div class="dashboard-projects-and-applications">
     <h4>Projects you have applied for:</h4>
       <% current_user.applications.each do |application| %>
         <p> <%= link_to application.project.title, project_path(application.project.id) %>
@@ -64,7 +65,7 @@
       <% end %>
   </div>
 
-  <div class="background-color">
+  <div class="dashboard-projects-and-applications">
     <div>
       <h4>Applications to your projects:</h4>
       <% @projects.each do |project| %>
@@ -73,8 +74,8 @@
             <% project.applications.each do |application|%>
               <% if application.status.nil?%>
                 <p> <%= link_to application.user.first_name, project_path(project.id) %>
-                <p class="btn btn-secondary"> <%= link_to "accept", accept_path(id: project.applications.last), method: :post %> </p>
-                <p class="btn btn-info"> <%= link_to "reject", reject_path(id: project.applications.last), method: :post %> </p>
+                <p class="btn btn-outline-secondary"> <%= link_to "accept", accept_path(id: project.applications.last), method: :post %> </p>
+                <p class="btn btn-outline-info"> <%= link_to "reject", reject_path(id: project.applications.last), method: :post %> </p>
               <% else %>
                 <p>No new applications</p>
               <% end %>

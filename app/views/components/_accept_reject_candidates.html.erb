@@ -3,8 +3,8 @@
     <% current_user.projects.each do |project| %>
       <% project.applications do |applicants|%>
       <p> <%= link_to applicants.name, project_path(project.id) %>
-        <p class="btn btn-secondary"> <%= link_to "accept", accept_path(id: project.applications.last), method: :post %> </p>
-        <p class="btn btn-info"> <%= link_to "reject", reject_path(id: project.applications.last), method: :post %> </p>
+        <p class="btn btn-outline-secondary"> <%= link_to "accept", accept_path(id: project.applications.last), method: :post %> </p>
+        <p class="btn btn-outline-info"> <%= link_to "reject", reject_path(id: project.applications.last), method: :post %> </p>
       <% end %>
     <% end %>
   <% else %>
