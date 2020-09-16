@@ -49,7 +49,7 @@
 
         <% if @applications&.status.blank? || @applications.status == nil %>
           <%= link_to "Apply", new_project_application_path(@project.id), class: "btn btn-primary apply-button" %>
-        <% elsif @applications.status == false %>
+        <% elsif @applications.status == false ||  %>
           <p>I'm sorry you can't re-apply to this project</p>
         <% elsif @applications.status == true %>
           <p><%= link_to 'Chat with the project owner', project_chatroom_path(@project) %> to find out more.</p>

@@ -1,7 +1,7 @@
 class Application < ApplicationRecord
   belongs_to :project
   belongs_to :user
-
+  validates :user_id, uniqueness: { scope: [:application_id] }
   def accepted?
     status
   end
