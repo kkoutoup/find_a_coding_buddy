@@ -1,30 +1,27 @@
 <div class="container">
-  <h1>Find buddies</h1>
+  <div class="row">
+    <div class="col-xs-12 col-md-10 offset-md-1 col-lg-9">
+    <h1 class="mt-3">Find buddies</h1>
     <%= render 'components/user_search' %>
-
     <% @users.each do |user| %>
-
-      <div class="card-users-infos">
-        <br>
-          <% if user.photo.attached? %>
-            <div class="card-users">
-              <div class="user-index-photo" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path user.photo.key, height: 200, width: 200, crop: :fill %>')">
-              </div>
-            <div class="card-users-infos">
-                <h2 class="mt-3"><strong>
-                  <%= link_to "#{user.first_name}  #{user.last_name}" , user_path(user.id) %>
-                </strong></h2>
-                <p> <%= user.personal_summary %></p>
-            </div>
-          <% else %>
-            <div class="card-users">
-              <div class="user-index-photo" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), image_tag('missing-avatar-female-200x200.png')">
-            </div>
-            <div class="card-users-infos">
-                <p> <%= user.personal_summary %></p>
-            </div>
-          <% end %>
-      </div>
+      <% if user.photo.attached? %>
+        <div class="card-product mt-3">
+          <%= cl_image_tag  user.photo.key, class:"cocktail-image", crop: :fill %>
+          <div class="card-product-infos">
+            <h2 class="mt-3"><strong><%= link_to "#{user.first_name}  #{user.last_name}" , user_path(user.id) %></strong></h2>
+            <p><%= user.personal_summary %></p>
+          </div>
+        </div>
+        <% else %>
+        <div class="card-product mt-3">
+          <%= image_tag('missing-avatar-female-200x200.png') %>
+          <div class="card-product-infos">
+            <h2 class="mt-3"><strong><%= link_to "#{user.first_name}  #{user.last_name}" , user_path(user.id) %></strong></h2>
+            <p><%= user.personal_summary %></p>
+          </div>
+        </div>
+      <% end %>
     <%  end %>
-
+    </div>
+  </div>
 </div>
