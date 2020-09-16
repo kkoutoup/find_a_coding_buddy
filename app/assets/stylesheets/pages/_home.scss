@@ -1,25 +1,30 @@
 #box-description-homepage {
   text-align: center;
-  padding-top: 30px;
-  padding-bottom: 20px;
+  padding-top: 50px;
+  padding-bottom: 50px;
   font-weight: lighter;
   color: $my-light-gray;
 }
 
 .box-tagline {
-  background-color: $light-gray;
-  height: 100px;
+  background-color: $white;
+  background-image: url("https://image.freepik.com/free-vector/white-blurred-futuristic-technology-background_23-2148402775.jpg");
+  background-size: cover;
+  height: 160px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .new600px-container {
   display: flex;
+  padding-top: 25px;
 }
 
 .taglines {
   margin: auto;
   text-align: center;
   h3 {
-    padding-top: 16px;
+    padding-top: 24px;
   }
 }
 
@@ -27,11 +32,14 @@
   color: $my-dark-red;
   margin: 16px auto;
   text-align: center;
+  padding-top: 50px
 }
+
 .main-how-it-works {
   color: $my-blue;
   display: flex;
   text-align: center;
+  padding-bottom: 50px;
     h5 {
       font-weight: bold;
     }
@@ -40,6 +48,7 @@
       color: $my-light-gray;
     }
 }
+
 .join-a-project {
   margin: auto;
 }
