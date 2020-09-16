@@ -6,7 +6,7 @@
     <% @users.each do |user| %>
       <% if user.photo.attached? %>
         <div class="card-product mt-3">
-          <%= cl_image_tag  user.photo.key, class:"cocktail-image", crop: :fill %>
+          <%= cl_image_tag  user.photo.key, class:"buddy-image", crop: :fill %>
           <div class="card-product-infos">
             <h2 class="mt-3"><strong><%= link_to "#{user.first_name}  #{user.last_name}" , user_path(user.id) %></strong></h2>
             <p><%= render_personal_summary(user) %></p>
