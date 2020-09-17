@@ -1,5 +1,9 @@
 <div class="message-container mt-1 mb-1" id="message-<%= message.id %>">
-  <%= image_tag message.user.photo, class: "avatar" %>
+  <% if @message.user.photo.present? %>
+    <%= image_tag @message.user.photo, class: "avatar" %>
+  <% else %>
+    <%= image_tag "technologies_icons/logo-missing-img.png", :width=>40, :height=>40 %>
+    <% end %>
   <i class="author">
     <span><%= message.user.first_name %></span>
     <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
