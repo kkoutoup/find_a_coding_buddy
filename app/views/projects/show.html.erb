@@ -8,6 +8,7 @@
     <p><i class="fa fa-user"></i> Led by: <%= link_to "#{@project.user.first_name} #{@project.user.last_name}", user_path(@project.user.id) %></p>
   <% end %>
   <h5 class="mt-3 project-main-header">About the Project</h5>
+    <%= render 'components/show_project_status' %>
   <div class="row">
     <div class="col-lg-10 col-sm-12">
       <p><%= @project.description %></p>
@@ -43,7 +44,13 @@
   </div>
 
   <div class="mt-5">
-
+    <%# show reviews and related projects when user signed out %>
+    <% if current_user.nil? %>
+      <%= render 'components/show_related_projects' %>
+      <% if @project.status == true %>
+        <%= render 'components/show_reviews' %>
+      <% end %>
+    <% end %>
     <% if user_signed_in? %>
       <% unless current_user.id == @project.user.id %>
 
@@ -66,8 +73,4 @@
     <% end %>
 
   </div>
-  <%# show reviews if project completed %>
-  <%= render 'components/show_reviews' %>
-  <%# show related if not in edit mode %>
-  <%= render 'components/show_related_projects' %>
 </div>
