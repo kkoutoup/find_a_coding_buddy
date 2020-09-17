@@ -66,9 +66,11 @@
         <% elsif @applications.accepted? %>
           <p><%= link_to 'Chat with the project owner', project_chatroom_path(@project) %> to find out more.</p>
         <% end %>
-
       <% else %>
-        <p>list applicants</p>
+        <h5 class="project-main-header">Your project buddies</h5>
+        <ul>
+          <%= render_users(@project.applications) %>
+        </ul>
       <% end %>
     <% end %>
 
