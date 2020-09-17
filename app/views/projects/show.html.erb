@@ -68,11 +68,14 @@
         <% end %>
       <% else %>
         <h5 class="project-main-header">Your project buddies</h5>
-        <ul>
-          <%= render_users(@project.applications) %>
-        </ul>
+        <% if @project.applications.count > 0 %>
+          <ul>
+            <%= render_users(@project.applications) %>
+          </ul>
+        <% else %>
+          <p>This project hasn't received any applications yet</p>
+        <% end %>
       <% end %>
     <% end %>
-
   </div>
 </div>
