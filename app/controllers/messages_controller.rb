@@ -6,12 +6,17 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     @message.chatroom = @chatroom
     @message.user = current_user
+    @project = @chatroom.project
     if @message.save
       ChatroomChannel.broadcast_to(
         @chatroom,
         render_to_string(partial: "message", locals: { message: @message })
       )
-      redirect_to chatroom_path(@chatroom, anchor: "message-#{@message.id}")
+      respond_to do |format|
+        format.html { redirect_to project_chatroom_path( @project, anchor: "message-#{@message.id}") }
+        format.js
+      end
+      
     else
       render "chatrooms/show"
     end
