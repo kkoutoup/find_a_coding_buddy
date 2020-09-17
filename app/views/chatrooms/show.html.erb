@@ -3,16 +3,27 @@
     <div class="col-sm-6 col-sm-offset-3">
       <div class="chat-header"><h4><%= @project.title %></h4></div>
 
-        <div id="messages">
+        <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
           <% @chatroom.messages.each do |message| %>
-            <%= render 'messages/message', message:message, user_is_messages_author: message.user == current_user  %>
+            <div class="message-container mt-1 mb-1" id="message-<%= message.id %>">
+            <% if message.user.photo.present? %>
+              <%= image_tag message.user.photo, class: "avatar" %>
+            <% else %>
+              <%= image_tag "technologies_icons/logo-missing-img.png", :width=>40, :height=>40 %>
+            <% end %>
+            <i class="author">
+              <span><%= message.user.first_name %></span>
+              <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+            </i>
+            <div class="message-content"><%= message.content %></div>
+          </div>
           <% end %>
         </div>
 
         <div id="create-message">
           <%= simple_form_for [ @project, @chatroom, Message.new], remote: true, html: {autocomplete: "off" }  do |f| %>
             <%= f.input :content, label: false, placeholder: "Message others at #{@project.title}" %>
-            <%= f.button :submit, value="Send Message", class: "btn-outline-primary" %>
+            <%= f.button :submit, value="Send Message", class: "btn-outline-primary", id: "message-btn" %>
           <% end %>
         </div>
 
@@ -23,14 +34,5 @@
 <% content_for :after_js do %>
   <script>
     scrollLastMessageIntoView();
-    App['chat_room_<%= @chatroom.id %>'] = App.cable.subscriptions.create({ channel: 'ChatRoomsChannel', chatroom_id: <%= @chatroom.id %> }, {
-      received: (data) => {
-        if (data.current_user_id !== <%= current_user.id %>) {
-          const messagesContainer = document.querySelector('.messages');
-          messagesContainer.insertAdjacentHTML('beforeend', data.message_partial);
-          scrollLastMessageIntoView();
-        }
-      }
-    })
   </script>
 <% end %>
