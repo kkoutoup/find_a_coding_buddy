@@ -45,12 +45,11 @@
 
   <div class="mt-5">
     <%# show reviews and related projects when user signed out %>
-    <% if current_user.nil? %>
-      <%= render 'components/show_related_projects' %>
-      <% if @project.status == true %>
-        <%= render 'components/show_reviews' %>
-      <% end %>
+    <%= render 'components/show_related_projects' %>
+    <% if @project.status == true %>
+      <%= render 'components/show_reviews' %>
     <% end %>
+    
     <% if user_signed_in? %>
       <% unless current_user.id == @project.user.id %>
 
@@ -60,15 +59,15 @@
       <% elsif @applications&.rejected?  %>
         <p>I'm sorry you can't re-apply to this project</p>
 
-        <% elsif @applications&.status.blank? %>
+        <% elsif @applications&.status.blank? && @project.status == false %>
           <%= link_to "Apply", new_project_application_path(@project.id), class: "btn btn-primary apply-button" %>
 
-        <% elsif @applications.accepted? %>
+        <% elsif @applications&.accepted? %>
           <p><%= link_to 'Chat with the project owner', project_chatroom_path(@project) %> to find out more.</p>
         <% end %>
       <% else %>
         <h5 class="project-main-header">Your project buddies</h5>
-        <% if @project.applications.count > 0 %>
+        <% if @project.applications.any? %>
           <ul>
             <%= render_users(@project.applications) %>
           </ul>
