@@ -1,0 +1,5 @@
+meta_product_name: "Code buddies"
+meta_title: "Code Buddies - Work.Play.Code."
+meta_description: "Code buddies let's you join or create coding projects, and find buddies to work together with"
+meta_image: "landing-start-coding-two" # should exist in `app/assets/images/`
+twitter_account: "@product_twitter_account"   # required for Twitter Cards
