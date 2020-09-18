@@ -15,17 +15,14 @@
 
   <div class="description">
     <h1><b><%= current_user.first_name  %> <%= current_user.last_name  %></b></h1>
-    <h6>Full-Stack developer - Le Wagon</h6>
-    <h6><%= current_user.personal_summary%></h6>
-
     <div class="top-skills d-flex justify-content-between pl-3 pr-3 align-self-end">
       <div>
-        <p><b>Top skills:</b>
-          <% current_user.technologies.each do |technology| %>
-            <p> <%= technology %> </p>
-              <% end %>
-
-        <p><b>Personal summary: </b><%= current_user.personal_summary%></p>
+        <h5>What I like, what matters to me, what I can offer, what I want to achieve:</h5>
+        <% if current_user.personal_summary.present? %>
+            <p> <%= current_user.personal_summary %>
+        <% else %>
+          <p>In order to make the most out of Code Buddies remember to complete your profile</p>
+        <% end %>
       </div>
       <div>
 
@@ -39,10 +36,10 @@
       <h5> Your Technologies:</h5>
         <% if current_user.user_technologies.present? %>
           <% current_user.user_technologies.each do |tech| %>
-            <p> <%= tech %>
+            <p> <%= tech %> </p>
             <% end %>
         <% else %>
-          <p>Remember to complete your profile</p>
+          <p>In order to make the most out of Code Buddies remember to complete your profile</p>
         <% end %>
     </div>
   </div>
