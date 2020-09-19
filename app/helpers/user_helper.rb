@@ -8,7 +8,6 @@ module UserHelper
   end
 
   def user_photo(user)
-    user
     if user.photo.attached?
       user.photo
     else

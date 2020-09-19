@@ -1,82 +1,51 @@
-.card-users-lg {
-  overflow: hidden;
-  height: flex;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  display: flex;
-  align-items: center;
-}
-
-.card-users-lg img {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-}
-
-.card-users {
-  overflow: hidden;
-  height: 160px;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  display: flex;
-  align-items: center;
-}
-
-.card-users img {
-  height: 100%;
-  width: 120px;
-  object-fit: cover;
-}
-
-.card-users h2 {
-  font-size: 18px;
-  font-weight: bold;
-  color: $my-red;
-  margin: 0;
-}
-
-.card-users p {
-  font-size: 16px;
-  line-height: 1.4;
-  opacity: .7;
-  margin-bottom: 0;
-  margin-top: 8px;
-}
-
-.card-users .card-users-infos {
-  padding: 18px;
-  width: 75%;
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 16px;
+  // grid-template-rows: 100px 200px 100px;
 }
 
 .card-product {
   overflow: hidden;
-  height: 120px;
+  height: 370px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  display: flex;
   align-items: center;
 }
 
+.card-product-infos {
+  padding: 8px;
+
+  .nav-link {
+    margin-bottom: 8px;
+    text-align: center;
+    color: white;
+    background-color: $my-red;
+    border: solid 1px $my-red;
+    border-radius: 3px;
+  }
+}
+
 .card-product img {
-  height: 100%;
-  width: 120px;
+  height: 40%;
+  width: 100%;
   object-fit: cover;
 }
 
-.card-product h2 {
-  font-size: 1.3rem;
+.card-product h5 {
+  // font-size: 1.3rem;
   font-weight: bold;
-  margin: 0;
+  text-align: center;
 }
 
 .card-product p {
-  font-size: 1rem;
+  font-size: 12px;
   line-height: 1.4;
   opacity: .7;
   margin-bottom: 0;
   margin-top: 8px;
 }
 
-.card-product .card-product-infos {
-  padding: 16px;
+.set-height-user-index {
+  height: 150px;
 }

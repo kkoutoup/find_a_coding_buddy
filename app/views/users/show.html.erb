@@ -1,22 +1,27 @@
 <div class="container mt-5">
-  <div class="user-show-card-top">
+
+  <div class="user-show-card-top d-flex">
+
     <div class="photo">
-      <% if @user.photo.attached? %>
-        <div class="user-show-photo" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @user.photo.key, height: 200, width: 200, crop: :fill %>')"></div>
-      <% else %>
-        <div class="user-show-photo" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), image_tag('missing-avatar-female-200x200.png')"></div>
-      <% end %>
+      <%= image_tag user_photo(@user), class: "user-show-photo" %>
     </div>
+    <div class="user-description">
+      <h1><%= @user.first_name %> <%= @user.last_name %> <%= link_to '', edit_user_path, class: "fas fa-user-edit" %> </h1>
+      <p> <%= @user.expertise_level %> </p>
+      <p><i class="fas fa-map-marker-alt"></i> <%= @user.address %> </p>
+      <p> <i class="far fa-envelope"></i> <%= @user.email%> </p>
+    </div>
+
   </div>
+
+
+
   </br>
-  <div class="user-show-card">
+  <div class="user-show-card pt-3">
     <div>
-        <%= render 'components/user_technology_icon' %>
+      <%= render 'components/user_technology_icon' %>
     </div>
-    </br>
-  <h1><%= @user.first_name %> <%= @user.last_name %> <%= link_to '', edit_user_path, class: "fas fa-user-edit" %> </h1>
-    <p><i class="fas fa-map-marker-alt"></i> <%= @user.address %> </p>
-    <p> <i class="far fa-envelope"></i> <%= @user.email%> </p>
+
     <p><%= @user.personal_summary %></p>
     </br>
     <%= link_to 'Back', :back, class: "btn btn-outline-primary" %>
