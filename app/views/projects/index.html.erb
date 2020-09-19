@@ -1,12 +1,31 @@
 <div class="container mt-3">
-<%= render 'components/difficulty_filter' %>
-<%= render 'components/project_search' %>
-<% if @projects.count > 0 %>
-  <% if params[:query].present? %>
-    <p class="mt-3">We found <strong><%= pluralize(@projects.count, "project") %></strong> with <strong>"<%= params[:query] %>"</strong> in the title</p>
-  <% end %>
-  <%= render 'components/project_loop' %>
-  <% else %>
-    <h4 class="mt-4">No matches found for "<%= params[:query] %>"</h4>
-<% end %>
+<%# <%= render 'components/difficulty_filter' %>
+  <div class="row">
+    <div class="col-xs-12 col-md-10 col-lg-9 offset-lg-1">
+      <div class="introduction">
+        <div class="row">
+          <div class="colxs-12 col-md-9">
+            <h1 class="project-title mt-3">Project Noticeboard</h1>
+            <p>All projects our users create can be found here. Find a project you like, join a team of code buddies and start coding! All the projects you create will also appear on this page (just another opportunity to marvel at your work). Let's get creative!</p>
+            <%= render 'components/project_search' %>
+          </div>
+          <div class="col-md-2 sticky-note-container mt-3">
+            <div class="sticky-note">
+              <h2>Help needed</h2>
+              <p>Amazing project available. Looking for volunteers :-)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <%# <%= render 'components/project_search' %>
+      <% if @projects.count > 0 %>
+        <% if params[:query].present? %>
+          <p class="mt-3">We found <strong><%= pluralize(@projects.count, "project") %></strong> with <strong>"<%= params[:query] %>"</strong> in the title</p>
+        <% end %>
+        <%= render 'components/project_loop' %>
+        <% else %>
+          <h4 class="mt-4">No matches found for "<%= params[:query] %>"</h4>
+      <% end %>
+      </div>
+  </div>
 </div>

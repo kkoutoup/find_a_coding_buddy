@@ -1,0 +1,25 @@
+.introduction {
+  p {
+    font-size: 1rem;
+  }
+}
+
+.sticky-note {
+  h2, p {
+    font-family: 'Reenie Beanie', cursive;
+  }
+  p {
+    font-size: 1.3rem;
+  }
+  box-shadow: 2px 2px 8px #ccc;
+  padding: 20px;
+  height: 200px;
+  width: 200px;
+  background-color: #fbfb94;
+  transform: rotate(20deg);
+  @media only screen and (max-width: 768px) {
+    & {
+      display: none;
+    }
+  }
+}
