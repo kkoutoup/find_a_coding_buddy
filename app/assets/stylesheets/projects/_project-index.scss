@@ -1,0 +1,63 @@
+.introduction {
+  p {
+    font-size: 1rem;
+  }
+}
+
+.sticky-note {
+  h2, p {
+    font-family: 'Reenie Beanie', cursive;
+  }
+  p {
+    font-size: 1.3rem;
+  }
+  box-shadow: 2px 2px 8px #ccc;
+  padding: 20px;
+  height: 200px;
+  width: 200px;
+  background-color: #fbfb94;
+  transform: rotate(20deg);
+  @media only screen and (max-width: 768px) {
+    & {
+      display: none;
+    }
+  }
+}
+
+.project-card {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  background-image: url(https://image.freepik.com/free-vector/white-background-with-blue-tech-hexagon_1017-19366.jpg);
+  background-repeat: no-repeat;
+  height: 220px;
+  padding: 10px;
+  margin-bottom: 50px;
+  h2 {
+    font-size: 1rem;
+    line-height: 1.3rem;
+    color: $my-red;
+    a {
+      text-decoration: none;
+      &:hover {
+        color: $my-red;
+        text-decoration: none;
+      }
+    }
+  }
+  p.project-level {
+    font-size: .8rem;
+  }
+  p.project-description {
+    font-size: .9rem;
+  }
+  .first-section {
+    height: 50px;
+  }
+  .tech-icon {
+    width: 10%;
+  }
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+  }
+}
