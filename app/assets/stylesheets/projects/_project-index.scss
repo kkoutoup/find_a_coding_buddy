@@ -27,9 +27,19 @@
 .project-card {
   h2 {
     font-size: 1rem;
+    line-height: 1.3rem;
   }
   p.project-level {
     font-size: .8rem;
+  }
+  p.project-description {
+    font-size: .9rem;
+  }
+  .first-section {
+    height: 50px;
+  }
+  .tech-icon {
+    width: 10%;
   }
   margin-bottom: 50px;
 }

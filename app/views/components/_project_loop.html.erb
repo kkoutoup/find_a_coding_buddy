@@ -1,12 +1,14 @@
 <% @projects.each do |project| %>
-<div class="col-4">
-  <div class="project-card">
-    <h2 class="project-title"> <%= link_to project.title, project_path(project) %> </h2>
-    <p class="project-level"><i class="fas fa-chart-bar"></i>: <%= project.difficulty %></p>
-    <p> <%= project.description.truncate(50, separator:" ") %></p>
-    <% project.technologies.each do |technology| %>
-      <img src="<%= check_image_exists(technology) %>" alt="<%= technology.name %>-icon" class="tech-icon mt-3">
-    <% end %>
+  <div class="col-4">
+    <div class="project-card">
+      <div class="first-section">
+        <h2 class="project-title"> <%= link_to project.title, project_path(project) %> </h2>
+        <p class="project-level"><i class="fas fa-chart-bar"></i>: <%= project.difficulty.capitalize %></p>
+        </div>
+        <p class="project-description"> <%= project.description.truncate(100, separator:" ") %></p>
+        <% project.technologies.each do |technology| %>
+          <img src="<%= check_image_exists(technology) %>" alt="<%= technology.name %>-icon" class="tech-icon mt-3">
+        <% end %>
+    </div>
   </div>
-</div>
 <%  end %>
