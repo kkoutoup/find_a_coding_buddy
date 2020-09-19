@@ -17,12 +17,8 @@
     <h1><b><%= current_user.first_name  %> <%= current_user.last_name  %></b></h1>
     <div class="top-skills d-flex justify-content-between pl-3 pr-3 align-self-end">
       <div>
-        <h5>What I like, what matters to me, what I can offer, what I want to achieve:</h5>
-        <% if current_user.personal_summary.present? %>
-            <p> <%= current_user.personal_summary %>
-        <% else %>
-          <p>In order to make the most out of Code Buddies remember to complete your profile</p>
-        <% end %>
+        <h5>What I like, what I can offer, what I want to achieve:</h5>
+        <p><%= dashboard_personal_summary(current_user) %></p>
       </div>
       <div>
 
@@ -31,12 +27,12 @@
     </div>
   </div>
 
-  <div class="your-projects d-flex justify-content-between pl-3 pr-3">
+  <div class="your-technologies d-flex justify-content-between pl-3 pr-3">
     <div>
       <h5> Your Technologies:</h5>
         <% if current_user.user_technologies.present? %>
-          <% current_user.user_technologies.each do |tech| %>
-            <p> <%= tech %> </p>
+          <% current_user.technologies.each do |tech| %>
+            <p> <%= tech.name %> </p>
             <% end %>
         <% else %>
           <p>In order to make the most out of Code Buddies remember to complete your profile</p>
@@ -49,16 +45,20 @@
 <div class="bottom-container">
   <div class="dashboard-projects-and-applications">
     <h4>Projects you have applied for:</h4>
-      <% current_user.applications.each do |application| %>
-        <p> <%= link_to application.project.title, project_path(application.project.id) %>
-        with <strong> <%= link_to application.project.user.first_name, user_path(application.project.user.id) %> </strong> </p>
-          <% if application.status == nil %>
-            <p> <strong> Status: </strong> Pending <i class="fas fa-hourglass-half"></i></p>
-          <% elsif application.status == true %>
-            <p> <strong> Status: </strong> Congratulations, you've been accepted! <i class="far fa-thumbs-up"></i></p>
-          <% else application.status == false %>
-            <p> <strong> Status: </strong> Sorry application unsuccesful, try another project! <i class="far fa-thumbs-down"></i></p>
-          <% end  %>
+      <% if current_user.applications.present? %>
+        <% current_user.applications.each do |application| %>
+          <p> <%= link_to application.project.title, project_path(application.project.id) %>
+          with <strong> <%= link_to application.project.user.first_name, user_path(application.project.user.id) %> </strong> </p>
+            <% if application.status == nil %>
+              <p> <strong> Status: </strong> Pending <i class="fas fa-hourglass-half"></i></p>
+            <% elsif application.status == true %>
+              <p> <strong> Status: </strong> Congratulations, you've been accepted! <i class="far fa-thumbs-up"></i></p>
+            <% else application.status == false %>
+              <p> <strong> Status: </strong> Sorry application unsuccesful, try another project! <i class="far fa-thumbs-down"></i></p>
+            <% end  %>
+        <% end %>
+      <% else %>
+        <p> Fuffa </p>
       <% end %>
   </div>
 
