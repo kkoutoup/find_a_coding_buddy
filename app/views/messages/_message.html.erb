@@ -1,0 +1,8 @@
+<div class="message-container mt-1 mb-1" id="message-<%= message.id %>">
+    <%= image_tag user_photo(message.user), class: "avatar" %>
+    <i class="author">
+      <span><%= message.user.first_name %></span>
+      <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+    </i>
+    <div class="message-content"><%= message.content %></div>
+</div>

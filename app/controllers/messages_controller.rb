@@ -16,7 +16,7 @@ class MessagesController < ApplicationController
         format.html { redirect_to project_chatroom_path( @project, anchor: "message-#{@message.id}") }
         format.js
       end
-      
+
     else
       render "chatrooms/show"
     end
