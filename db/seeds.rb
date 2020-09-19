@@ -20,6 +20,7 @@ UserTechnology.destroy_all if Rails.env.development?
 LEVEL = ["beginner", "intermediate", "advanced"]
 EMAIL_EXTENSIONS = ["@gmail.com", "@yahoo.com", "@hotmail.com", "@business.com", "@aol.com"]
 TECHNOLOGIES = ["Javascript", "Node.js", "Express.js", "MongoDB", "Python", "Flask", "Ruby", "Rails", "HTML", "SASS", "Figma", "C#", ".NET", "PHP", "Design", "Android", "Go", "SQL", "Django", "Vue.js", "React", "Bootstrap", "CSS", "Sinatra", "Selenium", "API"]
+CITIES = ["London", "Paris", "Milan", "Athens", "Copenhagen", "Madrid", "Barcelona", "Berlin", "Tokyo", "Amsterdam", "Lyon", "Grenoble", "Stockholm"]
 
 # Populate csv with summaries
 puts "=> Populating personal summaries from csv"
@@ -37,6 +38,7 @@ CSV.foreach(filepath, csv_options) do |row|
       last_name:  Faker::Name.last_name,
       email: Faker::Internet.email,
       personal_summary: row,
+      address: CITIES.sample,
       expertise_level: LEVEL.sample,
       password: "testing"
     }
