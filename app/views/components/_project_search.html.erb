@@ -1,9 +1,9 @@
-<h4 class="mt-5">Search</h4>
-<%= form_tag projects_path, method: :get do %>
+<h4 class="mt-5" id="search-header">Search</h4>
+<%= form_tag "projects#search-header", method: :get do %>
   <%= text_field_tag :query,
     params[:query],
     class: "form-control",
-    placeholder: "Find a project"
+    placeholder: "What do you fancy working on today?"
   %>
   <%= submit_tag "Search", class: "btn btn-primary mt-3" %>
   <%= link_to "Reset", projects_path, class: "btn btn-outline-primary mt-3" %>
