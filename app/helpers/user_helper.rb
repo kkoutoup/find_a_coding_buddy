@@ -10,9 +10,9 @@ module UserHelper
   def user_photo(user)
     user
     if user.photo.attached?
-        user.photo
+      user.photo
     else
-        'missing-avatar-female-200x200.png'
+      'missing-avatar-female-200x200.png'
     end
   end
 end
