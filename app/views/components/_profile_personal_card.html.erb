@@ -1,50 +1,47 @@
-<h1> Dashboard </h1>
-
 <%= render 'components/modal_edit_user' %>
-
-<div class="top-container">
-
-  <div class="photo">
-    <% if current_user.photo.attached? %>
-      <div class="user-photo" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path current_user.photo.key, height: 250, width: 250, crop: :fill %>')">
-    <% else %>
-      <div class="user-photo" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('assets/missing-avatar-female-200x200.png')">
-    <% end %>
+<div class="container mt-3">
+  <div class="container mt-5 ">
+  <div class="profile-show-card">
+      <h2><b style="color: my-red">Welcome <%= current_user.first_name  %> <%= current_user.last_name %></b></h2>
       </div>
-  </div>
-
-  <div class="description">
-    <h1><b><%= current_user.first_name  %> <%= current_user.last_name  %></b></h1>
-    <div class="top-skills d-flex justify-content-between pl-3 pr-3 align-self-end">
-      <div>
-        <h5>What I like, what I can offer, what I want to achieve:</h5>
-        <p><%= dashboard_personal_summary(current_user) %></p>
-      </div>
-      <div>
-
-        <i class="fas fa-pencil-alt" type="button" id="button-modal" data-toggle="modal" data-target="#exampleModalLong"></i>
+    <div class="profile-card-top">
+      <div class="photo">
+        <% if @user.photo.attached? %>
+          <div class="user-show-photo" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @user.photo.key, height: 200, width: 200, crop: :fill %>')"></div>
+        <% else %>
+          <div class="user-show-photo" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), image_tag('missing-avatar-female-200x200.png')"></div>
+        <% end %>
       </div>
     </div>
-  </div>
-
-  <div class="your-technologies d-flex justify-content-between pl-3 pr-3">
-    <div>
-      <h5> Your Technologies:</h5>
+    <div class="profile-show-card">
         <% if current_user.user_technologies.present? %>
-          <% current_user.technologies.each do |tech| %>
-            <p> <%= tech.name %> </p>
-            <% end %>
+          <% @user.technologies.each do |technology| %>
+            <img src="<%= check_image_exists(technology) %>" alt="<%= technology.name %>-icon" class="profile-tech-icon mt-3">
+          <% end %>
         <% else %>
           <p>In order to make the most out of Code Buddies remember to complete your profile</p>
         <% end %>
     </div>
+     </br>
+    <div class="top-skills d-flex justify-content-between pl-3 pr-3 align-self-end">
+      <div>
+        <p><i class="fas fa-chart-bar"></i> <%= @user.expertise_level %></p>
+        <p><b>Your profile summary:</b></p>
+        <p><%= dashboard_personal_summary(current_user) %></p>
+      </div>
+      <div>
+        <i class="fas fa-pencil-alt" type="button" id="button-modal" data-toggle="modal" data-target="#exampleModalLong"></i>
+      </div>
+    </div>
+    </br>
   </div>
-</div>
-
+  <hr>
 <div>
+
 <div class="bottom-container">
   <div class="dashboard-projects-and-applications">
     <h4>Projects you have applied for:</h4>
+    <br>
       <% if current_user.applications.present? %>
         <% current_user.applications.each do |application| %>
           <p> <%= link_to application.project.title, project_path(application.project.id) %>
@@ -56,31 +53,35 @@
             <% else application.status == false %>
               <p> <strong> Status: </strong> Sorry application unsuccesful, try another project! <i class="far fa-thumbs-down"></i></p>
             <% end  %>
+        <hr>
         <% end %>
       <% else %>
-        <p> Fuffa </p>
+        <p> You haven't applied for any projects yet!! </p>
       <% end %>
   </div>
-
+  
   <div class="dashboard-projects-and-applications">
     <div>
-      <h4>Applications to your projects:</h4>
+      <h4>Your offered projects & applications:</h4>
+      <br>
       <% @projects.each do |project| %>
         <p> <%= link_to project.title, project_path(project.id) %> </p>
           <% if project.applications.present?%>
             <% project.applications.each do |application|%>
               <% if application.status.nil?%>
-                <p> <%= link_to application.user.first_name, project_path(project.id) %>
+                <p> <%= link_to application.user.first_name, project_path(project.id) %> would like to join <p>
                 <p class="btn btn-outline-secondary"> <%= link_to "accept", accept_path(id: project.applications.last), method: :post %> </p>
                 <p class="btn btn-outline-info"> <%= link_to "reject", reject_path(id: project.applications.last), method: :post %> </p>
               <% else %>
                 <p>No new applications</p>
               <% end %>
+              <hr>
             <% end %>
             <% else %>
                 <p>No new applications</p>
              <% end %>
           <% end %>
     </div>
-  </div>
+</div>
+
 </div>
