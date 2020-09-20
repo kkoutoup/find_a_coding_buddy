@@ -1,4 +1,4 @@
-<h5 class="mt-5">Search <i class="fas fa-search"></i></h5>
+<h5 class="mt-5" id="search-header"><i class="fas fa-search fa-rotate-90"></i> Search</h5>
 <%= form_tag "projects#search-header", method: :get do %>
   <%= text_field_tag :query,
     params[:query],
