@@ -5,10 +5,10 @@
       rgba(0, 0, 0, 0.5)
     ),
     asset-url('home_page_banner_pic.jpg');
-  // width: 100vw; seems to be pushing the margins on home page
+  width: 100vw;
   text-align: center;
   height: 55vh;
-  object-fit: cover;
+  background-size: cover;
   background-repeat: no-repeat;
 }
 

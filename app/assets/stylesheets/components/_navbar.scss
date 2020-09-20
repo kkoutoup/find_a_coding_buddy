@@ -4,7 +4,6 @@
   left: 0;
   width: 100%;
   z-index: 100;
-  background-color: #9B3B5A;
   background-image: url("https://i.pinimg.com/736x/b2/6b/52/b26b5205fba34bb6971eb486157ac017.jpg");
   background-size: cover;
 }
@@ -40,4 +39,8 @@
 
 .nav-link {
   color: #9B3B5A;
+}
+
+.dropdown-menu{
+  // margin-right: 40px;
 }

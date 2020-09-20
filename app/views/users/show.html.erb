@@ -1,29 +1,43 @@
 <div class="container mt-5">
+  <div class="background">
+    <div class="user-show-card-top d-flex">
 
-  <div class="user-show-card-top d-flex">
+      <div class="photo">
+        <%= image_tag user_photo(@user), class: "user-show-photo" %>
+      </div>
 
-    <div class="photo">
-      <%= image_tag user_photo(@user), class: "user-show-photo" %>
+        <div class="user-description d-flex align-items-end">
+          <div>
+            <h1><%= @user.first_name %> <%= @user.last_name %> </h1>
+            <p> <%= @user.expertise_level %> </p>
+            <% if @user.address.present? %>
+              <p><i class="fas fa-map-marker-alt"></i> <%= @user.address %> </p>
+            <% else %>
+              <p><i class="fas fa-map-marker-alt"></i> <%= "Let others know where you are based"  %> </p>
+              <% end %>
+            <p> <i class="far fa-envelope"></i> <%= @user.email%> </p>
+          </div>
+         <div class="icons">
+          <% if @user.technologies.present? %>
+            <%= render 'components/user_technology_icon' %>
+          <% else %>
+            <p><%= "Go to dashboard to add your technologies"  %> </p>
+            <% end %>
+         </div>
+      </div>
     </div>
-    <div class="user-description">
-      <h1><%= @user.first_name %> <%= @user.last_name %> <%= link_to '', edit_user_path, class: "fas fa-user-edit" %> </h1>
-      <p> <%= @user.expertise_level %> </p>
-      <p><i class="fas fa-map-marker-alt"></i> <%= @user.address %> </p>
-      <p> <i class="far fa-envelope"></i> <%= @user.email%> </p>
-    </div>
-
-  </div>
 
 
 
-  </br>
-  <div class="user-show-card pt-3">
-    <div>
-      <%= render 'components/user_technology_icon' %>
-    </div>
-
-    <p><%= @user.personal_summary %></p>
     </br>
-    <%= link_to 'Back', :back, class: "btn btn-outline-primary" %>
+    <div class="user-show-card pt-3">
+      <% if @user.personal_summary.present? %>
+        <p><%= @user.personal_summary %></p>
+      <% else %>
+        <p><%= "To make the most out of Code Buddies don't forget to go to your dashboard and create your personal profile"  %> </p>
+        <% end %>
+      </br>
+      <%= link_to 'Back', url_for(:back), class: "btn btn-outline-primary" %>
+    </div>
   </div>
 </div>
