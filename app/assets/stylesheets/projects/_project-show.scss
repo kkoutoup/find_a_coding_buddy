@@ -17,7 +17,7 @@ h1.project-title {
   margin-top: 20px;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 991px) {
  .title-container {
    display: block;
  }
@@ -25,6 +25,11 @@ h1.project-title {
 
 .project-side-header{
   margin-bottom: .25rem;
+  @media only screen and (max-width: 576px) {
+    & {
+      margin-top: 20px;
+    }
+   }
 }
 
 .project-main-header, .project-side-header, .related-projects-header {
@@ -38,6 +43,11 @@ h1.project-title {
   @media only screen and (max-width: 768px) {
     & {
       width: 30%;
+    }
+  }
+  @media only screen and (max-width: 576px) {
+    & {
+      width: 10%;
     }
   }
 }

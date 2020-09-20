@@ -2,7 +2,6 @@
 <% content_for :meta_description, @project.description %>
 <div class="container mt-3">
 
-
   <div class="row">
     <div class="col-xs-12 col-md-10 col-lg-10 offset-lg-1">
       <div class="title-container">
@@ -14,8 +13,7 @@
         <p><i class="fa fa-user"></i> Led by: <%= link_to "#{@project.user.first_name} #{@project.user.last_name}", user_path(@project.user.id) %></p>
       <% end %>
       </div>
-    </div><!--end row-->
-
+  </div><!--end row-->
 
   <div class="row mt-3">
     <div class="col-xs-12 col-md-10 col-lg-10 offset-lg-1">
@@ -25,52 +23,39 @@
     </div>
   </div><!--end row-->
 
-
-
-
   <div class="row">
-
-
-
-      <div class="col-sm-3 offset-lg-1 ">
-        <h6 class="project-side-header"><i class="fa fa-calendar" aria-hidden="true"></i> Estimated duration</h6>
-        <p><%= @project.duration %> days</p>
-      </div>
-
-      <div class="col-sm-3">
-        <h6 class="project-side-header"><i class="fas fa-chart-bar"></i> Difficulty level</h6>
-        <p> <%= @project.difficulty.capitalize %> </p>
-      </div>
-
-
-      <div class="col-sm-3">
-      <h6 class="project-side-header"><i class="fa fa-link" aria-hidden="true"></i> Project resources</h6>
-        <% if @project.rich_content.body %>
-          <p><%= @project.rich_content %></p>
-        <% else %>
-          <p>None posted so far</p>
-        <% end %>
+    <div class="col-sm-3 offset-lg-1 ">
+      <h6 class="project-side-header"><i class="fa fa-calendar" aria-hidden="true"></i> Estimated duration</h6>
+      <p><%= @project.duration %> days</p>
     </div>
 
-   
-    
+    <div class="col-sm-3">
+      <h6 class="project-side-header"><i class="fas fa-chart-bar"></i> Difficulty level</h6>
+      <p> <%= @project.difficulty.capitalize %> </p>
+    </div>
+
+    <div class="col-sm-3">
+    <h6 class="project-side-header"><i class="fa fa-link" aria-hidden="true"></i> Project resources</h6>
+      <% if @project.rich_content.body %>
+        <p><%= @project.rich_content %></p>
+      <% else %>
+        <p>None posted so far</p>
+      <% end %>
+    </div>
   </div><!--end row-->
  
-
-
-
-
- 
-  <div class="row">
-    <div class="col-4">
-      <h5 class="mt-4 project-main-header">Technologies involved</h5>
+  <div class="row mt-3">
+    <div class="col-sm-3 col-lg-3 offset-lg-1 ">
+      <h6 class="project-side-header">Technologies involved</h6>
         <%= render 'components/technology_icon' %>
     </div>
-    <div class="col-4">
-      <h5 class="mt-4 project-main-header">Questions?</h5>
+    <div class="col-sm-3 col-lg-3 ">
+      <h6 class="project-side-header">Questions?</h6>
       <%= link_to 'Chat  with the project owner', project_chatroom_path(@project) %> to find out more.
     </div>
-  </div>
+  </div><!--end row-->
+
+
 
   <div class="mt-5">
     <%# show reviews and related projects when user signed out %>
