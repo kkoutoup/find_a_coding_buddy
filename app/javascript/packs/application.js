@@ -70,9 +70,9 @@ document.addEventListener('turbolinks:load', () => {
               items: 3,
           }
       }
-
     });
   }
+
   const options = {
     show : true
   }
