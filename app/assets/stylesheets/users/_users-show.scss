@@ -1,10 +1,15 @@
+// .background {
+//   background-image: url("https://designshack.net/wp-content/uploads/best-subtle-black-white-background-textures.jpg");
+// }
+
 .user-show-card-top {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    max-width: 75%;
-    margin: auto;
-    text-align: center;
-    max-height: 200px;
-    background-image: url("https://thumbs.gfycat.com/MelodicPiercingChrysomelid-max-1mb.gif");
+  color: $my-dark-red;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 75%;
+  margin: auto;
+  text-align: center;
+  max-height: 200px;
+  // background-image: url("https://s3.envato.com/files/244719593/01_White%20subtle%20Background.jpg");
   }
 
   .user-show-card {
@@ -42,8 +47,11 @@
   }
 }
 
-
 .user-description {
   padding: 16px;
   text-align: left;
+}
+
+.icons {
+  text-align: right;
 }

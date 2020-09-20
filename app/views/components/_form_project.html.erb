@@ -7,17 +7,17 @@
         <% else %>
           <h1>Create a new project</h1>
         <% end %>
-        <%= simple_form_for @project do |f| %>
-          <%= f.input :title, placeholder: "i.e Blog with Ruby on Rails" %>
-          <%= f.input :description, input_html: { rows: 5, cols: 40 }, placeholder: "Include main technologies and app functionality..." %>
+        <%= simple_form_for @project, input_html: { id: :no_border } do |f| %>
+          <%= f.input :title, placeholder: "i.e Blog with Ruby on Rails", input_html: { id: :no_border } %>
+          <%= f.input :description, input_html: { rows: 5, cols: 40, id: :no_border }, placeholder: "Include main technologies and app functionality..." %>
           <%= f.label "Project resources" %>
           <%= f.rich_text_area :rich_content %>
           <div class="row">
             <div class="col">
-               <%= f.input :duration, label: "Duration (in days)" %>
+               <%= f.input :duration, label: "Duration (in days)", input_html: { id: :no_border } %>
             </div>
             <div class="col">
-              <%= f.input :difficulty, collection: Project::DIFFICULTIES %>
+              <%= f.input :difficulty, collection: Project::DIFFICULTIES, input_html: { id: :no_border } %>
             </div>
           </div>
           <p>Technologies: i.e. languages, frameworks etc.</p>
