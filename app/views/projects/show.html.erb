@@ -57,38 +57,43 @@
 
 
 
-  <div class="mt-5">
-    <%# show reviews and related projects when user signed out %>
-    <%= render 'components/show_related_projects' %>
-    <% if @project.status == true %>
-      <%= render 'components/show_reviews' %>
-    <% end %>
-    
-    <% if user_signed_in? %>
-      <% unless current_user.id == @project.user.id %>
+  <div class="row">
+    <div class="col-xs-12 col-md-12 col-lg-10 offset-lg-1">
+      <%# show reviews and related projects when user signed out %>
+      <%= render 'components/show_related_projects' %>
+      <% if @project.status == true %>
+        <%= render 'components/show_reviews' %>
+      <% end %>
+      
+      <% if user_signed_in? %>
+        <% unless current_user.id == @project.user.id %>
 
-      <% if @applications&.pending?  %>
-        <p>Awaiting response</p>
+        <% if @applications&.pending?  %>
+          <p>Awaiting response</p>
 
-      <% elsif @applications&.rejected?  %>
-        <p>I'm sorry you can't re-apply to this project</p>
+        <% elsif @applications&.rejected?  %>
+          <p>I'm sorry you can't re-apply to this project</p>
 
-        <% elsif @applications&.status.blank? && @project.status == false %>
-          <%= link_to "Apply", new_project_application_path(@project.id), class: "btn btn-primary apply-button" %>
+          <% elsif @applications&.status.blank? && @project.status == false %>
+            <%= link_to "Apply", new_project_application_path(@project.id), class: "btn btn-primary apply-button" %>
 
-        <% elsif @applications&.accepted? %>
-          <p><%= link_to 'Chat with the project owner', project_chatroom_path(@project) %> to find out more.</p>
-        <% end %>
-      <% else %>
-        <h5 class="project-main-header">Your project buddies</h5>
-        <% if @project.applications.any? %>
-          <ul>
-            <%= render_users(@project.applications) %>
-          </ul>
+          <% elsif @applications&.accepted? %>
+            <p><%= link_to 'Chat with the project owner', project_chatroom_path(@project) %> to find out more.</p>
+          <% end %>
         <% else %>
-          <p>This project hasn't received any applications yet</p>
+          <h5 class="project-main-header">Your project buddies</h5>
+          <% if @project.applications.any? %>
+            <ul>
+              <%= render_users(@project.applications) %>
+            </ul>
+          <% else %>
+            <p>This project hasn't received any applications yet</p>
+          <% end %>
         <% end %>
       <% end %>
-    <% end %>
+    </div>
   </div>
-</div>
+
+
+
+</div><!--container-->
