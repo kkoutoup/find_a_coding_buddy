@@ -34,12 +34,25 @@
   background-repeat: no-repeat;
 }
 
+.user-tech-icon-home {
+  // margin-top: 4px;
+  margin-right: 16px;
+  vertical-align: middle;
+  align-self: center;
+  width: 10%;
+  @media only screen and (max-width: 768px) {
+    & {
+      width: 5%;
+    }
+  }
+}
+
 .user-tech-icon {
   // margin-top: 4px;
   margin-right: 16px;
   vertical-align: middle;
   align-self: center;
-  width: 5%;
+  width: 8%;
   @media only screen and (max-width: 768px) {
     & {
       width: 15%;

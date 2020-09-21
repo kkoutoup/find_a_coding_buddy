@@ -7,26 +7,42 @@
 .projects {
   width: 100%;
   display: grid !important;
-  // grid-template-rows: 1fr 1fr 2fr;
-  background: $white;
   padding: 15px;
-  margin: 8px 8px 8px 8px;
+  margin: 8px;
   height: 240px;
   overflow: hidden;
   color: white;
   background-image: url("https://image.freepik.com/free-vector/white-background-with-blue-tech-hexagon_1017-19366.jpg");
   font-size: 20px;
-  text-shadow: 1px 1px 1px 3px rgba(0,0,0,0.2);
+  // text-shadow: 1px 1px 1px 3px rgba(0,0,0,0.2);
   border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
     a {
       color: $my-red;
     }
 }
 
+.fas {
+  color: $font-awesome-icons-gray;
+  opacity: 0.55;
+}
+
 .icon {
   // max-height: 50px;
   max-width: 30px;
+}
+
+.project-tech-icon-home {
+  // margin-top: 4px;
+  margin-right: 16px;
+  vertical-align: middle;
+  align-self: center;
+  width: 10%;
+  @media only screen and (max-width: 768px) {
+    & {
+      width: 5%;
+    }
+  }
 }
 
 .larger-text p {
@@ -66,6 +82,7 @@
     li:hover {
         cursor: pointer;
     }
+
 }
 
 .buddies {
@@ -82,14 +99,21 @@
   padding: 16px;
   background-color: $white;
   height: 240px;
-  display: grid;
   color: white;
   background-image: url("https://image.freepik.com/free-vector/white-background-with-blue-tech-hexagon_1017-19366.jpg");
-  font-size: 20px;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  grid-template-columns: 2fr 2fr;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+}
+
+.buddies-list-top {
+  display: grid;
+  font-size: 20px;
+  grid-template-columns: 1fr 2fr;
+  height: 100px;
+}
+
+.buddies-list-bottom {
+  color: $medium-dark-gray;
 }
 
 

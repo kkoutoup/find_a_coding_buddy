@@ -19,7 +19,7 @@
       </div>
       <% if @projects.count > 0 %>
         <% if params[:query].present? %>
-          <p class="mt-5">We found <strong><%= pluralize(@projects.count, "project") %></strong> with <strong>"<%= params[:query] %>"</strong> in the title or description</p>
+          <p class="mt-5" id="lighter-paragraph">We found <strong><%= pluralize(@projects.count, "project") %></strong> with <strong>"<%= params[:query] %>"</strong> in the title or description</p>
         <% end %>
         <div class="row mt-5">
           <%= render 'components/project_loop' %>
