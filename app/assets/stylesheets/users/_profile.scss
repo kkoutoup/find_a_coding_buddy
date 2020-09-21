@@ -1,9 +1,45 @@
+.profile-name-card {
+  max-width: 85%;
+  max-height: 80px;
+  margin: auto;
+  text-align: center;
+  padding: 0 16px 16px 16px;
+  color: $my-red;
+}
+
+.profile-card-top {
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);
+  max-width: 85%;
+  margin: auto;
+  text-align: left;
+  // background-image: url("https://thumbs.gfycat.com/MelodicPiercingChrysomelid-max-1mb.gif");
+  grid-template-columns: 1fr 3fr;
+}
+
+.profile-show-photo {
+  width: 200px;
+  height: 200px;
+  background-repeat: no-repeat;
+}
+
+.photo {
+  max-height: 250px;
+}
+
 .top-container {
   display: grid;
   grid-template-columns: 1fr 3fr 1fr;
   grid-gap: 16px;
   max-height: 300px;
   margin-top: 24px;
+}
+
+.icon-show-card {
+  max-width: 100%;
+  max-height: 80px;
+  margin: auto;
+  text-align: left;
+  padding: 0 0px 16px 0px;
 }
 
 .description {
@@ -14,19 +50,13 @@
   }
 }
 
-.your-technologies {
-  background-image: url(https://image.freepik.com/free-vector/white-blurred-futuristic-technology-background_23-2148402775.jpg);
-  padding: 16px 0 0 16px;
-  box-shadow: 0 0 4px #8c8c8c;
-  overflow: auto;
-  max-height: 250px;
-  border-radius: 10px;
-  p {
-    font-size: .9rem;
-    color: $my-gray;
-  }
+.a-btn-accept{
+  color: $my-gray;
 }
 
+.a-btn-reject{
+  color: $light-red;
+}
 
 .bottom-container {
   display: grid;
@@ -36,7 +66,6 @@
   align-content: space-around;
   width: 85%;
   margin: auto;
-  // justify-content: center;
 }
 
 .dashboard-projects-and-applications {
@@ -81,9 +110,6 @@
   background-repeat: no-repeat;
 }
 
-.photo {
-  max-height: 250px;
-}
 
 .user-index-photo {
   width: 200px;
@@ -91,13 +117,6 @@
   border-radius: 10px;
 }
 
-.profile-card-top {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 85%;
-  margin: auto;
-  text-align: center;
-  background-image: url("https://thumbs.gfycat.com/MelodicPiercingChrysomelid-max-1mb.gif");
-}
 
 .profile-tech-icon {
   margin-right: 15px;
