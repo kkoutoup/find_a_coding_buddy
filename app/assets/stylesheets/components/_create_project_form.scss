@@ -60,3 +60,52 @@
   border-radius: 5px;
   box-shadow: none;
 }
+
+
+
+// NEW FORM STYLING//
+
+h1.form-project-title {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  // color: $my-red;
+  color: #707070;
+  margin-bottom: 20px;
+}
+
+.form-section-number {
+  background-color: $my-red;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  color: white;
+  text-align: center;
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 5px;
+  margin-bottom: 10px;
+  p {
+    margin-top: 1px;
+  }
+}
+
+.form-section-header {
+  display: inline-block;
+}
+
+.form-group {
+  padding: 10px;
+  label {
+    color: #8c8c8c;
+  }
+}
+
+.button-container {
+  width: 100%;
+  text-align: center;
+}
+.create-project-button {
+  margin: 20px auto 20px auto;
+  width: 50%;
+}
