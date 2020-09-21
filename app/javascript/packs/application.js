@@ -40,14 +40,12 @@ import { highlightTechnology } from "./highlight_technologies.js";
 import { initChatroomCable } from "../channels/chatroom_channel.js";
 import { tns } from "../../../node_modules/tiny-slider/src/tiny-slider";
 import { initStarRating } from "../plugins/init_star_rating";
-import { navbarMenuToggle } from "./ navbar-menu-toggle";
 
 
 document.addEventListener('turbolinks:load', () => {
   highlightTechnology();
   initChatroomCable();
   initStarRating();
-  navbarMenuToggle();
 
   const sessionFilterButtons = document.querySelector(".align-banner")
   if(sessionFilterButtons){
