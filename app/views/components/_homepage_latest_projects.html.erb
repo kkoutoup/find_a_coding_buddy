@@ -11,10 +11,10 @@
   <div class="slider-container">
       <ul class="controls" id="customize-controls" aria-label="Carousel Navigation" tabindex="0">
           <li class="prev" data-controls="prev" aria-controls="customize" tabindex="-1">
-              <i class="fas fa-angle-double-left fa-2x"></i>
+              <i class="fas fa-angle-left fa-2x"></i>
           </li>
           <li class="next" data-controls="next" aria-controls="customize" tabindex="-1">
-              <i class="fas fa-angle-double-right fa-2x"></i>
+              <i class="fas fa-angle-right fa-2x"></i>
           </li>
       </ul>
 
@@ -25,7 +25,7 @@
               <p class="project-side-header"><i class="fas fa-chart-bar"></i>  <%= project.difficulty.capitalize %></p>
             <div>
               <% project.technologies.each do |technology| %>
-                <img src="<%= check_image_exists(technology) %>" alt="<%= technology.name %>-icon" class="tech-icon mt-1">
+                <img src="<%= check_image_exists(technology) %>" alt="<%= technology.name %>-icon" class="project-tech-icon-home">
               <% end %>
             </div>
 

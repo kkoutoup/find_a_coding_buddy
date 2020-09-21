@@ -70,7 +70,7 @@ h1.project-title {
   display: inline-block;
   overflow: hidden;
   margin-right: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
   border-radius: 5px;
   background-image: url(https://image.freepik.com/free-vector/white-background-with-blue-tech-hexagon_1017-19366.jpg);
   background-repeat: no-repeat;
@@ -102,5 +102,6 @@ h1.project-title {
   &:hover {
     cursor: pointer;
     transform: scale(1.1);
+    transition: transform 0.2s ease-in-out;
   }
 }
