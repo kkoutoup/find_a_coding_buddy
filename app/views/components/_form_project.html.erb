@@ -18,8 +18,10 @@
               <div class="form-section-header">Project details</div>
                 <%= f.input :title, placeholder: "i.e Blog with Ruby on Rails", input_html: { id: :no_border } %>
                 <%= f.input :description, input_html: { rows: 5, cols: 40, id: :no_border }, placeholder: "Include main technologies, app functionality and learning outcomes" %>
-                <%= f.label "Project resources" %>
-                <%= f.rich_text_area :rich_content %>
+                <div class="trix-editor-container">
+                  <%= f.label "Project resources" %>
+                  <%= f.rich_text_area :rich_content %>
+                </div>
             </div>
           </div>
         </div><!--end form group-->
