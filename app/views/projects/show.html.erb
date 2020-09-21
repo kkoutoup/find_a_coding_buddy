@@ -80,7 +80,7 @@
             <p><%= link_to 'Chat with the project owner', project_chatroom_path(@project) %> to find out more.</p>
           <% end %>
         <% else %>
-          <h5 class="project-main-header mt-5">Your project buddies</h5>
+          <h5 class="project-main-header project-buddies-header">Your project buddies</h5>
           <% if @project.applications.any? %>
             <ul>
               <%= render_users(@project.applications) %>
