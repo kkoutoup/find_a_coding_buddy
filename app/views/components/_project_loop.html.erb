@@ -3,7 +3,7 @@
     <div class="project-card">
       <div class="first-section">
         <h2 class="project-title"> <%= link_to project.title, project_path(project) %> </h2>
-        <p class="project-level"> <i class="fas fa-chart-bar"></i>: <%= project.difficulty.capitalize %> </p>
+        <p class="project-level"> <i class="fas fa-chart-bar"></i> <%= project.difficulty.capitalize %> </p>
       </div>
       <p class="project-description"> <%= project.description.truncate(100, separator:" ") %></p>
       <% project.technologies.each do |technology| %>
