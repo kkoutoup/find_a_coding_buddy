@@ -16,7 +16,7 @@ class ApplicationsController < ApplicationController
       redirect_to profile_path, alert: "You have already applied"
     else
       @application.save
-      redirect_to profile_path
+      redirect_to profile_path, notice: "Your application for '#{@application.project.title}' has been sent"
     end
   end
 

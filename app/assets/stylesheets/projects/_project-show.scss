@@ -70,7 +70,8 @@ h1.project-title {
 }
 
 .apply-button{
-  width: 200px;
+  width: 250px;
+  margin-top: 50px;
 }
 
 .related-project-card {
@@ -130,4 +131,19 @@ h1.project-title {
 
 #project-show-bar-chart {
   color: #8c8c8c;
+}
+
+.alert-info {
+ position: relative;
+ text-align: center;
+ width: 100%;
+ margin: 16px auto auto auto !important;
+ margin-right: 0 !important;
+ color: #155724;
+ background-color: #d4edda;
+ border: 1px solid #c3e6cb;
+}
+
+.alert {
+  right: 0 !important;
 }
