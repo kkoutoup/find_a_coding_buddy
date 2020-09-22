@@ -1,9 +1,11 @@
 <div class="container mt-5">
   <div class="row">
     <div class="col-sm-6 col-sm-offset-3">
-      <div class="chat-header"><h4><%= @project.title %></h4></div>
+      <h4 class="project-title mt-3"><%= @project.title %></h4>
+      <p><i class="fa fa-user"></i> Led by: <%= link_to "#{@project.user.first_name} #{@project.user.last_name}", user_path(@project.user.id) %></p>
 
         <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
+          <hr>
           <% @chatroom.messages.each do |message| %>
             <div class="message-container mt-1 mb-1" id="message-<%= message.id %>">
             <% if message.user.photo.present? %>
@@ -17,6 +19,7 @@
             </i>
             <div class="message-content"><%= message.content %></div>
           </div>
+           <hr>
           <% end %>
         </div>
 
