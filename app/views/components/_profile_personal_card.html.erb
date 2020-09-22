@@ -4,21 +4,18 @@
   <div class="profile-name-card">
       <h2><b style="color: my-red">Welcome <%= current_user.first_name  %> <%= current_user.last_name %></b></h2>
   </div>
-  
 
   <div class="profile-card-top">
         <div class="row no-gutters">
             <div class="col-auto">
-              <% if @user.photo.attached? %>
-                <div class="profile-show-photo" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @user.photo.key, height: 200, width: 200, crop: :fill %>')"></div>
-              <% else %>
-                 <div class="profile-show-photo" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), image_tag('missing-avatar-female-200x200.png')"></div>
-              <% end %>
+              <div class="photo">
+                <%= image_tag user_photo(@user), class: "profile-show-photo" %>
+              </div>
             </div>
             <div class="col">
                 <div class="card-block px-2">
                     <h5 class="card-title">Your dashboard</h5>
-                    <p class="card-text">This is where you can manage your profile - be sure to regularly update your profile information, include your latest skills 
+                    <p class="card-text">This is where you can manage your profile - be sure to regularly update your profile information, include your latest skills
                     before you look for buddies. Monitor projects that you have applied to join, and accept any applications for projects that you have posted! </p>
                 </div>
             </div>
@@ -70,7 +67,7 @@
         <p> You haven't applied for any projects yet!! </p>
       <% end %>
   </div>
-  
+
   <div class="dashboard-projects-and-applications">
     <div>
       <h4>Your offered projects & applications:</h4>

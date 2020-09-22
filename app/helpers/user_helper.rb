@@ -14,4 +14,19 @@ module UserHelper
       'missing-avatar-female-200x200.png'
     end
   end
+
+  def available_for_collaboration(user)
+    user.available? ? "Available for collaboration" : "Not available at the moment"
+  end
+
+  def capitalize_first_name(user)
+    user.first_name.capitalize
+    # @last_name = user.last_name.capitalize
+  end
+
+  def capitalize_last_name(user)
+    user.last_name.capitalize
+    # @last_name = user.last_name.capitalize
+  end
+
 end
