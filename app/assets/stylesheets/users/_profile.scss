@@ -190,7 +190,6 @@ p.project-level {
 
 .header-and-email {
   margin-top: 10px;
-  margin-left: 20px;
   h1 {
     font-size: 1.5rem;
     color: #40484A;
@@ -207,5 +206,11 @@ p.project-level {
 .user-profile-technologies-container {
   .user-tech-icon {
     width: 12%;
+  }
+}
+
+.user-profile-card-personal-summary {
+  p {
+    font-weight: lighter;
   }
 }
