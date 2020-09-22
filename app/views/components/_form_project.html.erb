@@ -1,39 +1,71 @@
-<div class="container">
+<div class="container mt-5">
   <div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-10 col-lg-8 offset-lg-1">
-      <div class="create-project">
-        <% if params[:action] == "edit" %>
-          <h1>Editing: <%= @project.title %></h1>
-        <% else %>
-          <h1>Create a new project</h1>
-        <% end %>
-        <%= simple_form_for @project, input_html: { id: :no_border } do |f| %>
-          <%= f.input :title, placeholder: "i.e Blog with Ruby on Rails", input_html: { id: :no_border } %>
-          <%= f.input :description, input_html: { rows: 5, cols: 40, id: :no_border }, placeholder: "Include main technologies and app functionality..." %>
-          <%= f.label "Project resources" %>
-          <%= f.rich_text_area :rich_content %>
-          <div class="row">
-            <div class="col">
-               <%= f.input :duration, label: "Duration (in days)", input_html: { id: :no_border } %>
-            </div>
-            <div class="col">
-              <%= f.input :difficulty, collection: Project::DIFFICULTIES, input_html: { id: :no_border } %>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8 offset-lg-2">
+      <% if params[:action] == "edit" %>
+        <h1 class="form-project-title">Editing: <%= @project.title %></h1>
+      <% else %>
+        <h1 class="form-project-title">Create a new project</h1>
+      <% end %>
+
+      <%= simple_form_for @project, input_html: { id: :no_border } do |f| %>
+
+        <div class="form-group">
+          <div class="form-section">
+            <div>
+              <div class="form-section-number">
+                <p>1</p>
+              </div>
+              <div class="form-section-header">Project details</div>
+                <%= f.input :title, placeholder: "i.e Blog with Ruby on Rails", input_html: { id: :no_border } %>
+                <%= f.input :description, input_html: { rows: 5, cols: 40, id: :no_border }, placeholder: "Include main technologies, app functionality and learning outcomes" %>
+                <div class="trix-editor-container">
+                  <%= f.label "Project resources" %>
+                  <%= f.rich_text_area :rich_content %>
+                </div>
             </div>
           </div>
-          <p>Technologies: i.e. languages, frameworks etc.</p>
-          <div class="technology-choices">
-            <% Technology.all.each do |technology| %>
-              <input class="d-none grid-item" type="checkbox" value="<%= technology.id %>" name="project[technology_ids][]" id="project_technology_ids_<%= technology.id %>" <%= 'checked' if @project.technology_selected?(technology) %>>
-              <label class="technology-choice form-check-label collection_check_boxes <%= 'active' if @project.technology_selected?(technology) %>" for="project_technology_ids_<%= technology.id %>"><%= technology.name %>
-              <i class="fa fa-check"></i>
-              </label>
-            <% end %>
+        </div><!--end form group-->
+
+        <div class="form-group">
+          <div class="form-section">
+            <div class="form-section-number">
+              <p>2</p>
+            </div>
+            <div class="form-section-header">Estimated timeline and difficulty level</div>
+            <div class="row">
+              <div class="col">
+                <%= f.input :duration, label: "Duration (in days)", input_html: { id: :no_border } %>
+              </div>
+              <div class="col">
+                <%= f.input :difficulty, collection: Project::DIFFICULTIES, input_html: { id: :no_border } %>
+              </div>
+            </div>
           </div>
+        </div><!--end form group-->
+
+        <div class="form-group">
+          <div class="form-section">
+            <div class="form-section-number">
+              <p>3</p>
+            </div>
+            <div class="form-section-header">Project Technologies</div>
+            <div class="technology-choices">
+              <% Technology.all.each do |technology| %>
+                <input class="d-none grid-item" type="checkbox" value="<%= technology.id %>" name="project[technology_ids][]" id="project_technology_ids_<%= technology.id %>" <%= 'checked' if @project.technology_selected?(technology) %>>
+                <label class="technology-choice form-check-label collection_check_boxes <%= 'active' if @project.technology_selected?(technology) %>" for="project_technology_ids_<%= technology.id %>"><%= technology.name %>
+                <i class="fa fa-check"></i>
+                </label>
+              <% end %>
+            </div>
+          </div>
+        </div><!--end form group-->
+
+        <div class="form-group">
           <div class="button-container">
-            <%= f.button :submit, class: "btn btn-primary" %>
+            <%= f.button :submit, class: "btn btn-primary create-project-button" %>
           </div>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
     </div>
- </div>
+  </div>
 </div>
