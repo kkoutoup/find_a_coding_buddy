@@ -48,7 +48,6 @@ end
 # puts "=> Updating user email addresses and passwords"
 User.all.each do |user|
   user.email = "#{ user.first_name }_#{ user.last_name }#{ EMAIL_EXTENSIONS.sample }"
-  user.password = "#{ Faker::Verb.past }#{ Faker::Superhero.power }#{ rand(1..200) }"
   user.photo.attach({
     io: image_fetcher,
     filename: "#{user.id}_faker_image.jpg"
