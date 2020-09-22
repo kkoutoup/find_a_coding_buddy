@@ -60,7 +60,6 @@
   <div class="row">
     <div class="col-xs-12 col-md-12 col-lg-10 offset-lg-1">
       <%# show reviews and related projects when user signed out %>
-      <%= render 'components/show_related_projects' %>
       <% if @project.status == true %>
         <%= render 'components/show_reviews' %>
       <% end %>
@@ -81,7 +80,7 @@
             <p><%= link_to 'Chat with the project owner', project_chatroom_path(@project) %> to find out more.</p>
           <% end %>
         <% else %>
-          <h5 class="project-main-header">Your project buddies</h5>
+          <h5 class="project-main-header project-buddies-header">Your project buddies</h5>
           <% if @project.applications.any? %>
             <ul>
               <%= render_users(@project.applications) %>
@@ -91,9 +90,7 @@
           <% end %>
         <% end %>
       <% end %>
+      <%= render 'components/show_related_projects' %>
     </div>
-  </div>
-
-
-
+  </div><!--end row-->
 </div><!--container-->

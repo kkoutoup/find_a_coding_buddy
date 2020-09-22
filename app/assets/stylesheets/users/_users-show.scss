@@ -1,22 +1,27 @@
 // .background {
 //   background-image: url("https://designshack.net/wp-content/uploads/best-subtle-black-white-background-textures.jpg");
 // }
-
-.user-show-card-top {
-  color: $my-dark-red;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 75%;
+.border {
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.1);  max-width: 75%;
   margin: auto;
+    h1 {
+      color: $my-dark-red;
+    }
+    p {
+      color: $dark-gray;
+    }
+}
+.user-show-card-top {
+
   text-align: center;
-  max-height: 200px;
+  // max-height: 200px;
   // background-image: url("https://s3.envato.com/files/244719593/01_White%20subtle%20Background.jpg");
   }
 
   .user-show-card {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    max-width: 75%;
+    max-width: 100%;
     margin: auto;
-    text-align: center;
+    text-align: lef;
     padding: 0 16px 16px 16px;
   }
 
