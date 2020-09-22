@@ -14,7 +14,7 @@
               <% if @user.expertise_level.present? %>
                 <p> <%= @user.expertise_level.capitalize %> </p>
               <% else %>
-                <p> <%= @user.first_name.capitalize %> hasn't completed this section of his profile yet</p>
+                <p> Expertise level: <%= @user.first_name.capitalize %> hasn't completed this section of his profile yet</p>
               <% end %>
               <% if @user.address.present? %>
                 <p><i class="fas fa-map-marker-alt"></i> <%= @user.address.capitalize %> </p>
@@ -36,7 +36,7 @@
         <% if @user.personal_summary.present? %>
           <p><%= @user.personal_summary %></p>
         <% else %>
-          <p> <%= @user.first_name.capitalize %> hasn't completed this section of his profile yet</p>
+          <p> Personal summary: <%= @user.first_name.capitalize %> hasn't completed this section of his profile yet</p>
         <% end %>
       </div>
     </div>
