@@ -1,9 +1,12 @@
 <div class="box-tagline">
-    <div class="taglines p-1">
-      <h3>Build</h3>
-      <h4>Network - Buddies</h4>
-    </div>
+  <div class="taglines p-1">
+    <h3>Build</h3>
+    <h4>Network - Buddies</h4>
+  </div>
 </div>
+
+
+
 
 <h3 class="sections-title">Find buddies to collaborate with</h3>
 
@@ -12,40 +15,39 @@
   <div class="buddies">
       <% @users.each do |user| %>
 
-        <div class="buddies-list">
+    <div class="buddies-list">
+      <div class="buddies-list-top">
+          <% if user.photo.present? %>
+        <div class="avatar-bordered" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path user.photo.key, :width=>72, :height=>72, :crop=>"fill" %>')"></div>
+          <% else %>
+        <div class="avatar-bordered">
+            <%= image_tag "technologies_icons/logo-missing-img.png", :width=>72, :height=>72 %>
+        </div> <!-- avatar bordered -->
+          <% end %>
 
-          <div class="buddies-list-top">
-
-            <div class="avatar-bordered"
-              <% if user.photo.present? %>
-                style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path user.photo.key, :width=>72, :height=>72, :crop=>"fill" %>')">
-              <% else %>
-                <%= image_tag "missing-avatar-female-200x200.png", :width=>72, :height=>72 %>
-              <% end %>
-            </div>
-
-            <div>
-              <p class="larger-text"><%= link_to user.first_name , user_path(user) %> </p>
-            </div>
-          </div>
-
-
-          <div class="buddies-list-bottom">
-            <% if user.technologies.present? %>
-              <% user.technologies.each do |technology| %>
-                <img src="<%= check_image_exists(technology) %>" alt="<%= technology.name %>-icon" class="user-tech-icon-home mt-5">
-              <% end %>
-
-            <% else %>
-              <p>You can see <%= user.first_name.capitalize %>'s projects <%= link_to "here", user_path(user)  %></p>
-            <% end %>
-          </div>
+        <div>
+          <p class="larger-text"><%= link_to user.first_name , user_path(user) %> </p>
         </div>
+
+      </div>
+
+
+      <div class="buddies-list-bottom">
+        <% if user.technologies.present? %>
+          <% user.technologies.each do |technology| %>
+            <img src="<%= check_image_exists(technology) %>" alt="<%= technology.name %>-icon" class="user-tech-icon-home mt-5">
+          <% end %>
+
+        <% else %>
+          <p>You can see <%= user.first_name %>'s projects <%= link_to "here", user_path(user)  %></p>
+        <% end %>
+      </div> <!-- d l bottom -->
+    </div> <!-- buddies list -->
       <% end %>
-  </div>
+  </div> <!-- buddies -->
 
     <div class="d-flex justify-content-center">
       <%= link_to "Find buddies", users_path, class: "btn btn-primary" %>
-    </div>
+    </div> <!-- d-flex -->
 
-</div>
+</div> <!-- container -->
