@@ -15,11 +15,12 @@
         <div class="buddies-list">
 
           <div class="buddies-list-top">
+
             <div class="avatar-bordered"
               <% if user.photo.present? %>
                 style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path user.photo.key, :width=>72, :height=>72, :crop=>"fill" %>')">
               <% else %>
-                <%= image_tag "technologies_icons/logo-missing-img.png", :width=>72, :height=>72 %>
+                <%= image_tag "missing-avatar-female-200x200.png", :width=>72, :height=>72 %>
               <% end %>
             </div>
 
@@ -36,7 +37,7 @@
               <% end %>
 
             <% else %>
-              <p>You can see <%= user.first_name %>'s projects <%= link_to "here", user_path(user)  %></p>
+              <p>You can see <%= user.first_name.capitalize %>'s projects <%= link_to "here", user_path(user)  %></p>
             <% end %>
           </div>
         </div>
