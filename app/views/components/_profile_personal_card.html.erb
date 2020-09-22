@@ -14,8 +14,8 @@
             </div>
             <div class="col">
                 <div class="card-block px-2">
-                    <h5 class="card-title">Your dashboard</h5>
-                    <p class="card-text">This is where you can manage your profile - be sure to regularly update your profile information, include your latest skills
+                    <h5>Profile dashboard</h5>
+                    <p>This is where you can manage your profile - be sure to regularly update your profile information, include your latest skills
                     before you look for buddies. Monitor projects that you have applied to join, and accept any applications for projects that you have posted! </p>
                 </div>
             </div>
@@ -24,8 +24,8 @@
      </br>
     <div class="top-skills d-flex justify-content-between pl-3 pr-3 align-self-end">
       <div>
-        <p><i class="fas fa-chart-bar"></i> <%= @user.expertise_level %></p>
-        <p><b>Your profile summary:</b></p>
+        <p class="project-level"><i class="fas fa-chart-bar"></i> <%= @user.expertise_level %></p>
+        <p><b>Profile summary:</b></p>
         <p><%= dashboard_personal_summary(current_user) %></p>
       <div class="icon-show-card">
         <% if current_user.user_technologies.present? %>
@@ -48,7 +48,7 @@
 
 <div class="bottom-container">
   <div class="dashboard-projects-and-applications">
-    <h4>Projects you have applied for:</h4>
+    <h5>Projects you have applied for:</h5>
     <br>
       <% if current_user.applications.present? %>
         <% current_user.applications.each do |application| %>
@@ -70,7 +70,7 @@
 
   <div class="dashboard-projects-and-applications">
     <div>
-      <h4>Your offered projects & applications:</h4>
+      <h5>Your offered projects & applications:</h5>
       <br>
       <% @projects.each do |project| %>
         <p> <%= link_to project.title, project_path(project.id) %> </p>
