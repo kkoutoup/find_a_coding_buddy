@@ -162,3 +162,50 @@ p.project-level {
   border-radius: 10px;
   color: $my-red;
 }
+
+
+.user-profile-card {
+  text-align: center;
+  margin: 10px auto;
+  width: 750px;
+  padding: 10px 20px 10px 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  background-color: white;
+}
+
+.user-profile-card-first-section {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+}
+
+.user-profile-card-photo {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  border: 1px solid #D4D4D4;
+  margin-top: -40px;
+}
+
+.header-and-email {
+  margin-top: 10px;
+  margin-left: 20px;
+  h1 {
+    font-size: 1.5rem;
+    color: #40484A;
+  }
+  p {
+    color: #8c8c8c;
+  }
+}
+
+.email-icon {
+  color: #D4D4D4;
+}
+
+.user-profile-technologies-container {
+  .user-tech-icon {
+    width: 12%;
+  }
+}
