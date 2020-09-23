@@ -1,44 +1,46 @@
 <div class="container mt-5">
-  <div class="background">
-    <div class="border">
-      <div class="user-show-card-top d-flex">
-        <div class="photo">
-          <%= image_tag user_photo(@user), class: "user-show-photo" %>
-        </div>
-
-          <div class="user-description d-flex align-items-end">
-            <div>
-              <h1><%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %> </h1>
-              <p><%= available_for_collaboration(@user) %></p>
-
-              <% if @user.expertise_level.present? %>
-                <p> <%= @user.expertise_level.capitalize %> </p>
-              <% else %>
-                <p> Expertise level: <%= @user.first_name.capitalize %> hasn't completed this section of his profile yet</p>
-              <% end %>
-              <% if @user.address.present? %>
-                <p><i class="fas fa-map-marker-alt"></i> <%= @user.address.capitalize %> </p>
-              <% else %>
-                <p><i class="fas fa-map-marker-alt"></i> Location unknown </p>
-                <% end %>
-              <p> <i class="far fa-envelope"></i> <%= @user.email%> </p>
-            </div>
-           <div class="icons">
-            <% if @user.technologies.present? %>
-              <%= render 'components/user_technology_icon' %>
-            <% else %>
-              <p> Technologies unknown </p>
-              <% end %>
-           </div>
-        </div>
-      </div>
-      <div class="user-show-card">
-        <% if @user.personal_summary.present? %>
-          <p><%= @user.personal_summary %></p>
+  <div class="user-profile-card">
+    <div class="user-profile-card-first-section">
+      <%= image_tag user_photo(@user), class: "user-profile-card-photo" %>
+      <div class="header-and-email">
+        <h1><%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %></h1>
+        <% if @user.address.present? %>
+          <p><i class="fas fa-map-marker-alt"></i> <%= @user.address.capitalize %> </p>
         <% else %>
-          <p> Personal summary: <%= @user.first_name.capitalize %> hasn't completed this section of his profile yet</p>
+          <p><i class="fas fa-map-marker-alt"></i> Location unknown </p>
         <% end %>
+      </div><!--end header and email-->
+    </div><!--end card-first-section-->
+    <div class="user-profile-card-personal-summary">
+      <% if @user.personal_summary.present? %>
+        <p><%= @user.personal_summary %></p>
+      <% else %>
+        <p>Personal Summary unavailable</p>
+      <% end %>
+    </div><!--end personal-summary-->
+    <div class="row mt-4">
+      <div class="col-4 offset-2">
+        <p><i class="fas fa-user-friends"></i> <%= available_for_collaboration(@user) %></p>
+      </div>
+      <div class="col">
+        <p><i class="fas fa-envelope"></i> <%= @user.email%></p>
       </div>
     </div>
-  </div>
-</div>
+     <div class="row">
+      <div class="col-4 offset-2 user-profile-technologies-container">
+        <% if @user.technologies.present? %>
+          <%= render 'components/user_technology_icon' %>
+        <% else %>
+          <p> Technologies unknown </p>
+        <% end %>
+      </div>
+      <div class="col">
+        <% if @user.expertise_level.present? %>
+          <p><i class="fas fa-chart-bar"></i> <%= @user.expertise_level.capitalize %></p>
+        <% else %>
+          <p><i class="fas fa-chart-bar"></i> Expertice level unavailable</p>
+        <% end %>
+      </div>
+    </div><!--row-->
+  </div><!--end profile card-->
+</div><!--end container-->
