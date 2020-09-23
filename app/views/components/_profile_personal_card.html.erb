@@ -19,7 +19,7 @@
         <%= image_tag user_photo(@user), class: "profile-show-photo" %>
       </div>
       <div>
-        <p class="project-level pt-3"><i class="fas fa-chart-bar"></i> <%= @user.expertise_level %></p>
+        <p class="project-level pt-3"><i class="fas fa-chart-bar"></i> <%= @user.expertise_level.capitalize %></p>
         <p><b>Your profile:</b></p>
         <p><%= dashboard_personal_summary(current_user) %></p>
       <div class="icon-show-card">
@@ -50,7 +50,7 @@
           <p> <%= link_to application.project.title.capitalize, project_path(application.project.id) %>
           with <strong> <%= link_to application.project.user.first_name, user_path(application.project.user.id) %> </strong> </p>
             <% if application.status == nil %>
-              <p> <strong> Status: </strong> Pending <i class="fas fa-hourglass-half"></i></p>
+              <p> <strong> Status: </strong> Pending <i class="fas fa-hourglass-half time-icon"></i></p>
             <% elsif application.status == true %>
               <p> <strong> Status: </strong> Congratulations, you've been accepted! <i class="far fa-thumbs-up"></i></p>
             <% else application.status == false %>
