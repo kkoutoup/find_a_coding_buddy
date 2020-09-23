@@ -1,7 +1,7 @@
 <div class="container mt-5">
   <div class="row">
     <div class="col-sm-6 col-sm-offset-3">
-      <h4 class="project-title mt-3"><%= @project.title %></h4>
+      <h4 class="chat-header mt-3"><%= @project.title %></h4>
       <p><i class="fa fa-user"></i> Led by: <%= link_to "#{@project.user.first_name} #{@project.user.last_name}", user_path(@project.user.id) %></p>
 
         <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
