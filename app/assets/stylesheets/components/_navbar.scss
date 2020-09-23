@@ -21,7 +21,7 @@
 }
 
 .navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+  flex-grow: 0
   // justify-content: flex-end;
 }
 
@@ -47,4 +47,9 @@
 
 .homepage-nav {
   position: relative;
+}
+
+#pen-icon {
+  opacity: 1 !important;
+  color: inherit;
 }

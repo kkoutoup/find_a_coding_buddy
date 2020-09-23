@@ -156,3 +156,8 @@ h1.project-title {
 .alert {
   right: 0 !important;
 }
+
+.edit-project-button, .update-status-button {
+  background: white;
+  color: $my-red;
+}

@@ -22,6 +22,25 @@
     }
 }
 
+.landing-page-carousel-project-title {
+  height: 60px;
+  margin-bottom: 0;
+}
+
+.project-side-header {
+  margin: 0;
+    &.beginner {
+      color: $beginner;
+    }
+    &.intermediate {
+      color: $intermediate;
+    }
+    &.advanced {
+      color: $advanced;
+    }
+
+}
+
 .fas {
   color: $font-awesome-icons-gray;
   opacity: 0.55;
@@ -109,13 +128,14 @@
   display: grid;
   font-size: 20px;
   grid-template-columns: 1fr 2fr;
-  height: 100px;
+  height: 60px;
 }
 
 .buddies-list-bottom {
+  padding-top: 24px;
+  margin-bottom: 0;
   color: $medium-dark-gray;
 }
-
 
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
