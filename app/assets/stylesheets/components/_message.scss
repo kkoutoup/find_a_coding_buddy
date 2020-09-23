@@ -23,13 +23,14 @@
   .message-content {
     background-color: #F7F7F7;
     border-radius: 3px;
-    margin: 0 10px;
+    margin: 0px 0px 0px 50px;
     padding: 11px 10px 8px 10px;
   }
   .avatar {
     width: 42px;
     height: 42px;
     border-radius: 50%;
+    margin-right: 10px;
   }
   
   #create-message {
@@ -53,7 +54,7 @@
     }
   }
   .chat-header {
-    background-color: #4F2F4C;
+    background-color: $my-red;
     color: white;
     padding: 10px 20px;
     margin-top: 10px;

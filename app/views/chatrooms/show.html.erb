@@ -1,25 +1,25 @@
 <div class="container mt-5">
   <div class="row">
-    <div class="col-sm-6 col-sm-offset-3">
-      <h4 class="project-title mt-3"><%= @project.title %></h4>
+    <div class="col-sm-12 col-sm-offset-3">
+      <h4 class="chat-header mt-3"><%= @project.title %></h4>
       <p><i class="fa fa-user"></i> Led by: <%= link_to "#{@project.user.first_name} #{@project.user.last_name}", user_path(@project.user.id) %></p>
 
         <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
-          <hr>
           <% @chatroom.messages.each do |message| %>
-            <div class="message-container mt-1 mb-1" id="message-<%= message.id %>">
-            <% if message.user.photo.present? %>
-              <%= image_tag message.user.photo, class: "avatar" %>
-            <% else %>
-              <%= image_tag "technologies_icons/logo-missing-img.png", :width=>40, :height=>40 %>
-            <% end %>
-            <i class="author">
-              <span><%= message.user.first_name %></span>
-              <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
-            </i>
-            <div class="message-content"><%= message.content %></div>
-          </div>
-           <hr>
+            <div class="message <%= (message.user == current_user) ? "right" : "" %>">
+              <div class="message-container mt-1 mb-1" id="message-<%= message.id %>">
+                <% if message.user.photo.present? %>
+                  <%= image_tag message.user.photo, class: "avatar" %>
+                <% else %>
+                  <%= image_tag "missing-avatar-female-200x200.png", :width=>40, :height=>40 %>
+                <% end %>
+                <i class="author">
+                  <span><%= message.user.first_name %></span>
+                  <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+                </i>
+                <div class="message-content"><%= message.content %></div>
+              </div>
+            </div>
           <% end %>
         </div>
 
