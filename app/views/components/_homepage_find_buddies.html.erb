@@ -40,7 +40,8 @@
           <% end %>
 
         <% else %>
-          <p>You can see <%= user.first_name %>'s profile <%= link_to "here", user_path(user)  %></p>
+          <p>You can see <%= user.first_name.capitalize %>'s profile <%= link_to "here", user_path(user)  %></p>
+
         <% end %>
       </div> <!-- d l bottom -->
     </div> <!-- buddies list -->

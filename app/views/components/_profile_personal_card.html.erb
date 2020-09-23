@@ -2,30 +2,25 @@
 <div class="container mt-3">
   <div class="container mt-5 ">
   <div class="profile-name-card">
-      <h2><b style="color: my-red">Welcome <%= current_user.first_name  %> <%= current_user.last_name %></b></h2>
+      <h2><b style="color: my-red">Welcome, <%= current_user.first_name.capitalize %></b></h2>
   </div>
 
   <div class="profile-card-top">
         <div class="row no-gutters">
-            <div class="col-auto">
-              <div class="photo">
-                <%= image_tag user_photo(@user), class: "profile-show-photo" %>
-              </div>
-            </div>
-            <div class="col">
-                <div class="card-block px-2">
-                    <h5>Profile dashboard</h5>
-                    <p>This is where you can manage your profile - be sure to regularly update your profile information, include your latest skills
-                    before you look for buddies. Monitor projects that you have applied to join, and accept any applications for projects that you have posted! </p>
-                </div>
-            </div>
+          <div class="card-block px-2">
+              <p>This is where you can manage your profile - be sure to regularly update your profile information, include your latest skills
+              before you look for buddies. Monitor projects that you have applied to join, and accept any applications for projects that you have posted! </p>
+          </div>
         </div>
   </div>
      </br>
-    <div class="top-skills d-flex justify-content-between pl-3 pr-3 align-self-end">
+    <div class="top-skills d-flex justify-content-between align-self-end">
+      <div class="photo">
+        <%= image_tag user_photo(@user), class: "profile-show-photo" %>
+      </div>
       <div>
-        <p class="project-level"><i class="fas fa-chart-bar"></i> <%= @user.expertise_level %></p>
-        <p><b>Profile summary:</b></p>
+        <p class="project-level pt-3"><i class="fas fa-chart-bar"></i> <%= @user.expertise_level %></p>
+        <p><b>Your profile:</b></p>
         <p><%= dashboard_personal_summary(current_user) %></p>
       <div class="icon-show-card">
         <% if current_user.user_technologies.present? %>
@@ -38,7 +33,7 @@
     </div>
       </div>
       <div>
-        <i class="fas fa-pencil-alt" type="button" id="button-modal" data-toggle="modal" data-target="#exampleModalLong"></i>
+        <i class="fas fa-pencil-alt pr-3 pt-3" type="button" id="button-modal" data-toggle="modal" data-target="#exampleModalLong"></i>
       </div>
     </div>
     </br>
@@ -52,7 +47,7 @@
     <br>
       <% if current_user.applications.present? %>
         <% current_user.applications.each do |application| %>
-          <p> <%= link_to application.project.title, project_path(application.project.id) %>
+          <p> <%= link_to application.project.title.capitalize, project_path(application.project.id) %>
           with <strong> <%= link_to application.project.user.first_name, user_path(application.project.user.id) %> </strong> </p>
             <% if application.status == nil %>
               <p> <strong> Status: </strong> Pending <i class="fas fa-hourglass-half"></i></p>
@@ -73,7 +68,7 @@
       <h5>Your offered projects & applications:</h5>
       <br>
       <% @projects.each do |project| %>
-        <p> <%= link_to project.title, project_path(project.id) %> </p>
+        <p> <%= link_to project.title.capitalize, project_path(project.id) %> </p>
           <% if project.applications.present?%>
             <% project.applications.each do |application|%>
               <% if application.status.nil?%>
