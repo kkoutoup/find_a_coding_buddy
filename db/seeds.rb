@@ -107,13 +107,3 @@ User.all.each do |user|
     )
   end
 end
-l.sample(3)
-  technologies.each do |technology|
-    UserTechnology.create!(
-      {
-        technology_id: technology.id,
-        user_id: user.id
-      }
-    )
-  end
-end
