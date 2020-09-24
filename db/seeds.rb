@@ -3,9 +3,7 @@ require 'csv'
 require 'open-uri'
 
 def image_fetcher
-  URI(Faker::Avatar.image).open
-  rescue
-  URI("https://robohash.org/sitsequiquia.png?size=300x300&set=set1").open
+  URI.open("https://kitt.lewagon.com/placeholder/users/random")
 end
 
 # Destroy entries
@@ -19,7 +17,7 @@ UserTechnology.destroy_all if Rails.env.development?
 # Global variables for seeding
 LEVEL = ["beginner", "intermediate", "advanced"]
 EMAIL_EXTENSIONS = ["@gmail.com", "@yahoo.com", "@hotmail.com", "@business.com", "@aol.com"]
-TECHNOLOGIES = ["Javascript", "Node.js", "Express.js", "MongoDB", "Python", "Flask", "Ruby", "Rails", "HTML", "SASS", "Figma", "C#", ".NET", "PHP", "Design", "Android", "Go", "SQL", "Django", "Vue.js", "React", "Bootstrap", "CSS", "Sinatra", "Selenium", "API"]
+TECHNOLOGIES = ["Javascript", "Node.js", "Express.js", "MongoDB", "Python", "Flask", "Ruby", "Rails", "HTML", "SASS", "Figma", "PHP", "Design", "Android", "Goland", "SQL", "Django", "Vue.js", "React", "Bootstrap", "Sinatra", "API"]
 CITIES = ["London", "Paris", "Milan", "Athens", "Copenhagen", "Madrid", "Barcelona", "Berlin", "Tokyo", "Amsterdam", "Lyon", "Grenoble", "Stockholm"]
 
 # Populate csv with summaries
@@ -32,28 +30,34 @@ csv_options = { headers: :first_row, force_quotes: true, quote_char: '"' }
 CSV.foreach(filepath, csv_options) do |row|
   row = row.to_s.strip # remove \n from row
 
-  User.create!(
+  user = User.new(
     {
       first_name: Faker::Name.first_name,
       last_name:  Faker::Name.last_name,
-      email: "mymail@job.com",
       personal_summary: row,
       address: CITIES.sample,
       expertise_level: LEVEL.sample,
       password: "testing"
     }
   )
+  user.email = "#{ user.first_name }_#{ user.last_name }#{ EMAIL_EXTENSIONS.sample }"
+  photo = image_fetcher
+  user.photo.attach({
+    io: photo,
+    filename: "#{user.id}_faker_image.jpg"
+  })
+ user.save!
 end
 
 # puts "=> Updating user email addresses and passwords"
-User.all.each do |user|
-  user.email = "#{ user.first_name }_#{ user.last_name }#{ EMAIL_EXTENSIONS.sample }"
-  user.photo.attach({
-    io: image_fetcher,
-    filename: "#{user.id}_faker_image.jpg"
- })
-  user.save!
-end
+# User.all.each do |user|
+#   user.email = "#{ user.first_name }_#{ user.last_name }#{ EMAIL_EXTENSIONS.sample }"
+#   user.photo.attach({
+#     io: image_fetcher,
+#     filename: "#{user.id}_faker_image.jpg"
+#  })
+#   user.save!
+# end
 
 # Technologies
 puts "=> Creating technologies"
