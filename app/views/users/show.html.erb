@@ -3,7 +3,7 @@
   <div class="col-xs-12 col-md-10 offset-md-1 col-lg-101 offset-lg-1">
     <div class="user-profile-card mt-5">
     <div class="user-profile-card-first-section">
-      <%= image_tag user_photo(@user), class: "user-profile-card-photo" %>
+      <%= cl_image_tag user_photo(@user).key, class: "user-profile-card-photo" %>
       <div class="header-and-email">
         <h1><%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %></h1>
         <% if @user.address.present? %>
@@ -48,4 +48,3 @@
 </div><!--end container-->
   </div>
 </div>
-  
