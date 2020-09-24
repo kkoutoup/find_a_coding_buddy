@@ -29,7 +29,6 @@ csv_options = { headers: :first_row, force_quotes: true, quote_char: '"' }
 
 CSV.foreach(filepath, csv_options) do |row|
   row = row.to_s.strip # remove \n from row
-
   user = User.new(
     {
       first_name: Faker::Name.first_name,
@@ -48,16 +47,6 @@ CSV.foreach(filepath, csv_options) do |row|
   })
  user.save!
 end
-
-# puts "=> Updating user email addresses and passwords"
-# User.all.each do |user|
-#   user.email = "#{ user.first_name }_#{ user.last_name }#{ EMAIL_EXTENSIONS.sample }"
-#   user.photo.attach({
-#     io: image_fetcher,
-#     filename: "#{user.id}_faker_image.jpg"
-#  })
-#   user.save!
-# end
 
 # Technologies
 puts "=> Creating technologies"
@@ -80,7 +69,7 @@ CSV.foreach(filepath, csv_options) do |row|
     {
       title: row[0],
       description: row[1],
-      duration: row[2],
+      duration: row[2].to_i+1,
       difficulty: LEVEL.sample,
       user_id: User.all.sample.id
     }
