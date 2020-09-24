@@ -19,7 +19,11 @@
         <%= image_tag user_photo(@user), class: "profile-show-photo" %>
       </div>
       <div>
-        <p class="project-level pt-3"><i class="fas fa-chart-bar"></i> <%= @user.expertise_level.capitalize %></p>
+        <% if current_user.expertise_level.present? %>
+          <p class="project-level pt-3"><i class="fas fa-chart-bar"></i> <%= current_user.expertise_level.capitalize %></p>
+        <% else %>
+          <p class="project-level pt-3"><i class="fas fa-chart-bar"></i> Update your skill level!</p>
+        <% end %>
         <p><b>Your profile:</b></p>
         <p><%= dashboard_personal_summary(current_user) %></p>
       <div class="icon-show-card">

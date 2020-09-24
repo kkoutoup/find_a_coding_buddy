@@ -14,21 +14,27 @@
   color: white;
   background-image: url("https://image.freepik.com/free-vector/white-background-with-blue-tech-hexagon_1017-19366.jpg");
   font-size: 20px;
-  // text-shadow: 1px 1px 1px 3px rgba(0,0,0,0.2);
   border-radius: 5px;
   box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
     a {
       color: $my-red;
+    }
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.05);
+      transition: transform 0.2s ease-in-out;
     }
 }
 
 .landing-page-carousel-project-title {
   height: 60px;
   margin-bottom: 0;
+  font-size: large;
 }
 
 .project-side-header {
   margin: 0;
+  font-size: large;
     &.beginner {
       color: $beginner;
     }
@@ -47,12 +53,10 @@
 }
 
 .icon {
-  // max-height: 50px;
   max-width: 30px;
 }
 
 .project-tech-icon-home {
-  // margin-top: 4px;
   margin-right: 16px;
   vertical-align: middle;
   align-self: center;
