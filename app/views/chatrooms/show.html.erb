@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-sm-12 col-sm-offset-3">
       <h4 class="chat-header mt-3"><%= @project.title %></h4>
-      <p><i class="fa fa-user"></i> Led by: <%= link_to "#{@project.user.first_name} #{@project.user.last_name}", user_path(@project.user.id) %></p>
+      <p><i class="fa fa-user"></i> Led by: <%= link_to "#{@project.user.first_name.capitalize} #{@project.user.last_name.capitalize}", user_path(@project.user.id) %></p>
 
         <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
           <% @chatroom.messages.each do |message| %>
@@ -25,7 +25,7 @@
 
         <div id="create-message">
           <%= simple_form_for [ @project, @chatroom, Message.new], remote: true, html: {autocomplete: "off" }  do |f| %>
-            <%= f.input :content, label: false, placeholder: "Message others at #{@project.title}" %>
+            <%= f.text_field :content, label: false, placeholder: "Message others at #{@project.title}", class: "chat-text-field" %>
             <%= f.button :submit, value="Send Message", class: "btn-outline-primary", id: "message-btn" %>
           <% end %>
         </div>
