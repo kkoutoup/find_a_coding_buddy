@@ -16,7 +16,7 @@
      </br>
     <div class="top-skills d-flex justify-content-between align-self-end">
       <div class="photo">
-        <%= cl_image_tag user_photo(@user).photo.key, class: "profile-show-photo" %>
+        <%= cl_image_tag current_user.photo.key, class: "profile-show-photo" %>
       </div>
       <div>
         <% if current_user.expertise_level.present? %>
