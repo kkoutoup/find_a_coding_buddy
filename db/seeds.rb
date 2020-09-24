@@ -36,7 +36,7 @@ CSV.foreach(filepath, csv_options) do |row|
     {
       first_name: Faker::Name.first_name,
       last_name:  Faker::Name.last_name,
-      email: Faker::Internet.email,
+      email: "mymail@job.com",
       personal_summary: row,
       address: CITIES.sample,
       expertise_level: LEVEL.sample,
@@ -48,7 +48,6 @@ end
 # puts "=> Updating user email addresses and passwords"
 User.all.each do |user|
   user.email = "#{ user.first_name }_#{ user.last_name }#{ EMAIL_EXTENSIONS.sample }"
-  user.password = "#{ Faker::Verb.past }#{ Faker::Superhero.power }#{ rand(1..200) }"
   user.photo.attach({
     io: image_fetcher,
     filename: "#{user.id}_faker_image.jpg"

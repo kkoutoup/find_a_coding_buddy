@@ -1,7 +1,7 @@
 <div class="container mt-5">
 <div class="row">
-  <div class="col-xs-12 col-md-10 offset-md-1 col-lg-9 offset-lg-1">
-    <div class="user-profile-card">
+  <div class="col-xs-12 col-md-10 offset-md-1 col-lg-101 offset-lg-1">
+    <div class="user-profile-card mt-5">
     <div class="user-profile-card-first-section">
       <%= image_tag user_photo(@user), class: "user-profile-card-photo" %>
       <div class="header-and-email">
@@ -40,7 +40,7 @@
         <% if @user.expertise_level.present? %>
           <p><i class="fas fa-chart-bar"></i> <%= @user.expertise_level.capitalize %></p>
         <% else %>
-          <p><i class="fas fa-chart-bar"></i> Expertice level unavailable</p>
+          <p><i class="fas fa-chart-bar"></i> Expertise level unavailable</p>
         <% end %>
       </div>
     </div><!--row-->

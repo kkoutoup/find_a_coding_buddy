@@ -51,7 +51,7 @@
     </div>
     <div class="col-sm-3 col-lg-3 ">
       <h6 class="project-side-header">Questions?</h6>
-      <%= link_to 'Chat  with the project owner', project_chatroom_path(@project) %> to find out more.
+      <%= link_to "Jump to this project's chat", project_chatroom_path(@project) %> to find out more.
     </div>
   </div><!--end row-->
 
@@ -77,7 +77,7 @@
             <%= link_to "Apply", new_project_application_path(@project.id), class: "btn btn-primary apply-button" %>
 
           <% elsif @applications&.accepted? %>
-            <p><%= link_to 'Chat with the project owner', project_chatroom_path(@project) %> to find out more.</p>
+            <p><%= link_to "Jump to this project's chat", project_chatroom_path(@project) %> to find out more.</p>
           <% end %>
         <% else %>
           <h5 class="project-main-header project-buddies-header">Your project buddies</h5>
