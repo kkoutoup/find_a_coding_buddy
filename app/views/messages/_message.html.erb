@@ -1,4 +1,4 @@
-<div class="message <%= (message.user == current_user) ? "right" : "" %>">
+<div class="message partial" data-author_id="<%= author_id %>">
   <div class="message-container mt-1 mb-1" id="message-<%= message.id %>">
       <%= image_tag user_photo(message.user), class: "avatar" %>
       <i class="author">
