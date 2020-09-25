@@ -21,7 +21,7 @@
         <div class="my-slider">
           <% @projects.each do |project| %>
             <div class="projects">
-              <p class="landing-page-carousel-project-title"> <%= link_to project.title.capitalize, project_path(project) %> </p>
+              <p class="landing-page-carousel-project-title"> <%= link_to project.title, project_path(project) %> </p>
                 <% if project.difficulty == "beginner" %>
                   <p class="project-side-header beginner"><i class="fas fa-chart-bar"></i>  <%= project.difficulty.capitalize %></p>
                 <% elsif project.difficulty == "intermediate" %>
