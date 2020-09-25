@@ -4,9 +4,9 @@
       <h4 class="chat-header mt-3"><%= @project.title %></h4>
       <p><i class="fa fa-user"></i> Led by: <%= link_to "#{@project.user.first_name} #{@project.user.last_name}", user_path(@project.user.id) %></p>
 
-        <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
+        <div id="messages" data-chatroom-id="<%= @chatroom.id %>" data-current_user_id="<%= current_user.id %>">
           <% @chatroom.messages.each do |message| %>
-            <div class="message <%= (message.user == current_user) ? "right" : "" %>">
+            <div class="message loop <%= (message.user == current_user) ? "right" : "" %>">
               <div class="message-container mt-1 mb-1" id="message-<%= message.id %>">
                 <% if message.user.photo.present? %>
                   <%= image_tag message.user.photo, class: "avatar" %>
@@ -18,24 +18,24 @@
                   <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
                 </i>
                 <div class="message-content"><%= message.content %></div>
-              </div>
-            </div>
+              </div> <!--end message-container mt-1 mb-1-->
+            </div> <!--end message-->
           <% end %>
-        </div>
+        </div> <!--end messages-->
 
         <div id="create-message">
           <%= simple_form_for [ @project, @chatroom, Message.new], remote: true, html: {autocomplete: "off" }  do |f| %>
             <%= f.input :content, label: false, placeholder: "Message others at #{@project.title}" %>
             <%= f.button :submit, value="Send Message", class: "btn-outline-primary", id: "message-btn" %>
           <% end %>
-        </div>
+        </div> <!--end create-messages-->
 
     </div>
-  </div>
-</div>
+  </div> <!--end div-row-->
+</div> <!--end container mt-5-->
 
 <% content_for :after_js do %>
-  <script>
+  <script type="text/javascript">
     scrollLastMessageIntoView();
   </script>
 <% end %>
