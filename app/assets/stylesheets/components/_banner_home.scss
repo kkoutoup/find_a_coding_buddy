@@ -26,7 +26,7 @@
   height: 30%;
   margin: auto;
   color: white;
-  padding-top: 25%;
+  padding: 100px;
 
   h1 {
     font-weight: bold;
@@ -41,5 +41,20 @@
     // border-top: 2px solid white;
     // border-bottom: 2px solid white;
     text-shadow: 1px 1px 1px rgba(100, 100, 100, 0.4);
+  }
+}
+
+.call-to-action {
+  padding: 15px 40px;
+  background: #9B3B5A;
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+  width: 30%;
+  &:hover {
+    text-decoration: none;
+    color: white;
+    background:#762d45;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   }
 }
