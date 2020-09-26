@@ -77,7 +77,7 @@
             <%= link_to "Apply", new_project_application_path(@project.id), class: "btn btn-primary apply-button" %>
 
           <% elsif @applications&.accepted? %>
-            <p><%= link_to "Jump to this project's chat", project_chatroom_path(@project) %> to find out more.</p>
+            <p id="double-link"><%= link_to "Jump to this project's chat", project_chatroom_path(@project) %> to find out more.</p>
           <% end %>
         <% else %>
           <h5 class="project-main-header project-buddies-header">Your project buddies</h5>
