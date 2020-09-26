@@ -9,7 +9,7 @@
             <div class="message loop <%= (message.user == current_user) ? "right" : "" %>">
               <div class="message-container mt-1 mb-1" id="message-<%= message.id %>">
                 <% if message.user.photo.present? %>
-                  <%= image_tag message.user.photo, class: "avatar" %>
+                  <%= cl_image_tag message.user.photo.key, class: "avatar" %>
                 <% else %>
                   <%= image_tag "missing-avatar-female-200x200.png", :width=>40, :height=>40 %>
                 <% end %>
